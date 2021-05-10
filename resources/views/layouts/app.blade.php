@@ -8,16 +8,39 @@
 
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Cantinho Doce') }}</title>
 </head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    .c-sidebar-nav-link:hover {
+        background-color: white !important;
+        color: #AC3333 !important;
+
+    }
+</style>
 
 <body class="c-app">
 
     @include('partials.menu')
 
     <div class="c-wrapper c-fixed-components">
-        <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+        <header class="c-header c-header-fixed" style="justify-content: flex-end;">
+            <h5 class="my-3 mx-3"> Modo Administrador</h5>
+            <button class="btn btn-danger" style="color: white;" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
 
         </header>
         <div class="c-body">
@@ -29,8 +52,7 @@
             </main>
         </div>
         <footer class="c-footer">
-            <div><a href="https://coreui.io">CoreUI</a> © 2020 creativeLabs.</div>
-            <div class="ml-auto">Powered by&nbsp;<a href="https://coreui.io/">CoreUI</a></div>
+            <div>© 2021 Pastelaria Cantinho Doce</div>
         </footer>
     </div>
     </div>

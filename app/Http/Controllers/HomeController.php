@@ -30,4 +30,39 @@ class HomeController extends Controller
     {
         return view('admin-home');
     }
+
+    public function painelControlo()
+    {
+        return view('admin-paineldecontrolo');
+    }
+
+    public function vendas()
+    {
+        return view('admin-vendas');
+    }
+
+    public function catalogo()
+    {
+        return view('admin-catalogo');
+    }
+
+    public function utilizadores()
+    {
+        return view('admin-utilizadores');
+    }
+
+    public function definicoes()
+    {
+        return view('admin-definicoes');
+    }
+
+    public function userHome()
+    {
+        return view('/user');
+    }
+
+    public function userCart()
+    {
+        return view('/cart');
+    }
 }
