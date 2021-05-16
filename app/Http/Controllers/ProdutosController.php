@@ -40,9 +40,9 @@ class ProdutosController extends Controller
             'estado' => 'required',
         ]);
 
-        $produto = Produtos::create($request->all());
+        Produtos::create($request->all());
 
-        return redirect('/admin/catalogo/' . $produto->id);
+        return redirect('/admin/catalogo/');
     }
 
     /**
@@ -51,9 +51,9 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Produtos $id)
+    public function show(Produtos $produto)
     {
-        //
+        return view('admin.catalogo', compact('produto', $produto));
     }
 
     /**
@@ -62,9 +62,11 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Produtos $produto)
+    public function edit($produto)
     {
-        return view('admin.editar-produto', compact('produto', $produto));
+
+        $produto = Produtos::find($produto);
+        return view('admin.editar-produto', compact('produto'));
     }
 
     /**
@@ -74,9 +76,24 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function update(Request $request, Produtos $produto)
     {
-        //
+        //Validate
+        $validatedData = $request->validate([
+            'nome' => 'required|unique:produtos',
+            'categoria' => 'required',
+            'sub_categoria' => 'required',
+            'preco' => 'required',
+            'estado' => 'required',
+        ]);
+
+        Produtos::edit($produto);
+        $produto->update($request->all());
+
+        return redirect()->route('admin.catalogo')
+            ->with('success', 'Project updated successfully');
     }
 
     /**
@@ -85,8 +102,10 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Produtos $produto)
     {
-        //
+        $produto->delete();
+        return redirect()->route('admin.catalogo')
+            ->with('success', 'Produto deletado com sucesso');
     }
 }

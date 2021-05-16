@@ -311,8 +311,8 @@
                                 <td data-value="Preço">{{$produto->preco}}</td>
                                 <td data-value="Estado">{{$produto->estado ? 'Ativo' : 'Inativo'}}</td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class=""><a href="/admin/catalogo/{{ $produto->id }}/editar-produto"><span class="icon pencil-lg-icon"></span></a> <a data-method="POST" data-action="" title="Delete"><span class="icon trash-icon"></span></a>
-
+                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a> <a data-method="POST" data-action="" title="Delete"><span class="icon trash-icon"></span></a>
+                                        @csrf
                                 </td>
                             </tr>
                             @endforeach

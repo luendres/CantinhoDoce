@@ -42,8 +42,9 @@ Route::get('admin/catalogo/categorias', [HomeController::class, 'categorias'])->
 
 Route::get('/admin/catalogo/adicionar-produto', 'App\Http\Controllers\ProdutosController@create');
 Route::post('/admin/catalogo', 'App\Http\Controllers\ProdutosController@store');
-
-Route::resource('/admin/catalogo', 'App\Http\Controllers\ProdutosController');
+Route::get('/admin/catalogo', 'App\Http\Controllers\ProdutosController@index');
+Route::get('/admin/catalogo/{id}/editar-produto', 'App\Http\Controllers\ProdutosController@edit')->name('admin.editar-produto');
+Route::patch('/admin/catalogo', 'App\Http\Controllers\ProdutosController@update')->name('produto.update');
 
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
 Route::get('admin/utilizadores', function () {
