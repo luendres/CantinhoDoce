@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CoreUI CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -25,6 +25,10 @@
         background-color: white !important;
         color: #AC3333 !important;
 
+    }
+
+    .c-main {
+        padding-top: 0;
     }
 </style>
 
@@ -60,7 +64,7 @@
 
 
     <!-- Optional JavaScript -->
-    <!-- Popper.js first, then CoreUI JS -->
+    <!--  -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
 </body>

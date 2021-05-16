@@ -16,13 +16,13 @@ class CreateUsersSeeder extends Seeder
     {
         $user = [
             [
-                'name' => 'Admin',
+                'nome' => 'Admin',
                 'email' => 'admin@cantinhodoce.com',
                 'is_admin' => '1',
                 'password' => bcrypt('123456'),
             ],
             [
-                'name' => 'User',
+                'nome' => 'User',
                 'email' => 'normal@cantinhodoce.com',
                 'is_admin' => '0',
                 'password' => bcrypt('123456'),
