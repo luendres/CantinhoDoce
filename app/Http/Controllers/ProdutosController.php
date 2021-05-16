@@ -89,11 +89,10 @@ class ProdutosController extends Controller
             'estado' => 'required',
         ]);
 
-        Produtos::edit($produto);
+        Produtos::find($produto);
         $produto->update($request->all());
 
-        return redirect()->route('admin.catalogo')
-            ->with('success', 'Project updated successfully');
+        return redirect('/admin/catalogo/');
     }
 
     /**
