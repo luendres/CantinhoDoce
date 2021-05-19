@@ -78,7 +78,7 @@ class ProdutosController extends Controller
      */
 
 
-    public function update(Request $request, Produtos $produto)
+    public function update(Request $request, $id)
     {
         //Validate
         $validatedData = $request->validate([
@@ -88,9 +88,8 @@ class ProdutosController extends Controller
             'preco' => 'required',
             'estado' => 'required',
         ]);
-
-        Produtos::find($produto);
-        $produto->update($request->all());
+        $produto = Produtos::find($id);
+        $produto->update($validatedData);
 
         return redirect('/admin/catalogo/');
     }

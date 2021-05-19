@@ -44,7 +44,7 @@ Route::get('/admin/catalogo/adicionar-produto', 'App\Http\Controllers\ProdutosCo
 Route::post('/admin/catalogo', 'App\Http\Controllers\ProdutosController@store');
 Route::get('/admin/catalogo', 'App\Http\Controllers\ProdutosController@index');
 Route::get('/admin/catalogo/{id}/editar-produto', 'App\Http\Controllers\ProdutosController@edit')->name('admin.editar-produto');
-Route::patch('/admin/catalogo', 'App\Http\Controllers\ProdutosController@update')->name('produto.update');
+Route::patch('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@update')->name('produto.update');
 
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
 Route::get('admin/utilizadores', function () {

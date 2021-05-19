@@ -5,7 +5,7 @@
 <hr>
 
 
-<form action="/admin/catalogo" method="post" enctype="multipart/form-data">
+<form action="{{ route('produto.update', $produto->id) }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     @method('PATCH')
     <div class="form-group">
