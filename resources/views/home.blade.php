@@ -124,18 +124,18 @@
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
                                                 <div class="row">
-                                                    @foreach($produtos as $key => $produto)
+
                                                     <!--Primeiro cartão-->
                                                     <div class="col-md-4 mb-3">
                                                         <div class="card">
-                                                            <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto->imagem) }}">
+                                                            <img class="img-fluid" alt="100%x280" src="">
                                                             <div class="card-body">
-                                                                <h4 class="card-title">{{$produto->nome}}</h4>
-                                                                <p class="card-text">{{$produto->descricao}} </p>
+                                                                <h4 class="card-title"></h4>
+                                                                <p class="card-text"></p>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    @endforeach
+
 
                                                     <!--Segundo cartão-->
                                                     <div class="col-md-4 mb-3">
