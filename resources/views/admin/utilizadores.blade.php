@@ -282,8 +282,14 @@
                         <th class="grid_head">
                             Telemóvel
                         </th>
-                        <th>
-                            Ações
+                        <th class="grid_head">
+                            Morada
+                        </th>
+                        <th class="grid_head">
+                            Código-Postal
+                        </th>
+                        <th class="grid_head">
+                            Cidade
                         </th>
                         </tr>
                         </thead>
@@ -294,9 +300,10 @@
                                 <td data-value="Nome">{{$data->nome}}</td>
                                 <td data-value="E-mail">{{$data->email}}</td>
                                 <td data-value="Telemóvel">{{$data->telemovel}}</td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="3" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Ver"><span class="icon eye-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a> <a id="10" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/customers/note/10" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/customers/note/10" data-token="rSVGmScouGZLp26WF2O6J6wz5Eug4RmqDMUBerfM" title="Add Note On This Customer"><span class="icon note-icon"></span></a></div>
-                                </td>
+                                <td data-value="Morada">{{$data->morada}}</td>
+                                <td data-value="Código Postal">{{$data->postal}}</td>
+                                <td data-value="Cidade">{{$data->cidade}}</td>
+
                             </tr>
                             @endforeach
 

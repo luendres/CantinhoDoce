@@ -71,6 +71,8 @@ class HomeController extends Controller
     {
         return view('admin.utilizadores');
     }
+
+
     public function avaliacoes()
     {
         return view('admin.avaliacoes');

@@ -4,7 +4,12 @@
 
 <h3 class="mt-4">Adicionar novo produto</h3>
 <hr>
-<form action="/admin/catalogo" method="post">
+@if(session('status'))
+<div class="alert alert-success mb-1 mt-1">
+    {{ session('status') }}
+</div>
+@endif
+<form action="/admin/catalogo" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="form-group">
@@ -34,6 +39,13 @@
         <label class="radio-inline"><input type="radio" name="estado" value="1"> Ativo</label>
         <label class="radio-inline"><input type="radio" name="estado" value="0"> Inativo</label>
     </div>
+    <div class="form-group">
+        <label for="imagem">Imagem</label>
+        <input type="file" class="form-control" name="imagem" />
+
+    </div>
+
+
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

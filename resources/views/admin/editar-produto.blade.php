@@ -34,6 +34,13 @@
         <label for="description">Estado</label><br />
         <input type="number" name="estado" class="form-control" value="{{ $produto->estado }}">
     </div>
+    <div class="form-group">
+        <label for="imagem">Imagem</label><br />
+        <input type="file" name="imagem" class="form-control" value="">
+    </div>
+    <div class="form-group">
+        <img src="{{ Storage::url($produto->imagem) }}" height="200" width="200" alt="" />
+    </div>
 
     @if ($errors->any())
     <div class="alert alert-danger">

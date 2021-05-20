@@ -270,12 +270,17 @@
                             </div>
                         </div>
                     </div>
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
 
                     <table class="table-categories">
                         <!---->
 
-                        <th class="grid_head" id="mastercheckbox" style="width: 50px;"><span class="checkbox"><input type="checkbox"> <label for="checkbox" class="checkbox-view"></label></span></th>
-                        <th class="grid_head">
+
+                        <th class="grid_head ">
                             ID
                         </th>
                         <th class="grid_head">
@@ -293,6 +298,9 @@
                         <th class="grid_head">
                             Estado
                         </th>
+                        <th class="grid_head">
+                            Imagem
+                        </th>
                         <th>
                             Ações
                         </th>
@@ -303,15 +311,17 @@
                         <tbody>
                             @foreach($produtos as $produto)
                             <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value=""> <label for="checkbox" class="checkbox-view"></label></span></td>
+
                                 <td data-value="ID">{{$produto->id}}</td>
                                 <td data-value="Nome">{{$produto->nome}}</td>
                                 <td data-value="Categoria">{{$produto->categoria}}</td>
                                 <td data-value="Sub-Categoria do Produto">{{$produto->sub_categoria}}</td>
                                 <td data-value="Preço">{{$produto->preco}}</td>
                                 <td data-value="Estado">{{$produto->estado ? 'Ativo' : 'Inativo'}}</td>
+                                <td data-value="Imagem"><img src="{{ Storage::url($produto->imagem) }}" height="75" width="75" alt="" /></td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a> <a data-method="POST" data-action="" title="Delete"><span class="icon trash-icon"></span></a>
+                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a>
+                                        <a data-method="POST" href="{{ route('produto.destroy', $produto->id) }}" title="Delete"><span class="icon trash-icon"></span></a>
                                         @csrf
                                 </td>
                             </tr>

@@ -45,13 +45,18 @@ Route::post('/admin/catalogo', 'App\Http\Controllers\ProdutosController@store');
 Route::get('/admin/catalogo', 'App\Http\Controllers\ProdutosController@index');
 Route::get('/admin/catalogo/{id}/editar-produto', 'App\Http\Controllers\ProdutosController@edit')->name('admin.editar-produto');
 Route::patch('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@update')->name('produto.update');
+Route::get('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@destroy')->name('produto.destroy');
 
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
-Route::get('admin/utilizadores', function () {
 
+Route::get('admin/utilizadores', function () {
     $utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
+
+
+
+
 
 Route::get('admin/utilizadores/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
 Route::resource('avaliacoes', 'AvaliacoesController');
@@ -61,6 +66,7 @@ Route::get('admin/definicoes', [HomeController::class, 'definicoes'])->name('def
 
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
+
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');

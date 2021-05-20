@@ -19,8 +19,9 @@ class ProdutosController extends Controller
     public function index()
     {
 
-        $produtos = Produtos::all();
-        return view('admin.catalogo', compact('produtos', $produtos));
+        $produtos = Produtos::orderBy('id', 'desc')->paginate(10);
+        return view('admin.catalogo', compact('produtos', $produtos))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
 
@@ -32,17 +33,34 @@ class ProdutosController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'nome' => 'required|unique:produtos',
             'categoria' => 'required',
             'sub_categoria' => 'required',
             'preco' => 'required',
             'estado' => 'required',
+
+
         ]);
 
-        Produtos::create($request->all());
+        $produto = new Produtos;
+        if ($request->hasFile('imagem')) {
+            $request->validate([
+                'imagem' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            $path = $request->file('imagem')->store('public/images');
+            $produto->imagem = $path;
+        }
 
-        return redirect('/admin/catalogo/');
+        $produto->nome = $request->nome;
+        $produto->categoria = $request->categoria;
+        $produto->sub_categoria = $request->sub_categoria;
+        $produto->preco = $request->preco;
+        $produto->estado = $request->estado;
+        $produto->save();
+
+        return redirect('/admin/catalogo/')
+            ->with('success', 'Produto criado com sucesso!');
     }
 
     /**
@@ -82,16 +100,25 @@ class ProdutosController extends Controller
     {
         //Validate
         $validatedData = $request->validate([
-            'nome' => 'required|unique:produtos',
+            'nome' => 'required',
             'categoria' => 'required',
             'sub_categoria' => 'required',
             'preco' => 'required',
             'estado' => 'required',
         ]);
         $produto = Produtos::find($id);
+
+        if ($request->hasFile('imagem')) {
+            $request->validate([
+                'imagem' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            ]);
+            $path = $request->file('imagem')->store('public/images');
+            $produto->imagem = $path;
+        }
         $produto->update($validatedData);
 
-        return redirect('/admin/catalogo/');
+        return redirect('/admin/catalogo/')
+            ->with('success', 'Produto atualizado com sucesso');
     }
 
     /**
@@ -100,10 +127,11 @@ class ProdutosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Produtos $produto)
+    public function destroy($id)
     {
+        $produto = Produtos::find($id);
         $produto->delete();
-        return redirect()->route('admin.catalogo')
+        return redirect('/admin/catalogo/')
             ->with('success', 'Produto deletado com sucesso');
     }
 }
