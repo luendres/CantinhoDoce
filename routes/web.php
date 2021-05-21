@@ -14,9 +14,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 
 Route::get('/products', function () {
     return view('products');
@@ -60,12 +58,14 @@ Route::get('admin/utilizadores', function () {
 
 Route::get('admin/utilizadores/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
 Route::resource('avaliacoes', 'AvaliacoesController');
-
 Route::get('admin/definicoes', [HomeController::class, 'definicoes'])->name('definicoes')->middleware('is_admin');
 
 
-
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
+    return view('home', compact('produtos'));
+});
 
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');

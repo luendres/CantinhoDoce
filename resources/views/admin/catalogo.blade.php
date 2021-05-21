@@ -312,7 +312,7 @@
                             @foreach($produtos as $produto)
                             <tr>
 
-                                <td data-value="ID">{{$produto->id}}</td>
+                                <td data-value="ID"><b>{{$produto->id}}</b></td>
                                 <td data-value="Nome">{{$produto->nome}}</td>
                                 <td data-value="Categoria">{{$produto->categoria}}</td>
                                 <td data-value="Sub-Categoria do Produto">{{$produto->sub_categoria}}</td>
