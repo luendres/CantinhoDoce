@@ -91,41 +91,20 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row mb-4">
-
+                                    @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
                                         <a href="/productview">
                                             <div class="card">
-                                                <img class="img-fluid" alt="100%x280" src="images/berlim/spati.jpg">
+                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">Padaria 1</h4>
-                                                    <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
+                                                    <h4 class="card-title">{{$produto_padaria->nome}}</h4>
+                                                    <p class="card-text">{{$produto_padaria->categoria}}, {{$produto_padaria->sub_categoria}} </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-
-                                    <!--Segundo cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/currywurst.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Padaria 2</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Terceiro cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Padaria 3</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
 
                                     <!-- Botão de Ver Todos-->
@@ -169,38 +148,20 @@
                             <div class="carousel-item active">
                                 <div class="row mb-4">
 
+                                    @foreach($produtos_doces->slice(0, 3) as $produto_doces)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/spati.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Doces 1</h4>
-                                                <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
+                                        <a href="/productview">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{$produto_doces->nome}}</h4>
+                                                    <p class="card-text">{{$produto_doces->categoria}}, {{$produto_doces->sub_categoria}} </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-
-                                    <!--Segundo cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/currywurst.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Doces 2</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Terceiro cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Doces 3</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
 
                                     <!-- Botão de Ver Todos-->
@@ -244,38 +205,21 @@
                             <div class="carousel-item active">
                                 <div class="row mb-4">
 
+                                    @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/spati.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Salgados 1</h4>
-                                                <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
+                                        <a href="/productview">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{$produto_salgados->nome}}</h4>
+                                                    <p class="card-text">{{$produto_salgados->categoria}}, {{$produto_salgados->sub_categoria}} </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
+                                    @endforeach
 
-                                    <!--Segundo cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/currywurst.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Salgados 2</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Terceiro cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Salgados 3</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                     <!-- Botão de Ver Todos-->
@@ -319,38 +263,21 @@
                             <div class="carousel-item active">
                                 <div class="row mb-4">
 
+                                    @foreach($produtos_peso->slice(0, 3) as $produto_peso)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/spati.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Produtos Peso 1</h4>
-                                                <p class="card-text">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
+                                        <a href="/productview">
+                                            <div class="card">
+                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
+                                                <div class="card-body">
+                                                    <h4 class="card-title">{{$produto_peso->nome}}</h4>
+                                                    <p class="card-text">{{$produto_peso->categoria}}, {{$produto_peso->sub_categoria}} </p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
+                                    @endforeach
 
-                                    <!--Segundo cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/currywurst.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Produtos Peso 2</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Terceiro cartão-->
-                                    <div class="col-md-3">
-                                        <div class="card">
-                                            <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                                            <div class="card-body">
-                                                <h4 class="card-title">Produtos Peso 3</h4>
-                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
                                     <!-- Botão de Ver Todos-->

@@ -119,79 +119,39 @@
                                 <!--Carousel-->
                                 <div class="col-12">
                                     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            @foreach( $produtos as $produto )
-                                            <li data-target="#carouselIndicator" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-                                            @endforeach
-                                        </ol>
+
+
                                         <!--Primeiro slide-->
                                         <div class="carousel-inner">
                                             <div class="carousel-item active">
                                                 <div class="row">
 
-                                                    @foreach($produtos as $produto)
+                                                    @foreach($produtos->slice(0, 3) as $produto)
                                                     <!--Primeiro cartão-->
                                                     <div class="col-md-4 mb-3">
                                                         <div class="card">
-                                                            <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto->imagem) }}">
+                                                            <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                                                             <div class="card-body">
                                                                 <h4 class="card-title">{{$produto->nome}}</h4>
-                                                                <p class="card-text"></p>
+                                                                <p class="card-text">{{$produto->categoria}}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     @endforeach
 
-                                                </div>
-                                            </div>
 
-                                            <!--Segundo slide-->
-                                            <div class="carousel-item">
-                                                <div class="row">
-
-                                                    <!--Primeiro cartão-->
-                                                    <div class="col-md-4 mb-3">
-                                                        <div class="card">
-                                                            <img class="img-fluid" alt="100%x280" src="images/berlim/joelho.jpg">
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Produto 4</h4>
-                                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!--Segundo cartão-->
-                                                    <div class="col-md-4 mb-3">
-                                                        <div class="card">
-                                                            <img class="img-fluid" alt="100%x280" src="images/berlim/schnitzel.jpg">
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Produto 5</h4>
-                                                                <p class="card-text" style="text-align: justify;"> bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!--Terceiro cartão-->
-                                                    <div class="col-md-4 mb-3">
-                                                        <div class="card">
-                                                            <img class="img-fluid" alt="100%x280" src="images/berlim/strudel.jpg">
-                                                            <div class="card-body">
-                                                                <h4 class="card-title">Produto 6</h4>
-                                                                <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <!--Botões left right-->
                                 <div class="col-7 text-right">
-                                    <a class="btn btn-light mb-3 mr-1" href="#carouselIndicator" role="button" data-slide-to="prev">
+                                    <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" role="button" data-slide-to="prev">
                                         <i class="fa fa-arrow-left"></i>
                                     </a>
-                                    <a class="btn btn-light mb-3 " href="#carouselIndicator" role="button" data-slide="next">
+                                    <a class="btn btn-light mb-3 " data-bs-target="#carouselIndicator" role="button" data-slide="next">
                                         <i class="fa fa-arrow-right"></i>
                                     </a>
                                 </div>

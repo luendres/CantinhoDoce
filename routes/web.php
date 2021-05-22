@@ -14,16 +14,33 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function () {
+    $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
+    return view('home', compact('produtos'));
+});
 
 
+Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
+Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
 Route::get('/products', function () {
-    return view('products');
+    $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
+
+    $produtos_doces = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'doces')->get();
+
+    $produtos_salgados = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'salgados')->get();
+
+    $produtos_peso = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'produtos ao peso')->get();
+
+    return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
 });
 
 Route::get('/productview', function () {
     return view('productview');
 });
 
+
+/* Admin Routes */
 
 Auth::routes();
 
@@ -46,27 +63,14 @@ Route::patch('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@up
 Route::get('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@destroy')->name('produto.destroy');
 
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
-
 Route::get('admin/utilizadores', function () {
     $utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
 
 
-
-
-
 Route::get('admin/utilizadores/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
 Route::resource('avaliacoes', 'AvaliacoesController');
 Route::get('admin/definicoes', [HomeController::class, 'definicoes'])->name('definicoes')->middleware('is_admin');
 
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/', function () {
-    $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
-    return view('home', compact('produtos'));
-});
-
-
-Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
-Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
+/* Fim de Admin Routes */
