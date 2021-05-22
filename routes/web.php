@@ -14,7 +14,11 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
+
+
+
 Route::get('/', function () {
     $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
     return view('home', compact('produtos'));
