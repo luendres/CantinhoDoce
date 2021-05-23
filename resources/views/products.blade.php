@@ -94,7 +94,7 @@
                                     @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="/productview">
+                                        <a href="{{ URL::to('/productview/' . $produto_padaria->id) }}">
                                             <div class="card">
                                                 <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
                                                 <div class="card-body">
@@ -151,7 +151,7 @@
                                     @foreach($produtos_doces->slice(0, 3) as $produto_doces)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="/productview">
+                                        <a href="{{ URL::to('/productview/' . $produto_doces->id) }}">
                                             <div class="card">
                                                 <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
                                                 <div class="card-body">
@@ -208,7 +208,7 @@
                                     @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="/productview">
+                                        <a href="{{ URL::to('/productview/' . $produto_salgados->id) }}">
                                             <div class="card">
                                                 <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
                                                 <div class="card-body">
@@ -266,7 +266,7 @@
                                     @foreach($produtos_peso->slice(0, 3) as $produto_peso)
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="/productview">
+                                        <a href="{{ URL::to('/productview/' . $produto_peso->id) }}">
                                             <div class="card">
                                                 <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
                                                 <div class="card-body">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produtos;
+use App\Models\User;
+use App\Http\Controllers\Auth;
 
 class HomeController extends Controller
 {
@@ -93,8 +95,14 @@ class HomeController extends Controller
 
     public function userHome()
     {
-        return view('/user');
+        $user = \Auth::user();
+        return view('/user', compact('user'));
     }
+
+
+
+
+
 
     public function userCart()
     {

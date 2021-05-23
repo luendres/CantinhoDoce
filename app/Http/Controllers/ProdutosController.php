@@ -136,4 +136,10 @@ class ProdutosController extends Controller
         return redirect('/admin/catalogo/')
             ->with('success', 'Produto deletado com sucesso');
     }
+
+    public function productview($id)
+    {
+        $produto = Produtos::where('id', $id)->where('estado', '>', 0)->first();
+        return view('/productview')->with('produto', $produto);
+    }
 }

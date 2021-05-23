@@ -157,7 +157,7 @@
                 <a href="#about">Sobre Nós</a>
             </div>
             <div class="col border border-3 py-2">
-                <a href="#about">Contacto</a>
+                <a href="contactos">Contacto</a>
             </div>
 
 

@@ -26,7 +26,13 @@ Route::get('/', function () {
 
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
+
+
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
+Route::get('/contactos', function () {
+    return view('contactos');
+});
+
 Route::get('/products', function () {
     $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
 
@@ -39,9 +45,7 @@ Route::get('/products', function () {
     return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
 });
 
-Route::get('/productview', function () {
-    return view('productview');
-});
+Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@productview')->name('productview');
 
 
 /* Admin Routes */
