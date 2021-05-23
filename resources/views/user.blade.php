@@ -41,7 +41,7 @@
     }
 
     .userInput {
-        width: 70%;
+        width: 100%;
     }
 
     .opcoes {
@@ -254,8 +254,8 @@
         <div class="col col-md-2" style="border-right: 3px dotted;">
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center">
-                    <i class="far fa-user" style="font-size:40px;"></i>
-                    <h5 class="mt-2" style="font-size:20px;">Perfil</h5>
+                    <i class="far fa-user" style="font-size:40px; color:#AC3333;"></i>
+                    <h5 class="mt-2" style="font-size:20px;color:#AC3333;">Perfil</h5>
                 </div>
             </div>
             <div class="row">
@@ -272,24 +272,18 @@
             </div>
         </div>
 
-        <div class="col col-md-10">
+        <div class="col col-md-1"></div>
+
+        <div class="col col-md-8">
 
             <div class="row text-center mt-5 mr-5">
                 <div class="col-md-6">
-                    <p>Primeiro Nome *</p>
+                    <p>Nome *</p>
                     <input type="text" class="userInput" readonly="true" id="primeiroNome" value="{{ $user->nome }}">
                 </div>
-                <div class="col-md-6 ">
-                    <p>Último Nome *</p>
-                    <input type="text" class="userInput" readonly="true" id="ultimooNome">
-                </div>
-                <div class="col-md-6 mt-5">
+                <div class="col-md-6">
                     <p>Endereço de Email *</p>
                     <input type="text" class="userInput" readonly="true" id="email" value="{{ $user->email }}">
-                </div>
-                <div class="col-md-6 mt-5">
-                    <p>Morada </p>
-                    <input type="text" class="userInput" readonly="true" id="morada" value="{{ $user->morada }}">
                 </div>
                 <div class="col-md-6 mt-5">
                     <p>NIF </p>
@@ -299,7 +293,19 @@
                     <p>Número de telemóvel</p>
                     <input type="number" class="userInput" readonly="true" id="telemovel" value="{{ $user->telemovel }}">
                 </div>
-                <div id="editarD" class="col-md-12">
+                <div class="col-md-6 mt-5">
+                    <p>Morada</p>
+                    <input type="text" class="userInput" readonly="true" id="morada" value="{{ $user->morada }}">
+                </div>
+                <div class="col-md-3 mt-5">
+                    <p>Cidade </p>
+                    <input type="text" class="userInput" readonly="true" id="cidade" value="{{ $user->morada }}">
+                </div>
+                <div class="col-md-3 mt-5">
+                    <p>Código Postal </p>
+                    <input type="text" class="userInput" readonly="true" id="codigoPostal" value="{{ $user->morada }}">
+                </div>
+                <div id="editarD" class="col-md-12 mt-4">
                     <button id="editar" type="button" class="btn verMaisCateg mt-5 mb-3 float-right mr-5">Alterar informações <i class="fas fa-user-edit"></i></button>
                 </div>
             </div>
@@ -390,7 +396,8 @@
         var mudarPassword = document.getElementById("mudarPassword");
         var editarD = document.getElementById("editarD");
         var primeiroNome = document.getElementById("primeiroNome");
-        var ultimooNome = document.getElementById("ultimooNome");
+        var codigoPostal = document.getElementById("codigoPostal");
+        var cidade = document.getElementById("cidade");
         var email = document.getElementById("email");
         var morada = document.getElementById("morada");
         var nif = document.getElementById("nif");
@@ -411,14 +418,16 @@
         editar.addEventListener("click", function() {
             mudarPassword.style.display = 'block';
             editarD.style.display = 'none';
+            cancelar.style.display = 'block';
+            guardar.style.display = 'block';
             primeiroNome.removeAttribute("readOnly");
-            ultimooNome.removeAttribute("readOnly");
+            cidade.removeAttribute("readOnly");
+            codigoPostal.removeAttribute("readOnly");
             email.removeAttribute("readOnly");
             morada.removeAttribute("readOnly");
             nif.removeAttribute("readOnly");
             telemovel.removeAttribute("readOnly");
-            cancelar.style.display = 'block';
-            guardar.style.display = 'block';
+            
         })
         confirmarGuardar.addEventListener("click", function() {
             window.location.reload(true);
@@ -427,17 +436,9 @@
             window.location.reload(true);
         })
         guardar.addEventListener("click", function() {
-            if (password2.value !== password3.value) {
-                window.alert("As passwords não são iguais.");
-            } else {
-                if (password2.value == '') {
-                    window.alert("A password não pode ser vazia.");
-                } else {
-                    $('#GuardarModal').modal('show');
-                }
-            }
-
+            validacoes();
         })
+
         olho1.addEventListener("click", function() {
             if (password1.type === "password") {
                 password1.type = 'text'
@@ -465,6 +466,19 @@
                 olho3.classList.remove('fa-eye-slash');
             }
         })
+
+        function validacoes(){
+            if (password1.value !== ""){
+                if (password2.value !== password3.value) {
+                    window.alert("As passwords não são iguais.");
+                }else{
+                    $('#GuardarModal').modal('show');
+                }
+            }else{
+                $('#GuardarModal').modal('show');
+            }            
+        }
+
     </script>
 
 </body>

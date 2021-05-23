@@ -85,11 +85,7 @@
 
                 <!--Carousel-->
                 <div class="col-12">
-                    <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
-
                         <!--Slide da Padaria-->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
                                 <div class="row mb-4">
                                     @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
                                     <!--Primeiro cartão-->
@@ -114,9 +110,6 @@
 
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -140,12 +133,7 @@
                 <!--Carousel-->
 
                 <div class="col-12">
-                    <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
-
                         <!--Slide dos Doces-->
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
                                 <div class="row mb-4">
 
                                     @foreach($produtos_doces->slice(0, 3) as $produto_doces)
@@ -170,9 +158,6 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -198,11 +183,8 @@
 
                 <!--Carousel-->
                 <div class="col-12">
-                    <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
                         <!--Slide dos Salgados-->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
                                 <div class="row mb-4">
 
                                     @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
@@ -228,9 +210,6 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -256,11 +235,8 @@
 
                 <!--Carousel-->
                 <div class="col-12">
-                    <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
                         <!--Slide da Padaria-->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
                                 <div class="row mb-4">
 
                                     @foreach($produtos_peso->slice(0, 3) as $produto_peso)
@@ -286,9 +262,6 @@
                                     </div>
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
