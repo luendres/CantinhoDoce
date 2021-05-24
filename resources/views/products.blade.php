@@ -83,33 +83,32 @@
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
 
-                <!--Carousel-->
+                <!--Linha Produtos-->
                 <div class="col-12">
-                        <!--Slide da Padaria-->
-                                <div class="row mb-4">
-                                    @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_padaria->id) }}">
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_padaria->nome}}</h4>
-                                                    <p class="card-text">{{$produto_padaria->categoria}}, {{$produto_padaria->sub_categoria}} </p>
-                                                </div>
-                                            </div>
-                                        </a>
+                    <div class="row mb-4">
+                        @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
+
+                        <div class="col-md-3">
+                            <a href="{{ URL::to('/productview/' . $produto_padaria->id) }}">
+                                <div class="card h-100">
+                                    <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{$produto_padaria->nome}}</h4>
+                                        <p class="card-text">{{$produto_padaria->categoria}}, {{$produto_padaria->sub_categoria}} </p>
                                     </div>
-                                    @endforeach
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
                                 </div>
-                            </div>
+                            </a>
+                        </div>
+                        @endforeach
+
+
+                        <!-- Botão de Ver Todos-->
+                        <div class="col-md-3 mb-3">
+                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -130,34 +129,32 @@
         <!--Imagens dos Doces-->
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
-                <!--Carousel-->
 
+                <!--Linha 2 Produtos-->
                 <div class="col-12">
-                        <!--Slide dos Doces-->
-                                <div class="row mb-4">
+                    <div class="row mb-4">
+                        @foreach($produtos_doces->slice(0, 3) as $produto_doces)
 
-                                    @foreach($produtos_doces->slice(0, 3) as $produto_doces)
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_doces->id) }}">
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_doces->nome}}</h4>
-                                                    <p class="card-text">{{$produto_doces->categoria}}, {{$produto_doces->sub_categoria}} </p>
-                                                </div>
-                                            </div>
-                                        </a>
+                        <div class="col-md-3">
+                            <a href="{{ URL::to('/productview/' . $produto_doces->id) }}">
+                                <div class="card h-100">
+                                    <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{$produto_doces->nome}}</h4>
+                                        <p class="card-text">{{$produto_doces->categoria}}, {{$produto_doces->sub_categoria}} </p>
                                     </div>
-                                    @endforeach
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
                                 </div>
+                            </a>
+                        </div>
+                        @endforeach
+
+
+                        <!-- Botão de Ver Todos-->
+                        <div class="col-md-3 mb-3">
+                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -181,35 +178,32 @@
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
 
-                <!--Carousel-->
+                <!--Linha 3 produtos-->
                 <div class="col-12">
+                    <div class="row mb-4">
+                        @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
 
-                        <!--Slide dos Salgados-->
-                                <div class="row mb-4">
-
-                                    @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_salgados->id) }}">
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_salgados->nome}}</h4>
-                                                    <p class="card-text">{{$produto_salgados->categoria}}, {{$produto_salgados->sub_categoria}} </p>
-                                                </div>
-                                            </div>
-                                        </a>
+                        <div class="col-md-3">
+                            <a href="{{ URL::to('/productview/' . $produto_salgados->id) }}">
+                                <div class="card h-100">
+                                    <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{$produto_salgados->nome}}</h4>
+                                        <p class="card-text">{{$produto_salgados->categoria}}, {{$produto_salgados->sub_categoria}} </p>
                                     </div>
-                                    @endforeach
-
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
                                 </div>
+                            </a>
+                        </div>
+                        @endforeach
+
+
+
+                        <!-- Botão de Ver Todos-->
+                        <div class="col-md-3 mb-3">
+                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,35 +227,32 @@
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
 
-                <!--Carousel-->
+                <!--Linha 4 Produtos-->
                 <div class="col-12">
+                    <div class="row mb-4">
+                        @foreach($produtos_peso->slice(0, 3) as $produto_peso)
 
-                        <!--Slide da Padaria-->
-                                <div class="row mb-4">
-
-                                    @foreach($produtos_peso->slice(0, 3) as $produto_peso)
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_peso->id) }}">
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_peso->nome}}</h4>
-                                                    <p class="card-text">{{$produto_peso->categoria}}, {{$produto_peso->sub_categoria}} </p>
-                                                </div>
-                                            </div>
-                                        </a>
+                        <div class="col-md-3">
+                            <a href="{{ URL::to('/productview/' . $produto_peso->id) }}">
+                                <div class="card h-100">
+                                    <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{$produto_peso->nome}}</h4>
+                                        <p class="card-text">{{$produto_peso->categoria}}, {{$produto_peso->sub_categoria}} </p>
                                     </div>
-                                    @endforeach
-
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
                                 </div>
+                            </a>
+                        </div>
+                        @endforeach
+
+
+
+                        <!-- Botão de Ver Todos-->
+                        <div class="col-md-3 mb-3">
+                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
