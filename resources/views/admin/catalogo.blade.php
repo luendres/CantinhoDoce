@@ -216,135 +216,119 @@
 @section('content')
 
 
-<div class="aside-nav">
-    <ul>
-        <li class="active"><a href="/admin/catalogo/">
-                Produtos
-
-                <i class="angle-right-icon"></i></a></li>
-        <li><a href="/admin/catalogo/categorias">
-                Categorias
-
-            </a></li>
-
-    </ul>
-</div>
-<div class="content-wrapper">
-    <div class="content">
-        <div class="page-header">
-            <div class="row">
-                <div class="col-8 page-title">
-                    <h2>Produtos</h2>
-                </div>
-
-                <div class="col page-action">
-                    <a href="/admin/catalogo/adicionar-produto" class="btn btn-success">Adicionar novo produto</a>
-                </div>
+<div class="content full-page dashboard">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-8 page-title">
+                <h2>Produtos</h2>
             </div>
-        </div>
-        <div class="page-content">
-            <div class="filtered-tags"></div>
-            <div class="table">
-                <div class="grid-container">
-                    <div class="datagrid-filters">
-                        <div class="filter-left"></div>
-                    </div>
-                    <div id="datagrid-filters" class="datagrid-filters">
-                        <div class="filter-left">
-                            <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><span class="icon search-icon search-btn"></span></div>
-                            </div>
-                        </div>
-                        <div class="filter-right">
-                            <div class="dropdown-filters per-page">
-                                <div class="control-group"><label for="perPage" class="per-page-label">
-                                        Itens por página
-                                    </label> <select id="perPage" name="perPage" class="control">
-                                        <option value="10"> 10 </option>
-                                        <option value="20"> 20 </option>
-                                        <option value="30"> 30 </option>
-                                        <option value="40"> 40 </option>
-                                        <option value="50"> 50 </option>
-                                    </select></div>
 
-                            </div>
-                        </div>
-                    </div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-
-                    <table class="table-categories">
-                        <!---->
-
-
-                        <th class="grid_head ">
-                            ID
-                        </th>
-                        <th class="grid_head">
-                            Nome do Produto
-                        </th>
-                        <th class="grid_head">
-                            Categoria do Produto
-                        </th>
-                        <th class="grid_head">
-                            Sub-Categoria do Produto
-                        </th>
-                        <th class="grid_head">
-                            Preço
-                        </th>
-                        <th class="grid_head">
-                            Estado
-                        </th>
-                        <th class="grid_head">
-                            Imagem
-                        </th>
-                        <th>
-                            Ações
-                        </th>
-                        </tr>
-                        </thead>
-
-
-                        <tbody>
-                            @foreach($produtos as $produto)
-                            <tr>
-
-                                <td data-value="ID"><b>{{$produto->id}}</b></td>
-                                <td data-value="Nome">{{$produto->nome}}</td>
-                                <td data-value="Categoria">{{$produto->categoria}}</td>
-                                <td data-value="Sub-Categoria do Produto">{{$produto->sub_categoria}}</td>
-                                <td data-value="Preço">{{$produto->preco}}</td>
-                                <td data-value="Estado">{{$produto->estado ? 'Ativo' : 'Inativo'}}</td>
-                                <td data-value="Imagem"><img src="{{ Storage::url($produto->imagem) }}" height="75" width="75" alt="" /></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a>
-                                        <a data-method="POST" href="{{ route('produto.destroy', $produto->id) }}" title="Delete"><span class="icon trash-icon"></span></a>
-                                        @csrf
-                                </td>
-                            </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="pagination">
-                    <div class="pagination shop mt-50"><a class="page-item previous"><i class="icon angle-left-icon"></i></a> <a class="page-item active">
-                            1
-                        </a> <a href="/admin/sales/orders?page=2" class="page-item as">
-                            2
-                        </a> <a href="/admin/sales/orders?page=3" class="page-item as">
-                            3
-                        </a> <a href="/admin/sales/orders?page=4" class="page-item as">
-                            4
-                        </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="icon angle-right-icon"></i></a></div>
-                </div>
+            <div class="col page-action">
+                <a href="/admin/catalogo/adicionar-produto" class="btn btn-success">Adicionar novo produto</a>
             </div>
         </div>
     </div>
-    <!---->
+    <div class="page-content">
+        <div class="filtered-tags"></div>
+        <div class="table">
+            <div class="grid-container">
+                <div class="datagrid-filters">
+                    <div class="filter-left"></div>
+                </div>
+                <div id="datagrid-filters" class="datagrid-filters">
+                    <div class="filter-left">
+                        <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
+                            <div class="icon-wrapper"><span class="icon search-icon search-btn"></span></div>
+                        </div>
+                    </div>
+                    <div class="filter-right">
+                        <div class="dropdown-filters per-page">
+                            <div class="control-group"><label for="perPage" class="per-page-label">
+                                    Itens por página
+                                </label> <select id="perPage" name="perPage" class="control">
+                                    <option value="10"> 10 </option>
+                                    <option value="20"> 20 </option>
+                                    <option value="30"> 30 </option>
+                                    <option value="40"> 40 </option>
+                                    <option value="50"> 50 </option>
+                                </select></div>
+
+                        </div>
+                    </div>
+                </div>
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+                @endif
+
+                <table class="table-categories">
+                    <!---->
+
+
+                    <th class="grid_head ">
+                        ID
+                    </th>
+                    <th class="grid_head">
+                        Nome do Produto
+                    </th>
+                    <th class="grid_head">
+                        Categoria do Produto
+                    </th>
+                    <th class="grid_head">
+                        Sub-Categoria do Produto
+                    </th>
+                    <th class="grid_head">
+                        Preço
+                    </th>
+                    <th class="grid_head">
+                        Estado
+                    </th>
+                    <th class="grid_head">
+                        Imagem
+                    </th>
+                    <th>
+                        Ações
+                    </th>
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+                        @foreach($produtos as $produto)
+                        <tr>
+
+                            <td data-value="ID"><b>{{$produto->id}}</b></td>
+                            <td data-value="Nome">{{$produto->nome}}</td>
+                            <td data-value="Categoria">{{$produto->categoria}}</td>
+                            <td data-value="Sub-Categoria do Produto">{{$produto->sub_categoria}}</td>
+                            <td data-value="Preço">{{$produto->preco}}</td>
+                            <td data-value="Estado">{{$produto->estado ? 'Ativo' : 'Inativo'}}</td>
+                            <td data-value="Imagem"><img src="{{ Storage::url($produto->imagem) }}" height="75" width="75" alt="" /></td>
+                            <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
+                                <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a>
+                                    <a data-method="POST" href="{{ route('produto.destroy', $produto->id) }}" title="Delete"><span class="icon trash-icon"></span></a>
+                                    @csrf
+                            </td>
+                        </tr>
+                        @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <div class="pagination shop mt-50"><a class="page-item previous"><i class="icon angle-left-icon"></i></a> <a class="page-item active">
+                        1
+                    </a> <a href="/admin/sales/orders?page=2" class="page-item as">
+                        2
+                    </a> <a href="/admin/sales/orders?page=3" class="page-item as">
+                        3
+                    </a> <a href="/admin/sales/orders?page=4" class="page-item as">
+                        4
+                    </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="icon angle-right-icon"></i></a></div>
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
