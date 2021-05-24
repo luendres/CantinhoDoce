@@ -65,20 +65,6 @@
 
     <!-- CORPO -->
 
-    <!--Menu de Padaria-->
-    <div class="row mt-4">
-        <div class="col col-md-3">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link categ" aria-current="page" href="#">Padaria</a>
-                <li><a class="dropdown-item" href="#">Pão</a></li>
-                <li><a class="dropdown-item" href="#">Pão de 0,5 kg</a></li>
-                <li><a class="dropdown-item" href="#">Broa grande</a></li>
-                <li><a class="dropdown-item mb-3" href="#">Broa pequena</a></li>
-                </li>
-            </ul>
-        </div>
-
         <!--Imagens da Padaria-->
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
@@ -87,21 +73,20 @@
                 <div class="col-12">
                         <!--Slide da Padaria-->
                                 <div class="row mb-4">
-                                    @foreach($produtos_padaria->slice(0, 3) as $produto_padaria)
+                                 
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_padaria->id) }}">
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
+                                        <a href="
+                                                                                 <div class="card h-100">
+                                                <img class="img-fluid" alt="100%x280" >
                                                 <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_padaria->nome}}</h4>
-                                                    <p class="card-text">{{$produto_padaria->categoria}}, {{$produto_padaria->sub_categoria}} </p>
+                                                    <h4 class="card-title"></h4>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
-
+                                
 
                                     <!-- Botão de Ver Todos-->
                                     <div class="col-md-3 mb-3">
@@ -114,19 +99,7 @@
         </div>
     </div>
 
-    <!--Menu dos Doces-->
-    <div class="row">
-        <div class="col col-md-3">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link categ " aria-current="page" href="#">Doces</a>
-                <li><a class="dropdown-item" href="#">Sobremesas</a></li>
-                <li><a class="dropdown-item" href="#">Pastéis Diversos</a></li>
-                <li><a class="dropdown-item mb-3" href="#">Pastéis Miniatura Diversos</a></li>
-                </li>
-            </ul>
-        </div>
-
+    
         <!--Imagens dos Doces-->
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
@@ -136,20 +109,20 @@
                         <!--Slide dos Doces-->
                                 <div class="row mb-4">
 
-                                    @foreach($produtos_doces->slice(0, 3) as $produto_doces)
+                                    
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_doces->id) }}">
+                                        <a href=>
                                             <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
+                                                <img class="img-fluid" alt="100%x280" src="">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_doces->nome}}</h4>
-                                                    <p class="card-text">{{$produto_doces->categoria}}, {{$produto_doces->sub_categoria}} </p>
+                                                    <h4 class="card-title"></h4>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
+                                 
 
 
                                     <!-- Botão de Ver Todos-->
@@ -163,19 +136,7 @@
         </div>
     </div>
 
-    <!--Menu dos Salgados-->
-    <div class="row">
-        <div class="col col-md-3">
-            <ul class="nav flex-column">
-                <li class="nav-item ">
-                    <a class="nav-link categ" aria-current="page" href="#">Salgados</a>
-                <li><a class="dropdown-item" href="#">Rissóis</a></li>
-                <li><a class="dropdown-item" href="#">Pasteis Diversos</a></li>
-                <li><a class="dropdown-item" href="#">Pastéis Miniatura Diversos</a></li>
-                <li><a class="dropdown-item mb-3" href="#">Pizzas/Bolas/Quiches</a></li>
-                </li>
-            </ul>
-        </div>
+    
 
         <!--Imagens dos Salgados-->
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
@@ -187,21 +148,20 @@
                         <!--Slide dos Salgados-->
                                 <div class="row mb-4">
 
-                                    @foreach($produtos_salgados->slice(0, 3) as $produto_salgados)
+                                    
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_salgados->id) }}">
+                                        <a href=>
                                             <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
+                                                <img class="img-fluid" alt="100%x280" >
                                                 <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_salgados->nome}}</h4>
-                                                    <p class="card-text">{{$produto_salgados->categoria}}, {{$produto_salgados->sub_categoria}} </p>
+                                                    <h4 class="card-title"></h4>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
-
+                             
 
 
                                     <!-- Botão de Ver Todos-->
@@ -216,19 +176,7 @@
     </div>
 
 
-    <!--Menu dos Produtos ao Peso-->
-    <div class="row">
-        <div class="col col-md-3">
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link categ" aria-current="page" href="#">Produtos ao Peso</a>
-                <li><a class="dropdown-item" href="#">Bolos de Aniversário</a></li>
-                <li><a class="dropdown-item" href="#">Sobremesas</a></li>
-                <li><a class="dropdown-item" href="#">Sortidos</a></li>
-                </li>
-            </ul>
-        </div>
-
+   
         <!--Imagens dos Produtos ao Peso-->
         <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
@@ -239,20 +187,20 @@
                         <!--Slide da Padaria-->
                                 <div class="row mb-4">
 
-                                    @foreach($produtos_peso->slice(0, 3) as $produto_peso)
+                                    
                                     <!--Primeiro cartão-->
                                     <div class="col-md-3">
-                                        <a href="{{ URL::to('/productview/' . $produto_peso->id) }}">
+                                        <a href=>
                                             <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
+                                                <img class="img-fluid" alt="100%x280">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">{{$produto_peso->nome}}</h4>
-                                                    <p class="card-text">{{$produto_peso->categoria}}, {{$produto_peso->sub_categoria}} </p>
+                                                    <h4 class="card-title"></h4>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    @endforeach
+                             
 
 
 

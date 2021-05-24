@@ -31,6 +31,11 @@ Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
 Route::get('/contactos', function () {
     return view('contactos');
+    
+});
+Route::get('/verTodos', function () {
+    return view('verTodos');
+    
 });
 
 Route::get('/products', function () {
