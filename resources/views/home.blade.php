@@ -123,13 +123,14 @@
 
                                         <!--Primeiro slide-->
                                         <div class="carousel-inner">
-                                            <div class="carousel-item active">
+                                            @foreach($produtos->chunk(3) as $three)
+                                            <div class="carousel-item @if ($loop->first) active @endif">
                                                 <div class="row">
 
-                                                    @foreach($produtos->slice(0,3) as $produto)
+                                                    @foreach($three as $produto)
                                                     <!--Primeiro cartão-->
                                                     <div class="col-md-4 mb-3">
-                                                        <div class="card">
+                                                        <div class="card h-100">
                                                             <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                                                             <div class="card-body">
                                                                 <h4 class="card-title">{{$produto->nome}}</h4>
@@ -142,6 +143,7 @@
 
                                                 </div>
                                             </div>
+                                            @endforeach
                                         </div>
 
                                     </div>
