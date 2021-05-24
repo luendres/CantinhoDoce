@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://demo.bagisto.com/bagisto-148-63-136-182/vendor/webkul/ui/assets/css/ui.css">
+<link rel="stylesheet" href="{{url('css/ui.css')}}">
 
 <style>
     .navbar-top {

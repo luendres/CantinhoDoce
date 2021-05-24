@@ -14,6 +14,7 @@
 
     <!-- CSS -->
     <script src="https://kit.fontawesome.com/c1a2cc467f.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

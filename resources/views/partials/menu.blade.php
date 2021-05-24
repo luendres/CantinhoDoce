@@ -38,12 +38,7 @@
                 <i class="fas fa-users fa-2x mx-3"></i>
             </a>
         </li>
-        <li class="c-sidebar-nav-item {{ request()->is('admin/definicoes*') ? 'active-menu' : '' }}">
-            <a class="c-sidebar-nav-link py-4 {{ request()->is('admin/definicoes*') ? 'active-menu' : '' }}" href="/admin/definicoes">
-                Definições
-                <i class="fas fa-cog fa-2x mx-3"></i>
-            </a>
-        </li>
+
 
     </ul>
 </div>
