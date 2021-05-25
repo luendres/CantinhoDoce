@@ -267,7 +267,16 @@
                                     ID
                                 </th>
                                 <th class="grid_head">
+                                    ID Cliente
+                                </th>
+                                <th class="grid_head">
+                                    Nome do Cliente
+                                </th>
+                                <th class="grid_head">
                                     Sub Total
+                                </th>
+                                <th class="grid_head">
+                                    Taxa de Entrega
                                 </th>
                                 <th class="grid_head">
                                     Total Final
@@ -278,55 +287,28 @@
                                 <th class="grid_head">
                                     Estado
                                 </th>
-                                <th class="grid_head">
-                                    Faturado a
-                                </th>
-                                <th class="grid_head">
-                                    Vendido a
-                                </th>
                                 <th>
                                     Mais informações
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($pedidos as $key => $pedido)
                             <tr>
-                                <td data-value="ID">38</td>
-                                <td data-value="Sub Total">$300.00</td>
-                                <td data-value="Grand Total">$150.00</td>
-                                <td data-value="Order Date">2021-03-18 05:01:09</td>
-                                <td data-value="Status"><span class="badge badge-md badge-warning">Em processamento</span></td>
-                                <td data-value="Billed To">Jane Doe</td>
-                                <td data-value="Shipped To">John Doe</td>
+                                <td data-value="ID">{{$pedido->id}}</td>
+                                <td data-value="ID Cliente">{{$pedido->user_id}}</td>
+                                <td data-value="Nome Cliente">{{$pedido->nome_cliente}}</td>
+                                <td data-value="Sub Total">{{$pedido->subtotal}}</td>
+                                <td data-value="Taxa de Entrega">{{$pedido->taxa_entrega}}</td>
+                                <td data-value="Total Final">{{$pedido->total}}</td>
+                                <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
+                                <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
                                 </td>
                             </tr>
+                            @endforeach
 
-                            <tr>
-                                <td data-value="ID">29</td>
-                                <td data-value="Sub Total">$200.00</td>
-                                <td data-value="Grand Total">$200.00</td>
-                                <td data-value="Order Date">2020-02-12 06:54:23</td>
-                                <td data-value="Status"><span class="badge badge-md badge-danger">Pendente</span></td>
-                                <td data-value="Billed To">Ana Fulana</td>
-                                <td data-value="Shipped To">Ana Fulana</td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/29" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/29" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td data-value="ID">28</td>
-                                <td data-value="Sub Total">$200.00</td>
-                                <td data-value="Grand Total">$200.00</td>
-                                <td data-value="Order Date">2020-02-12 06:54:23</td>
-                                <td data-value="Status"><span class="badge badge-md badge-success">Concluída</span></td>
-                                <td data-value="Billed To">João Ninguém</td>
-                                <td data-value="Shipped To">João Ninguém</td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/29" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/29" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

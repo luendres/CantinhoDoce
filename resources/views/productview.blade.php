@@ -222,50 +222,14 @@
 
             <!--IMAGEM GRANDE-->
             <div class="card mr-2">
-                <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto->imagem) }}">
+                <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                 <div class="card-body">
                     <h4 class="card-title">{{$produto->nome}}</h4>
                     <p class="card-text" style="text-align: justify;">bla bla bla <br> bla bla bla<br> bla bla bla <br> bla bla bla <br> bla bla bla</p>
                 </div>
             </div>
 
-            <!-- 3 IMAGENS PEQUENAS-->
-            <div class="row mt-3 mb-5">
 
-                <!--Primeiro cartão-->
-                <div class="col-md-4">
-                    <div class="card mr-2">
-                        <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Produto (2)</h4>
-                            <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Segundo cartão-->
-                <div class="col-md-4">
-                    <div class="card mr-2">
-                        <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Produto (3)</h4>
-                            <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Terceiro cartão-->
-                <div class="col-md-4">
-                    <div class="card mr-2">
-                        <img class="img-fluid" alt="100%x280" src="images/berlim/markthalle.jpg">
-                        <div class="card-body">
-                            <h4 class="card-title">Produto (4)</h4>
-                            <p class="card-text" style="text-align: justify;">bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
 
         <!--INFORMAÇÕES-->
@@ -281,7 +245,7 @@
             <!--PREÇO E NÚMERO DE UNIDADES-->
             <div class="row mr-5 mt-5" style="border-top: 2px solid #ededed; border-bottom: 2px solid #ededed ">
                 <div class="col-md-6">
-                    <p class="mt-5 mb-5" style="font-size:20px;">{{$produto->preco}} <span>€</span></p>
+                    <p class="mt-5 mb-5" style="font-size:20px;">{{$produto->preco}}</p>
                 </div>
                 <div class="col-md-6">
                     <input class="mt-5 mb-5" type="number"> unidades</input>

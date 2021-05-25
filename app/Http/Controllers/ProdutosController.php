@@ -140,6 +140,7 @@ class ProdutosController extends Controller
     public function productview($id)
     {
         $produto = Produtos::where('id', $id)->where('estado', '>', 0)->first();
+
         return view('/productview')->with('produto', $produto);
     }
 }

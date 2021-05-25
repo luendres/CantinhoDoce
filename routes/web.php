@@ -15,10 +15,6 @@ use App\Http\Controllers\HomeController;
 */
 
 
-
-
-
-
 Route::get('/', function () {
     $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
     return view('home', compact('produtos'));
@@ -31,11 +27,9 @@ Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
 Route::get('/contactos', function () {
     return view('contactos');
-    
 });
 Route::get('/verTodos', function () {
     return view('verTodos');
-    
 });
 
 Route::get('/products', function () {
@@ -61,6 +55,10 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('admin/paineldecontrolo', [HomeController::class, 'painelControlo'])->name('painel.controlo')->middleware('is_admin');
 
 Route::get('admin/vendas', [HomeController::class, 'vendas'])->name('vendas')->middleware('is_admin');
+Route::get('admin/vendas', function () {
+    $pedidos = DB::select('select * from pedidos');
+    return view('admin.vendas', ['pedidos' => $pedidos]);
+});
 Route::get('admin/vendas/remessas', [HomeController::class, 'remessas'])->name('remessas')->middleware('is_admin');
 Route::get('admin/vendas/faturas', [HomeController::class, 'faturas'])->name('faturas')->middleware('is_admin');
 
