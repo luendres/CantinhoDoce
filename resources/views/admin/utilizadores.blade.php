@@ -222,11 +222,15 @@
                 Clientes
 
                 <i class="angle-right-icon"></i></a></li>
-        <li><a href="/admin/utilizadores/avaliacoes">
+        <li><a href="/admin/avaliacoes">
                 Avaliações
 
             </a></li>
 
+        <li><a href="/admin/mensagens">
+                Mensagens de Contacto
+
+            </a></li>
     </ul>
 </div>
 <div class="content-wrapper">

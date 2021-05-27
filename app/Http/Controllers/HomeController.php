@@ -79,6 +79,10 @@ class HomeController extends Controller
     {
         return view('admin.utilizadores');
     }
+    public function mensagens()
+    {
+        return view('admin.mensagens');
+    }
 
 
     public function avaliacoes()

@@ -220,16 +220,16 @@
     <ul>
         <li><a href="/admin/utilizadores/">
                 Clientes
-
             </a></li>
 
-        <li class="active"><a href="/admin/utilizadores/avaliacoes">
-                Avaliações
-                <i class="angle-right-icon"></i></a></li>
         <li><a href="/admin/avaliacoes">
-                Mensagens de Contacto
+                Avaliações
 
             </a></li>
+        <li class="active"><a href="/admin/avaliacoes">
+                Mensagens de Contato
+                <i class="angle-right-icon"></i></a></li>
+
 
     </ul>
 </div>
@@ -238,7 +238,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-8 page-title">
-                    <h2>Avaliações</h2>
+                    <h2>Mensagens de Contacto</h2>
                 </div>
             </div>
 
@@ -274,70 +274,32 @@
 
                     <table class="table-categories">
                         <!---->
-
-                        <th class="grid_head" id="mastercheckbox" style="width: 50px;"><span class="checkbox"><input type="checkbox"> <label for="checkbox" class="checkbox-view"></label></span></th>
                         <th class="grid_head">
                             ID
                         </th>
                         <th class="grid_head">
-                            Nome do Utilizador
+                            Nome
                         </th>
                         <th class="grid_head">
-                            Título
+                            E-mail
                         </th>
                         <th class="grid_head">
-                            Avaliação
+                            Mensagem
                         </th>
-                        <th class="grid_head">
-                            ID Produto
-                        </th>
-                        <th class="grid_head">
-                            Estado
-                        </th>
-                        <th>
-                            Ações
-                        </th>
+
                         </tr>
                         </thead>
-
-
                         <tbody>
+                            @foreach($mensagens as $key => $mensagem)
                             <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">8</td>
-                                <td data-value="Nome do Utilizador">Ana Doe</td>
-                                <td data-value="Título">Bom produto</td>
-                                <td data-value="Avaliação">Produto fresco e muito saboroso, comprarei novamente.</td>
-                                <td data-value="ID Produto">3</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-warning">Pendente</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="1" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
-                                </td>
+                                <td data-value="ID">{{$mensagem->id}}</td>
+                                <td data-value="Nome">{{$mensagem->nome}}</td>
+                                <td data-value="E-mail">{{$mensagem->email}}</td>
+                                <td data-value="Mensagem">{{$mensagem->mensagem}}</td>
+
+
                             </tr>
-                            <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">7</td>
-                                <td data-value="Nome do Utilizador">Fulana de tal</td>
-                                <td data-value="Título">Produto saboroso</td>
-                                <td data-value="Avaliação">Muito bom, adorei o produto e o serviço.</td>
-                                <td data-value="ID Produto">12</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-success">Aprovado</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="7" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">6</td>
-                                <td data-value="Nome do Utilizador">John Smith</td>
-                                <td data-value="Título">Produto satifatorio</td>
-                                <td data-value="Avaliação">adhaiduhsaiudhd</td>
-                                <td data-value="ID Produto">9</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-danger">Reprovado</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="6" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
-                                </td>
-                            </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
