@@ -48,6 +48,14 @@
         border-radius: 5%;
     }
 
+    .card{
+        color:black;
+    }
+    .card:hover{
+        color:black;
+        text-decoration:underline;
+    }
+
 
 
     .verMaisCateg:hover {
