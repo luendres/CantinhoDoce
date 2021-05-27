@@ -194,10 +194,18 @@
 
     <!-- CORPO -->
 
+    <!-- Success message -->
+    @if(Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
+
     <section class="contact">
         <div class="content my-4">
             <h3><b>Contacte-nos</h3></b>
-            <p> bla bla bla bla bla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla bla </p>
+            <p> Aqui poderá encontrar as informações necessárias para nos contactar. <br>
+                Adicionalmente, poderá nos enviar uma mensagem através do formulário de contato abaixo! </p>
         </div>
         <div class="container">
             <div class="contactInfo">
@@ -234,28 +242,85 @@
                 </div>
             </div>
         </div>
+
+
+
         <div class="contactForm">
-            <form>
+            <form action="" method="post" action="{{ route('contacto.store') }}">
+
+                <!-- CROSS Site Request Forgery Protection -->
+                @csrf
+
                 <h2>Enviar Mensagem</h2>
                 <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Primeiro e Último Nome</span>
+                    <input type="text" name="nome" class="form-control px-3" id="nome" required="required" placeholder="Primeiro e Último Nome">
+
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Email</span>
+                    <input type="text" name="email" class="form-control px-3" id="email" required="required" placeholder="E-mail">
+
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="" required="required">
-                    <span>Escreva a sua Mensagem...</span>
+                    <textarea class="form-control px-3" type="text" name="mensagem" id="mensagem" rows="4" required="required"></textarea>
+
                 </div>
-                <div class="inputBox">
-                    <input type="submit" name="" required="Send">
-                </div>
+
+                <input type="submit" name="Enviar" value="Enviar" class="btn btn-danger btn-block">
+
+
             </form>
         </div>
-        </div>
+
     </section>
+    <!--Footer-->
+    <div class="container-fluid mt-5 pt-4" style="padding-left: 0; padding-right: 0;">
+        <div class="card bg-white">
+            <div class="row mb-4 mt-4">
+                <div class="col-md-4 col-sm-4 col-xs-4">
+                    <div class="footer-text pull-left">
+                        <div class="d-flex">
+                            <h3 class="font-weight-bold mr-2 px-3" style="color:white; background-color:#AC3333"> Pastelaria</h3>
+                            <h3 style="color: #AC3333">Cantinho Doce</h3>
+                        </div>
+                        <p class="card-text">Rua do Arieiro 4, Ega <br> Condeixa-a-Nova, Coimbra, Portugal</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2"></div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <h5 class="heading">MENU PRINCIPAL</h5>
+                    <ul>
+                        <li>Início</li>
+                        <li>Produtos</li>
+                        <li>Sobre Nós</li>
+                        <li>Contactos</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <h5 class="heading">SOBRE O SITE</h5>
+                    <ul class="card-text">
+                        <li>Livro de Reclamações</li>
+                        <li>Política de Privacidade</li>
+                        <li>Termos e Condições</li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-2">
+                    <h5 class="heading">NOSSAS REDES SOCIAIS</h5>
+                    <ul class="card-text" style="text-decoration:none;">
+                        <a href="https://www.facebook.com/Cantinho-Doce-171238046553832" target="_blank" style="color:#4f4e4d;"><i class="fab fa-facebook-square fa-lg"></i> Facebook <br></a>
+                        <a href="https://www.instagram.com/cantinho_doce_pastelaria/" target="_blank" style="color:#4f4e4d;"><i class="fab fa-instagram fa-lg"></i> Instagram</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="divider mb-2 border border-light"> </div>
+            <div class="row" style="font-size:10px;">
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="pull-left">
+                        <p><i class="fa fa-copyright"></i> 2021 Cantinho Doce</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

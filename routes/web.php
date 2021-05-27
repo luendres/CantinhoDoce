@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,11 @@ Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
 
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
-Route::get('/contactos', function () {
-    return view('contactos');
-});
+
+Route::get('/contactos', [ContactoController::class, 'createForm']);
+Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');
+
+
 Route::get('/verTodos', function () {
     return view('verTodos');
 });
@@ -79,9 +82,15 @@ Route::get('admin/utilizadores', function () {
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
 
+Route::get('admin/mensagens', [HomeController::class, 'mensagens'])->name('mensagens')->middleware('is_admin');
+Route::get('admin/mensagens', function () {
+    $mensagens = DB::select('select * from contactos');
+    return view('admin.mensagens', ['mensagens' => $mensagens]);
+});
 
-Route::get('admin/utilizadores/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
-Route::resource('avaliacoes', 'AvaliacoesController');
+
+Route::get('admin/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
+
 Route::get('admin/definicoes', [HomeController::class, 'definicoes'])->name('definicoes')->middleware('is_admin');
 
 /* Fim de Admin Routes */
