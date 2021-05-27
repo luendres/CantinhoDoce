@@ -314,18 +314,8 @@
                         <!---->
                         <thead>
                             <tr style="height: 65px;">
-                                <th class="grid_head">
-                                    ID
-                                </th>
-                                <th class="grid_head">
-                                    ID Cliente
-                                </th>
-                                <th class="grid_head">
-                                    Nome do Cliente
-                                </th>
-                                <th class="grid_head">
-                                    Sub Total
-                                </th>
+                             
+                            
                                 <th class="grid_head">
                                     Taxa de Entrega
                                 </th>

@@ -225,7 +225,7 @@
 
         <li class="active"><a href="/admin/utilizadores/avaliacoes">
                 Avaliações
-                <i class="angle-right-icon"></i></a></li>
+                <i class="fas fa-chevron-right mt-1"></i></a></li>
         <li><a href="/admin/avaliacoes">
                 Mensagens de Contacto
 
@@ -253,7 +253,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><span class="icon search-icon search-btn"></span></div>
+                                <div class="icon-wrapper"><i style="color:#999695"class="fas fa-search mt-1 ml-1"></i></div>
                             </div>
                         </div>
                         <div class="filter-right">
@@ -343,7 +343,7 @@
                     </table>
                 </div>
                 <div class="pagination">
-                    <div class="pagination shop mt-50"><a class="page-item previous"><i class="icon angle-left-icon"></i></a> <a class="page-item active">
+                    <div class="pagination shop mt-50"><a class="page-item previous"><i class="fas fa-chevron-left mt-1 ml-1 mr-1"></i></a> <a class="page-item active">
                             1
                         </a> <a href="/admin/sales/orders?page=2" class="page-item as">
                             2
@@ -351,7 +351,7 @@
                             3
                         </a> <a href="/admin/sales/orders?page=4" class="page-item as">
                             4
-                        </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="icon angle-right-icon"></i></a></div>
+                        </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="fas fa-chevron-right mt-1 ml-1 mr-1"></i></a></div>
                 </div>
             </div>
         </div>
