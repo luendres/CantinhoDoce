@@ -29,6 +29,11 @@
         font-family: 'Poppins', sans-serif;
     }
 
+    a{text-decoration:none !important;
+    color:black;}
+
+    a:hover{color:black;}
+
     body {
         background-image: url('storage/images/fundo.jpg');
         overflow-x: hidden;
@@ -55,6 +60,7 @@
         border-bottom-color: #AC3333;
         cursor: pointer;
         color: #AC3333;
+        text-decoration: underline;
     }
 
     .OpcoesActive {
@@ -94,6 +100,8 @@
         border: solid 2px #E0E0E0;
         color: #4f4e4d;
     }
+
+    #encomendas:hover{text-decoration:underline; color:black}
 
     .verMaisCateg:hover,
     .queroComent:hover,
@@ -260,14 +268,14 @@
             </div>
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center ">
-                    <i class="fas fa-box-open" style="font-size:40px; "></i>
-                    <h5 class="mt-2" style="font-size:20px;">Encomendas</h5>
+                    <a href="/encomendasUser"><i class="fas fa-box-open" style="font-size:40px; color:black;"></i>
+                    <h5 class="mt-2" style="font-size:20px; color: black;">Encomendas</h5></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center">
-                    <i class="fas fa-sign-out-alt" style="font-size:40px;"></i>
-                    <h5 class="mt-2" style="font-size:20px; ">Sair</h5>
+                    <a href="/"><i class="fas fa-sign-out-alt" style="font-size:40px;"></i>
+                    <h5 class="mt-2" style="font-size:20px; ">Sair</h5></a>
                 </div>
             </div>
         </div>
