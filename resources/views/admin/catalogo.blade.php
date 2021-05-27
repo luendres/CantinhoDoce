@@ -306,8 +306,8 @@
                             <td data-value="Estado">{{$produto->estado ? 'Ativo' : 'Inativo'}}</td>
                             <td data-value="Imagem"><img src="{{ Storage::url($produto->imagem) }}" height="75" width="75" alt="" /></td>
                             <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><span class="icon pencil-lg-icon"></span></a>
-                                    <a data-method="POST" href="{{ route('produto.destroy', $produto->id) }}" title="Delete"><span class="icon trash-icon"></span></a>
+                                <div class=""><a form action="" method="post" href="{{ URL::to('/admin/catalogo/' . $produto->id . '/editar-produto') }}"><i style="color:#999695" class="fas fa-pencil-alt"></i></a>
+                                    <a data-method="POST" href="{{ route('produto.destroy', $produto->id) }}" title="Delete"><i style="color:#999695" class="fas fa-trash-alt"></i></a>
                                     @csrf
                             </td>
                         </tr>

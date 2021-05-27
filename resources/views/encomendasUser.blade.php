@@ -272,8 +272,10 @@
                 </div>
             </div>
         </div>
-        <div class="content-wrapper">
-    <div class="content">
+
+        <div class="col col-md-10" style="border-right: 3px dotted;">
+            <div class="content-wrapper">
+            <div class="content">
         <div class="page-header">
             <div class="page-title">
                 <h2>Pedidos</h2>
@@ -345,10 +347,7 @@
                             
                             <tr>
                                 <td data-value="ID"></td>
-                                <td data-value="ID Cliente"></td>
-                                <td data-value="Nome Cliente"></td>
                                 <td data-value="Sub Total"></td>
-                                <td data-value="Taxa de Entrega"></td>
                                 <td data-value="Total Final"></td>
                                 <td data-value="Data do Pedido"></td>
                                 <td data-value="Estado"><span class="badge badge-md badge-warning"></span></td>
@@ -359,8 +358,8 @@
                             </tbody>
                     </table>
                  </div>
-            <div class="pagination">
-                <div class="pagination shop mt-50"><a class="page-item previous"><i class="icon angle-left-icon"></i></a> <a class="page-item active">
+                 <div class="pagination">
+                <div class="pagination shop mt-50"><a class="page-item previous"><i class="fas fa-chevron-left mt-1 ml-1 mr-1"></i></a> <a class="page-item active">
                         1
                     </a> <a href="/admin/sales/orders?page=2" class="page-item as">
                         2
@@ -368,7 +367,7 @@
                         3
                     </a> <a href="/admin/sales/orders?page=4" class="page-item as">
                         4
-                    </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="icon angle-right-icon"></i></a></div>
+                    </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="fas fa-chevron-right mt-1 ml-1 mr-1"></i></a></div>
             </div>
     </div>
 
