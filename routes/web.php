@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,11 @@ Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
 
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
-Route::get('/contactos', function () {
-    return view('contactos');
-});
+
+Route::get('/contactos', [ContactoController::class, 'createForm']);
+Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');
+
+
 Route::get('/verTodos', function () {
     return view('verTodos');
 });
