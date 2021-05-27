@@ -103,9 +103,10 @@ class HomeController extends Controller
         return view('/user', compact('user'));
     }
 
-
-
-
+   public function encomendasUser()
+   {
+    return view('/encomendasUser');
+   }
 
 
     public function userCart()
