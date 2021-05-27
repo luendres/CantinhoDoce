@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avaliacao;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 
@@ -141,6 +142,10 @@ class ProdutosController extends Controller
     {
         $produto = Produtos::where('id', $id)->where('estado', '>', 0)->first();
 
-        return view('/productview')->with('produto', $produto);
+        $similares = Produtos::where('sub_categoria', $produto->sub_categoria)->where('id', '!=', $id)->get();
+
+        $avaliacoes = Avaliacao::where('produto_id', $produto->id)->where('estado', '>', 0)->get();
+
+        return view('/productview')->with(compact('produto', 'similares', 'avaliacoes'));
     }
 }

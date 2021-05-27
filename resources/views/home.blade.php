@@ -120,7 +120,6 @@
                                 <div class="col-12">
                                     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
-
                                         <!--Primeiro slide-->
                                         <div class="carousel-inner">
                                             @foreach($produtos->chunk(3) as $three)
@@ -150,10 +149,10 @@
                                 </div>
                                 <!--Botões left right-->
                                 <div class="col-7 text-right">
-                                    <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" role="button" data-slide-to="prev">
+                                    <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" href="#carouselIndicator" role="button" data-slide-to="prev">
                                         <i class="fa fa-arrow-left"></i>
                                     </a>
-                                    <a class="btn btn-light mb-3 " data-bs-target="#carouselIndicator" role="button" data-slide="next">
+                                    <a class="btn btn-light mb-3 " data-bs-target="#carouselIndicator" href="#carouselIndicator" role="button" data-slide="next">
                                         <i class="fa fa-arrow-right"></i>
                                     </a>
                                 </div>

@@ -246,6 +246,7 @@
 
 
         <div class="contactForm">
+
             <form action="" method="post" action="{{ route('contacto.store') }}">
 
                 <!-- CROSS Site Request Forgery Protection -->
