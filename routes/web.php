@@ -24,8 +24,12 @@ Route::get('/', function () {
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
+Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/encomendasUser');
+
 
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
+
+
 
 Route::get('/contactos', [ContactoController::class, 'createForm']);
 Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');

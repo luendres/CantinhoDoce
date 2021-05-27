@@ -27,24 +27,19 @@
     body {
         font-family: 'Poppins', sans-serif;
     }
-
     body {
         overflow-x: hidden;
     }
-
     .nav-link.categ {
         color: #AC3333;
         font-size: 20px;
         font-weight: bold;
     }
-
     .queroComent {
         background-color: #AC3333;
         color: white;
         border: 1px solid #AC3333;
-
     }
-
     .verMaisCateg {
         background-color: #E0E0E0;
         font-size: 15px;
@@ -53,27 +48,22 @@
         color: #4f4e4d;
         border-radius: 5%;
     }
-
     .fecharModal {
         background-color: #E0E0E0;
         font-weight: bold;
         border: solid 2px #E0E0E0;
         color: #4f4e4d;
     }
-
     .verMaisCateg:hover,
     .queroComent:hover,
     .fecharModal:hover {
         background-color: white;
         color: #AC3333;
         border-color: #AC3333;
-
     }
-
     .search-container {
         margin: 0 auto;
     }
-
     .search-container input[type=text] {
         padding: 7px;
         margin-top: 8px;
@@ -84,7 +74,6 @@
         outline: none;
         width: 400px;
     }
-
     .search-container button {
         float: right;
         padding: 7px 10px;
@@ -99,38 +88,32 @@
         border-bottom-right-radius: 10px;
         outline: none;
     }
-
     .search-container button:hover {
         background: white;
         color: #AC3333;
     }
-
     .menu-item {
         border: 5px;
         border-color: #DF1F2F;
         outline-color: #DF1F2F;
         color: black;
     }
-
     .menu-item {
         border-color: black;
         outline-color: #DF1F2F;
         color: white;
         background-color: #AC3333;
     }
-
     .menu-item a {
         border: 5px;
         border-color: #DF1F2F;
         outline-color: #DF1F2F;
         color: white;
     }
-
     .border-3 {
         border-width: 0px 3px 3px 0px !important;
         border-color: white !important;
     }
-
     .center {
         position: absolute;
         top: 50%;
@@ -140,7 +123,6 @@
         color: white;
         font-family: 'Pacifico', cursive;
     }
-
     .center-down {
         position: absolute;
         top: 62%;
@@ -149,24 +131,20 @@
         font-size: 2.5vw;
         color: white;
     }
-
     .section-heading {
         text-align: left;
         margin-bottom: 40px;
         border-bottom: 1px solid #eee;
     }
-
     .section-heading h2 {
         font-size: 28px;
         font-weight: 400;
         color: #1e1e1e;
     }
-
     /* Latest Produtcs */
     .latest-products {
         margin-top: 100px;
     }
-
     .section-heading a {
         float: right;
         margin-top: -35px;
@@ -175,7 +153,6 @@
         font-weight: 700;
         color: #f33f3f;
     }
-
     /* Services */
     .services {
         background-position: center center;
@@ -184,28 +161,23 @@
         background-attachment: fixed;
         padding: 100px 0px;
     }
-
     .services .section-heading h2 {
         color: #fff;
     }
-
     .service-item {
         text-align: center;
         margin-bottom: 30px;
     }
-
     .service-item .down-content {
         background-color: #fff;
         padding: 40px 30px;
     }
-
     .service-item .down-content h4 {
         font-size: 17px;
         color: black;
         margin-bottom: 20px;
         text-align: justify;
     }
-
     .services-item-image {
         display: block;
     }
