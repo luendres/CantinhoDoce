@@ -220,16 +220,16 @@
     <ul>
         <li><a href="/admin/utilizadores/">
                 Clientes
-
             </a></li>
 
-        <li class="active"><a href="/admin/utilizadores/avaliacoes">
+        <li class="active"><a href="/admin/avaliacoes">
                 Avaliações
-                <i class="fas fa-chevron-right mt-1"></i></a></li>
-        <li><a href="/admin/avaliacoes">
-                Mensagens de Contacto
-
+                <i class="fas fa-chevron-right mt-1"></i>
             </a></li>
+        <li><a href="/admin/mensagens">
+                Mensagens de Contato
+            </a></li>
+
 
     </ul>
 </div>
@@ -253,7 +253,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><i style="color:#999695"class="fas fa-search mt-1 ml-1"></i></div>
+                                <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
                             </div>
                         </div>
                         <div class="filter-right">
@@ -275,15 +275,11 @@
                     <table class="table-categories">
                         <!---->
 
-                        <th class="grid_head" id="mastercheckbox" style="width: 50px;"><span class="checkbox"><input type="checkbox"> <label for="checkbox" class="checkbox-view"></label></span></th>
                         <th class="grid_head">
                             ID
                         </th>
                         <th class="grid_head">
                             Nome do Utilizador
-                        </th>
-                        <th class="grid_head">
-                            Título
                         </th>
                         <th class="grid_head">
                             Avaliação
@@ -294,6 +290,9 @@
                         <th class="grid_head">
                             Estado
                         </th>
+                        <th class="grid_head">
+                            Data da Avaliação
+                        </th>
                         <th>
                             Ações
                         </th>
@@ -302,42 +301,19 @@
 
 
                         <tbody>
+                            @foreach($avaliacoes as $key => $avaliacao)
                             <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">8</td>
-                                <td data-value="Nome do Utilizador">Ana Doe</td>
-                                <td data-value="Título">Bom produto</td>
-                                <td data-value="Avaliação">Produto fresco e muito saboroso, comprarei novamente.</td>
-                                <td data-value="ID Produto">3</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-warning">Pendente</span></td>
+                                <td data-value="ID">{{$avaliacao->id}}</td>
+                                <td data-value="Nome do Utilizador">{{$avaliacao->nome}}</td>
+                                <td data-value="Avaliação">{{$avaliacao->avaliacao}}</td>
+                                <td data-value="ID Produto">{{$avaliacao->produto_id}}</td>
+                                <td data-value="Estado"><span class="badge badge-md badge-dark">{{$avaliacao->estado ? 'Ativo' : 'Inativo'}}</span></td>
+                                <td data-value="Data avaliação">{{$avaliacao->created_at}}</td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="1" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
+                                    <div class="action">Mudar estado
                                 </td>
                             </tr>
-                            <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">7</td>
-                                <td data-value="Nome do Utilizador">Fulana de tal</td>
-                                <td data-value="Título">Produto saboroso</td>
-                                <td data-value="Avaliação">Muito bom, adorei o produto e o serviço.</td>
-                                <td data-value="ID Produto">12</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-success">Aprovado</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="7" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="checkbox"><input type="checkbox" v-model="dataIds" @change="select" value="166"> <label for="checkbox" class="checkbox-view"></label></span></td>
-                                <td data-value="ID">6</td>
-                                <td data-value="Nome do Utilizador">John Smith</td>
-                                <td data-value="Título">Produto satifatorio</td>
-                                <td data-value="Avaliação">adhaiduhsaiudhd</td>
-                                <td data-value="ID Produto">9</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-danger">Reprovado</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="6" href="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-method="GET" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/edit/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Edit"><span class="icon pencil-lg-icon"></span></a> <a id="166" data-method="POST" data-action="https://demo.bagisto.com/bagisto-148-63-136-182/admin/catalog/products/delete/166" data-token="qjkUpNBX1YGi3xI9eDqe1cDNOnwDK690eSaxiDkG" title="Delete"><span class="icon trash-icon"></span></a>
-                                </td>
-                            </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

@@ -32,8 +32,8 @@
                 <i class="fas fa-list-alt fa-2x mx-3"></i>
             </a>
         </li>
-        <li class="c-sidebar-nav-item {{ request()->is('admin/utilizadores*', 'admin/mensagens') ? 'active-menu' : '' }}">
-            <a class="c-sidebar-nav-link py-4 {{ request()->is('admin/utilizadores*', 'admin/mensagens') ? 'active-menu' : '' }}" href="/admin/utilizadores">
+        <li class="c-sidebar-nav-item {{ request()->is('admin/utilizadores*', 'admin/avaliacoes', 'admin/mensagens') ? 'active-menu' : '' }}">
+            <a class="c-sidebar-nav-link py-4 {{ request()->is('admin/utilizadores*', 'admin/avaliacoes', 'admin/mensagens') ? 'active-menu' : '' }}" href="/admin/utilizadores">
                 Utilizadores
                 <i class="fas fa-users fa-2x mx-3"></i>
             </a>

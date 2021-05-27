@@ -9,4 +9,9 @@ class Produtos extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function avaliacoes()
+    {
+        return $this->hasMany('App\Models\Avaliacao');
+    }
 }

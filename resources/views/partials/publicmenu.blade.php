@@ -104,7 +104,7 @@
 
         <!-- Logo -->
         <a class="navbar-brand" href="/">
-            <img src="storage/images/logo.png" alt="logo" style="width: 50%;">
+            <img src="/storage/images/logo.png" alt="logo" style="width: 50%;">
 
         </a>
 
@@ -151,7 +151,7 @@
                 <a class="active" href="/">Início</a>
             </div>
             <div class="col border border-3 py-2">
-                <a href="products">Produtos</a>
+                <a href="/products">Produtos</a>
             </div>
             <div class="col border border-3 py-2">
                 <a href="#about">Sobre Nós</a>
