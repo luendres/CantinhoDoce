@@ -94,6 +94,10 @@ Route::get('admin/mensagens', function () {
 
 
 Route::get('admin/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
+Route::get('admin/avaliacoes', function () {
+    $avaliacoes = DB::select('select * from avaliacoes');
+    return view('admin.avaliacoes', ['avaliacoes' => $avaliacoes]);
+});
 
 Route::get('admin/definicoes', [HomeController::class, 'definicoes'])->name('definicoes')->middleware('is_admin');
 

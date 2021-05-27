@@ -226,7 +226,7 @@
                 Avaliações
 
             </a></li>
-        <li class="active"><a href="/admin/avaliacoes">
+        <li class="active"><a href="/admin/mensagens">
                 Mensagens de Contato
                 <i class="fas fa-chevron-right mt-1"></i></a></li>
 
@@ -253,7 +253,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><i style="color:#999695"class="fas fa-search mt-1 ml-1"></i></div>
+                                <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
                             </div>
                         </div>
                         <div class="filter-right">

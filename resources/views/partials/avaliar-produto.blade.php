@@ -64,30 +64,27 @@
                  </button>
              </div>
              <div class="modal-body">
-                 <div class="adicionarAvaliacao">
-                     <form action="" method="post" action="{{ route('avaliacao.store') }}">
-                         <!-- CROSS Site Request Forgery Protection -->
-                         @csrf
-                         <p class="ml-3 mb-3" style="font-size:15px;">
-                             <span><i class="fas fa-user"></i></span>
-                             <input type="text" name="nome" class="form-control px-3" id="nome" required="required" placeholder="Nome">
-                         </p>
-                         <div class="mb-3 mt-4 ml-3 mr-3" style="font-size:20px;">
-                             <textarea class="form-control shadow-none" name="avaliacao" id="avaliacao" rows="7" required style="resize:none; width: 100%;" placeholder="Introduza a sua mensagem!"></textarea>
-                         </div>
-                         <div class="form-check ml-3 " style="font-size:15px; color: black;">
-                             <input class="form-check-input shadow-none" type="checkbox" name="chkRgpd" id="chk-rgbd" required>
-                             <label class="form-check-label" for="chk-rgbd">Aceito fornecer os meus dados.</label>
-                         </div>
-                     </form>
 
+                 <p class="ml-3 mb-3" style="font-size:15px;">
+                     <span><i class="fas fa-user"></i></span>
+                     <input type="text" name="nome" class="form-control px-3" id="nome" required="required" placeholder="Nome">
+                 </p>
+                 <div class="mb-3 mt-4 ml-3 mr-3" style="font-size:20px;">
+                     <textarea class="form-control shadow-none" name="avaliacao" id="avaliacao" rows="7" required style="resize:none; width: 100%;" placeholder="Introduza a sua mensagem!"></textarea>
                  </div>
-
-                 <div class="modal-footer">
-                     <button type="button" class="btn fecharModal" data-dismiss="modal">Fechar</button>
-                     <button type="button" name="Enviar" value="Enviar" class="btn queroComent">Submeter avaliação</button>
-
-
+                 <div class="form-check ml-3 " style="font-size:15px; color: black;">
+                     <input class="form-check-input shadow-none" type="checkbox" name="chkRgpd" id="chk-rgbd" required>
+                     <label class="form-check-label" for="chk-rgbd">Aceito fornecer os meus dados.</label>
                  </div>
+                 </form>
+
+             </div>
+
+             <div class="modal-footer">
+                 <button type="button" class="btn fecharModal" data-dismiss="modal">Fechar</button>
+                 <button type="button" name="Enviar" value="Enviar" class="btn queroComent">Submeter avaliação</button>
+
+
              </div>
          </div>
+     </div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Avaliacao extends Model
 {
+    public $table = "avaliacoes";
     use HasFactory;
     protected $guarded = [];
 
