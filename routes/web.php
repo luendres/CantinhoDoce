@@ -24,7 +24,7 @@ Route::get('/', function () {
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
-Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/encomendasUser');
+Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
 
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');

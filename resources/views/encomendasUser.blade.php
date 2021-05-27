@@ -255,14 +255,14 @@
         <div class="col col-md-2" style="border-right: 3px dotted;">
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center">
-                    <i class="far fa-user" style="font-size:40px; color:#AC3333;"></i>
-                    <h5 class="mt-2" style="font-size:20px;color:#AC3333;">Perfil</h5>
+                    <i class="far fa-user" style="font-size:40px;"></i>
+                    <h5 class="mt-2" style="font-size:20px;;">Perfil</h5>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center ">
-                    <i class="fas fa-box-open" style="font-size:40px; "></i>
-                    <h5 class="mt-2" style="font-size:20px;">Encomendas</h5>
+                    <i class="fas fa-box-open" style="font-size:40px;color:#AC3333; "></i>
+                    <h5 class="mt-2" style="font-size:20px;color:#AC3333;">Encomendas</h5>
                 </div>
             </div>
             <div class="row">
@@ -314,18 +314,8 @@
                         <!---->
                         <thead>
                             <tr style="height: 65px;">
-                                <th class="grid_head">
-                                    ID
-                                </th>
-                                <th class="grid_head">
-                                    ID Cliente
-                                </th>
-                                <th class="grid_head">
-                                    Nome do Cliente
-                                </th>
-                                <th class="grid_head">
-                                    Sub Total
-                                </th>
+                             
+                            
                                 <th class="grid_head">
                                     Taxa de Entrega
                                 </th>
