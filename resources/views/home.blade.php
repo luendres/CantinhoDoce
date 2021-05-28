@@ -126,7 +126,7 @@
                                             <div class="carousel-item @if ($loop->first) active @endif">
                                                 <div class="row">
 
-                                                    @foreach($three as $produto)
+                                                    @foreach($produto as $produto)
                                                     <!--Primeiro cartão-->
                                                     <div class="col-md-4 mb-3">
                                                         <div class="card h-100">
