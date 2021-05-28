@@ -53,6 +53,14 @@ Route::get('/products', function () {
 
 Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@productview')->name('productview');
 
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
+Route::get('/shopping-cart/{id}',[
+    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
+    'as' => 'product.shoppingCart'
+]);
 
 /* Admin Routes */
 
