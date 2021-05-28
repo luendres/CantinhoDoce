@@ -117,7 +117,7 @@
                             <div class="row">
 
                                 <!--Carousel-->
-                                <div class="col-12">
+                                {{--  <div class="col-12">
                                     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
                                         <!--Primeiro slide-->
@@ -146,7 +146,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> --}}
                                 <!--Botões left right-->
                                 <div class="col-7 text-right">
                                     <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" href="#carouselIndicator" role="button" data-slide-to="prev">
