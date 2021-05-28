@@ -60,7 +60,7 @@ CREATE TABLE `contactos` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mensagem` text COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
-INSERT INTO `contactos` VALUES (1,'2021-05-26 22:55:09','2021-05-26 22:55:09','Teste','luendres@gmail.com','oioioioi'),(2,'2021-05-26 23:02:27','2021-05-26 23:02:27','Luísa Endres','luendres@gmail.com','Olá! Este é um teste.');
+INSERT INTO `contactos` VALUES (1,'2021-05-26 22:55:09','2021-05-26 22:55:09','Teste','luendres@gmail.com','oioioioi'),(2,'2021-05-26 23:02:27','2021-05-26 23:02:27','Luísa Endres','luendres@gmail.com','Olá! Este é um teste.'),(3,'2021-05-28 17:48:42','2021-05-28 17:48:42','ana','ana@teste.com','Olá, este é outro teste.');
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +170,7 @@ CREATE TABLE `pedidos` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `pedidos_user_id_index` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +179,7 @@ CREATE TABLE `pedidos` (
 
 LOCK TABLES `pedidos` WRITE;
 /*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
-INSERT INTO `pedidos` VALUES (1,3,'Luísa Endres',8,3,'Em processamento',11,NULL,NULL);
+INSERT INTO `pedidos` VALUES (1,3,'Luísa Endres',8,3,'Em processamento',11,'2021-05-18 15:51:24',NULL),(2,4,'Teste',13,2,'Concluido',15,'2021-05-19 09:34:12',NULL),(3,6,'ultimo',15,0,'Concluido',15,'2021-05-19 13:32:43',NULL),(4,3,'Luísa Endres',9,3,'Concluido',12,'2021-05-20 11:31:34',NULL);
 /*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,7 +225,7 @@ CREATE TABLE `produtos` (
   `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sub_categoria` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `preco` decimal (3,2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `preco` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `estado` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-27 21:12:07
+-- Dump completed on 2021-05-28 20:30:38

@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProdutosTableSeeder::class);
         Artisan::call("storage:link");
         $this->call(AvaliacoesTableSeeder::class);
+        $this->call(PedidosTableSeeder::class);
     }
 }
