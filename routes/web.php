@@ -19,12 +19,13 @@ use App\Models\Avaliacao;
 
 
 Route::get('/', function () {
-    $produtos = Produto::where('estado', 1)->get();
+    $produtos = Produtos::where('estado', 1)->get();
     return view('home', compact('produtos'));
 });
 
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
+
 
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
