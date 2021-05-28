@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avaliacao;
 use Illuminate\Http\Request;
 
 class AvaliacoesController extends Controller
@@ -23,7 +24,7 @@ class AvaliacoesController extends Controller
      */
     public function create()
     {
-        //
+        return view('/productview');
     }
 
     /**
@@ -34,8 +35,17 @@ class AvaliacoesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $nova_avaliacao = new Avaliacao;
+        $nova_avaliacao->nome = $request->nome;
+        $nova_avaliacao->produto_id = Produto::produto()->id;
+        $nova_avaliacao->avaliacao = $request->avaliacao;
+        $nova_avaliacao->save();
+
+
+        return back()->with('success', 'avaliacao criado com sucesso!');
     }
+
 
     /**
      * Display the specified resource.

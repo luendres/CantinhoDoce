@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\AvaliacoesController;
+use App\Models\Avaliacao;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +54,23 @@ Route::get('/products', function () {
 });
 
 Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@productview')->name('productview');
+Route::post('/productview/{id}', 'App\Http\Controllers\AvaliacoesController@store');
+
+Route::post('/productview/{id}', array('before' => 'csrf', function ($id) {
+    $input = array(
+        'nome' => Input::get('nome'),
+        'avaliacao' => Input::get('avaliacao'),
+        'nota'  => Input::get('nota')
+    );
+    // instantiate Rating model
+    $nova_avaliacao = new Avaliacao;
+
+
+    $nova_avaliacao->storeReviewForProduct($id, $input['nome'], $input['avaliacao'], $input['nota']);
+    return Redirect::to('productview/' . $id . '#reviews-anchor')->with('review_posted', true);
+}));
+
+
 
 Route::get('/add-to-cart/{id}',[
     'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
@@ -68,6 +87,7 @@ Auth::routes();
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('admin/paineldecontrolo', [HomeController::class, 'painelControlo'])->name('painel.controlo')->middleware('is_admin');
+
 
 Route::get('admin/vendas', [HomeController::class, 'vendas'])->name('vendas')->middleware('is_admin');
 Route::get('admin/vendas', function () {

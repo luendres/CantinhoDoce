@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produtos;
 use App\Models\User;
+use App\Models\Pedidos;
 use App\Http\Controllers\Auth;
 
 class HomeController extends Controller
@@ -41,7 +42,16 @@ class HomeController extends Controller
 
     public function painelControlo()
     {
-        return view('admin.paineldecontrolo');
+
+        $userCount = User::where('is_admin', '=', null)->count();
+        $pedidosCount = Pedidos::count();
+        $pedidosSum = Pedidos::sum('subtotal');
+        $mediaVendas = Pedidos::avg('subtotal');
+        $media = round($mediaVendas, 2);
+
+
+
+        return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media'));
     }
 
 
@@ -103,10 +113,10 @@ class HomeController extends Controller
         return view('/user', compact('user'));
     }
 
-   public function encomendasUser()
-   {
-    return view('/encomendasUser');
-   }
+    public function encomendasUser()
+    {
+        return view('/encomendasUser');
+    }
 
 
     public function userCart()
