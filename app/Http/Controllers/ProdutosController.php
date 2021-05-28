@@ -142,11 +142,11 @@ class ProdutosController extends Controller
 
     public function productview($id)
     {
-        $produto = Produtos::where('id', $id)->where('estado', '>', 0)->first();
+        $produto = Produtos::where('id', $id)->where('estado',1)->first();
 
         $similares = Produtos::where('sub_categoria', $produto->sub_categoria)->where('id', '!=', $id)->get();
 
-        $avaliacoes = Avaliacao::where('produto_id', $produto->id)->where('estado', '>', 0)->get();
+        $avaliacoes = Avaliacao::where('produto_id', $produto->id)->where('estado', 1)->get();
 
         return view('/productview')->with(compact('produto', 'similares', 'avaliacoes'));
     }
