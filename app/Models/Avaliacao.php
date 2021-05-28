@@ -26,4 +26,14 @@ class Avaliacao extends Model
     {
         return $this->belongsTo('App\Models\Produtos');
     }
+
+    public function storeReviewForProduct($id, $nome, $avaliacao, $nota)
+    {
+        $produto = Produtos::find($id);
+
+        $this->nome = $nome;
+        $this->avaliacao = $avaliacao;
+        $this->nota = $nota;
+        $produto->avaliacoes()->save($this);
+    }
 }

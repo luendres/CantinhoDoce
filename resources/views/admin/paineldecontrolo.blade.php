@@ -197,7 +197,7 @@
                     Total de Clientes
                 </div>
                 <div class="data">
-                    0
+                    {{ $userCount }}
                     <div class="progress"><i class="fas fa-long-arrow-alt-up fa-lg mr-2"></i>
                         0.0%
                     </div>
@@ -208,7 +208,7 @@
                     Total de Pedidos
                 </div>
                 <div class="data">
-                    0
+                    {{ $pedidosCount }}
 
                     <span class="progress"><i class="fas fa-long-arrow-alt-up fa-lg mr-2"></i>
                         100%
@@ -217,10 +217,10 @@
             </div>
             <div class="dashboard-card">
                 <div class="title">
-                    Total de Vendas
+                    Total de Vendas Sem Portes
                 </div>
                 <div class="data">
-                    0.00€
+                    {{ $pedidosSum }} €
 
                     <span class="progress"><i class="fas fa-long-arrow-alt-up fa-lg mr-2"></i>
                         100%
@@ -232,7 +232,7 @@
                     Média de venda por pedido
                 </div>
                 <div class="data">
-                    0.00€
+                    {{ $media }} €
 
                     <span class="progress"><i class="fas fa-long-arrow-alt-up fa-lg mr-2"></i>
                         100%
