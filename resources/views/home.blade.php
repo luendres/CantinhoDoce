@@ -122,7 +122,7 @@
 
                                         <!--Primeiro slide-->
                                         <div class="carousel-inner">
-                                            @foreach($produtos->chunk(3) as $three)
+                                            @foreach($produtos->chunk(3) as $produto)
                                             <div class="carousel-item @if ($loop->first) active @endif">
                                                 <div class="row">
 
