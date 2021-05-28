@@ -22,10 +22,9 @@ Route::get('/', function () {
     $produtos = App\Models\Produtos::where('estado', 1)->get(); 
     return view('home', compact('produtos'));
 });
-route::get('artisan', function(){
-    Artisan::call("storage:link");
 
-});
+   
+
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
@@ -128,14 +127,14 @@ Route::get('admin/utilizadores', function () {
 
 Route::get('admin/mensagens', [HomeController::class, 'mensagens'])->name('mensagens')->middleware('is_admin');
 Route::get('admin/mensagens', function () {
-    $mensagens = DB::select('select * from contactos');
+    $mensagens = App\Models\Contacto::all();
     return view('admin.mensagens', ['mensagens' => $mensagens]);
 });
 
 
 Route::get('admin/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
 Route::get('admin/avaliacoes', function () {
-    $avaliacoes = DB::select('select * from avaliacoes');
+    $avaliacoes = App\Models\Avaliacao::all();
     return view('admin.avaliacoes', ['avaliacoes' => $avaliacoes]);
 });
 

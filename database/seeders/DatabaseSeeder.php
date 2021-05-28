@@ -15,19 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {   
-        User::create([
-            'nome' => 'Nome do admin',
-            'email' => 'admin2@cantinhodoce.com',
-            'password' => Hash::make('12345678'),
-            'is_admin' => 1,
-            'email_verified_at' => now()->toDateString()
-        ]);
-
+        
         // \App\Models\User::factory(10)->create();
         $this->call(UsersTableSeeder::class);
         $this->call(ProdutosTableSeeder::class);
-        $this->call(ContactosTableSeeder::class);
-        $this->call(PedidosTableSeeder::class);
-        $this->call(AvaliacoesTableSeeder::class);
+        Artisan::call("storage:link");
     }
 }
