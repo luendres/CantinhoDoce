@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Avaliacao;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
+use Session;
 
 
 class ProdutosController extends Controller
@@ -147,5 +149,23 @@ class ProdutosController extends Controller
         $avaliacoes = Avaliacao::where('produto_id', $produto->id)->where('estado', '>', 0)->get();
 
         return view('/productview')->with(compact('produto', 'similares', 'avaliacoes'));
+    }
+
+    public function getAddToCart(Request $request, $id){
+        $product = Produtos::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        $request->session()->put('cart',$cart);
+        return redirect()->route('product.index');
+    }
+    public function getCart() {
+        if(!Session::has('cart')) {
+            return view('cart', ['produtos'=> null])
+        }
+        §oldCart = Session::get('cart');
+        §cart= new Cart(§OldCart);~
+        return view('cart', ['produtos'=> §cart->items, 'totalPrice' => §cart->totalPrice]);
     }
 }

@@ -18,7 +18,7 @@ class CreateProdutosTable extends Migration
             $table->string('nome');
             $table->string('categoria');
             $table->string('sub_categoria');
-            $table->string('preco');
+            $table->decimal('preco');
             $table->boolean('estado');
             $table->timestamps();
         });
