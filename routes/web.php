@@ -25,7 +25,7 @@ Route::get('/', function () {
 route::get('artisan', function(){
     Artisan::call("storage:link");
 
-})
+});
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
