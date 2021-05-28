@@ -17,9 +17,8 @@ use App\Models\Avaliacao;
 |
 */
 
-
 Route::get('/', function () {
-    $produtos = Produtos::where('estado', 1)->get();
+    $produtos = App\Models\Produtos::where('estado', 1)->get();
     return view('home', compact('produtos'));
 });
 
