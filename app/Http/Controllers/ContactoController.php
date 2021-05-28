@@ -24,6 +24,7 @@ class ContactoController extends Controller
         ]);
 
         //  Store data in database
+        dd($request->all());
         Contacto::create($request->all());
 
         // 

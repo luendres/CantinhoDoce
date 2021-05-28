@@ -8,6 +8,7 @@ use App\Models\Avaliacao;
 use App\Models\Pedidos;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,16 +20,16 @@ use ArielMejiaDev\LarapexCharts\LarapexChart;
 |
 */
 
-
-
-
 Route::get('/', function () {
-    $produtos = DB::table('produtos')->where('estado', '>', 0)->get();
+    $produtos = App\Models\Produtos::where('estado', 1)->get();
     return view('home', compact('produtos'));
 });
 
 
+
+
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
+
 
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
@@ -46,13 +47,20 @@ Route::get('/verTodos', function () {
 });
 
 Route::get('/products', function () {
-    $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
+    // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
 
-    $produtos_doces = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'doces')->get();
+    $produtos_padaria = DB::table('produtos')->where('estado', 1)->where('categoria', 'Padaria')->get();
 
-    $produtos_salgados = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'salgados')->get();
+    // $produtos_doces = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'doces')->get();
+    $produtos_doces = DB::table('produtos')->where('estado', 1)->where('categoria', 'Doces')->get();
 
-    $produtos_peso = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'produtos ao peso')->get();
+    // $produtos_salgados = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'salgados')->get();
+    $produtos_salgados = DB::table('produtos')->where('estado', 1)->where('categoria', 'Salgados')->get();
+
+
+    //$produtos_peso = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'produtos ao peso')->get();
+    $produtos_peso = DB::table('produtos')->where('estado', 1)->where('categoria', 'Produtos ao Peso')->get();
+
 
     return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
 });
@@ -77,6 +85,14 @@ Route::post('/productview/{id}', array('before' => 'csrf', function ($id) {
 
 
 
+Route::get('/add-to-cart/{id}', [
+    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
+Route::get('/shopping-cart/{id}', [
+    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
+    'as' => 'product.shoppingCart'
+]);
 
 /* Admin Routes */
 
@@ -108,20 +124,21 @@ Route::get('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@dest
 
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
 Route::get('admin/utilizadores', function () {
-    $utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
+    //$utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
+    $utilizadores = App\Models\User::where('is_admin', null)->orWhere('is_admin', 0)->get();
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
 
 Route::get('admin/mensagens', [HomeController::class, 'mensagens'])->name('mensagens')->middleware('is_admin');
 Route::get('admin/mensagens', function () {
-    $mensagens = DB::select('select * from contactos');
+    $mensagens = App\Models\Contacto::all();
     return view('admin.mensagens', ['mensagens' => $mensagens]);
 });
 
 
 Route::get('admin/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
 Route::get('admin/avaliacoes', function () {
-    $avaliacoes = DB::select('select * from avaliacoes');
+    $avaliacoes = App\Models\Avaliacao::all();
     return view('admin.avaliacoes', ['avaliacoes' => $avaliacoes]);
 });
 

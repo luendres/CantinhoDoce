@@ -125,7 +125,10 @@
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
                 <a href="{{ url('/user') }}"><i class="far fa-user fa-2x mx-3" style="color: #AC3333;"></i></a>
-                <a href="{{ url('/cart') }}"><i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;"></i></a>
+                <a href="{{ url('/cart') }}">
+                <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;"></i>
+                <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+                </a>
                 <button class="btn btn-outline-light" style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();"> Logout</button>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -154,10 +157,10 @@
                 <a href="/products">Produtos</a>
             </div>
             <div class="col border border-3 py-2">
-                <a href="#about">Sobre Nós</a>
+                <a href="/about">Sobre Nós</a>
             </div>
             <div class="col border border-3 py-2">
-                <a href="contactos">Contacto</a>
+                <a href="/contactos">Contacto</a>
             </div>
 
 

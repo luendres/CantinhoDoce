@@ -117,16 +117,16 @@
                             <div class="row">
 
                                 <!--Carousel-->
-                                <div class="col-12">
+                                 <div class="col-12">
                                     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
                                         <!--Primeiro slide-->
                                         <div class="carousel-inner">
-                                            @foreach($produtos->chunk(3) as $three)
+                                            @foreach($produtos->chunk(3) as $produto)
                                             <div class="carousel-item @if ($loop->first) active @endif">
                                                 <div class="row">
 
-                                                    @foreach($three as $produto)
+                                                    @foreach($produto as $produto)
                                                     <!--Primeiro cartão-->
                                                     <div class="col-md-4 mb-3">
                                                         <div class="card h-100">
@@ -146,7 +146,7 @@
                                         </div>
 
                                     </div>
-                                </div>
+                                </div> 
                                 <!--Botões left right-->
                                 <div class="col-7 text-right">
                                     <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" href="#carouselIndicator" role="button" data-slide-to="prev">
