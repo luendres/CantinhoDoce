@@ -241,37 +241,28 @@
             </div>
         </div>
         <div class="graph-stats">
-            <div class="left-card-container graph">
-                <div class="card" style="overflow: hidden;">
-                    <div class="card-title" style="margin-bottom: 30px;">
-                        Vendas
+            <div class="card-container graph" style="overflow: hidden;">
+
+                <div class="container px-4 mx-auto">
+
+                    <div class="p-6 py-3 px-3 mb-3 m-20 bg-white rounded shadow">
+                        {!! $chart->container() !!}
                     </div>
-                    <div class="card-info" style="height: 100%;">
-                        <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
-                            <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
-                            </div>
-                            <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
-                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
-                            </div>
-                        </div><canvas id="myChart" width="1258" style="width: 100%; height: 87%; display: block;" height="460" class="chartjs-render-monitor"></canvas>
-                    </div>
+
                 </div>
+
+                <script src="{{ LarapexChart::cdn() }}"></script>
+                {{ $chart->script() }}
+
             </div>
-            <div class="right-card-container category">
-                <div class="card">
-                    <div class="card-title">
-                        Produtos mais vendidos
-                    </div>
-                    <div class="card-info center">
-                        <ul></ul>
-                        <div class="no-result-found"><i class="icon no-result-icon"></i>
-                            <p>Não encontramos nenhum registo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
     </div>
+
+
 </div>
+
+
+
 @endsection

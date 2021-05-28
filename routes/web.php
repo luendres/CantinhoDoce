@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\AvaliacoesController;
 use App\Models\Avaliacao;
+use App\Models\Pedidos;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,8 @@ use App\Models\Avaliacao;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 
 
 Route::get('/', function () {
@@ -53,6 +57,7 @@ Route::get('/products', function () {
     return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
 });
 
+
 Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@productview')->name('productview');
 Route::post('/productview/{id}', 'App\Http\Controllers\AvaliacoesController@store');
 
@@ -79,6 +84,7 @@ Auth::routes();
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('admin/paineldecontrolo', [HomeController::class, 'painelControlo'])->name('painel.controlo')->middleware('is_admin');
+
 
 
 Route::get('admin/vendas', [HomeController::class, 'vendas'])->name('vendas')->middleware('is_admin');

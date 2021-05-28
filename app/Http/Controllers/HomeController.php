@@ -7,6 +7,7 @@ use App\Models\Produtos;
 use App\Models\User;
 use App\Models\Pedidos;
 use App\Http\Controllers\Auth;
+use ArielMejiaDev\LarapexCharts\LarapexChart;
 
 class HomeController extends Controller
 {
@@ -48,10 +49,16 @@ class HomeController extends Controller
         $pedidosSum = Pedidos::sum('subtotal');
         $mediaVendas = Pedidos::avg('subtotal');
         $media = round($mediaVendas, 2);
+        $chart = (new LarapexChart)->areaChart()
+            ->setTitle('Vendas')
+            ->setSubtitle('Período Total')
+            ->addArea('Vendas em Euros', \App\Models\Pedidos::query()->pluck('subtotal')->toArray())
+            ->setColors(['#ff6384'])
+            ->setXAxis(\App\Models\Pedidos::query()->pluck('created_at')->toArray())
+            ->setGrid();
 
 
-
-        return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media'));
+        return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media', 'chart'));
     }
 
 

@@ -15,6 +15,9 @@
 
     <!-- CSS -->
     <script src="https://kit.fontawesome.com/c1a2cc467f.js" crossorigin="anonymous"></script>
+    <!-- Charting library -->
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+
 
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
