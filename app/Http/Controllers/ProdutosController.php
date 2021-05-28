@@ -160,12 +160,5 @@ class ProdutosController extends Controller
         $request->session()->put('cart',$cart);
         return redirect()->route('product.index');
     }
-    public function getCart() {
-        if(!Session::has('cart')) {
-            return view('cart', ['produtos'=> null])
-        }
-        §oldCart = Session::get('cart');
-        §cart= new Cart(§OldCart);~
-        return view('cart', ['produtos'=> §cart->items, 'totalPrice' => §cart->totalPrice]);
-    }
+    
 }
