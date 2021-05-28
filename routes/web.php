@@ -48,17 +48,17 @@ Route::get('/verTodos', function () {
 Route::get('/products', function () {
    // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
 
-    $produtos_padaria = DB::table('produtos')->where('estado', 1)->where('categoria', 'padaria')->get();
+    $produtos_padaria = DB::table('produtos')->where('estado', 1)->where('categoria', 'Padaria')->get();
 
    // $produtos_doces = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'doces')->get();
-    $produtos_doces = DB::table('produtos')->where('estado', 1)->where('categoria', 'doces')->get();
+    $produtos_doces = DB::table('produtos')->where('estado', 1)->where('categoria', 'Doces')->get();
 
    // $produtos_salgados = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'salgados')->get();
-    $produtos_salgados = DB::table('produtos')->where('estado', 1)->where('categoria', 'salgados')->get();
+    $produtos_salgados = DB::table('produtos')->where('estado', 1)->where('categoria', 'Salgados')->get();
 
 
     //$produtos_peso = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'produtos ao peso')->get();
-    $produtos_peso = DB::table('produtos')->where('estado', 1)->where('categoria','produtos ao peso')->get();
+    $produtos_peso = DB::table('produtos')->where('estado', 1)->where('categoria','Produtos ao Peso')->get();
 
 
     return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
