@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\AvaliacoesController;
 use App\Models\Avaliacao;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +22,10 @@ Route::get('/', function () {
     $produtos = App\Models\Produtos::where('estado', 1)->get(); 
     return view('home', compact('produtos'));
 });
+route::get('artisan', function(){
+    Artisan::call("storage:link");
 
+})
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
