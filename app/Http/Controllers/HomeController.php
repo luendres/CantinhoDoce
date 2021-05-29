@@ -129,5 +129,10 @@ class HomeController extends Controller
         return view('cart'); 
     }
 
+    public function verTodos($ca)
+    {
+        return view('/verTodos');
+    }
+
     
 }
