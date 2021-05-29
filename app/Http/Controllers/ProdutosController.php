@@ -151,6 +151,12 @@ class ProdutosController extends Controller
         return view('/productview')->with(compact('produto', 'similares', 'avaliacoes'));
     }
 
+    public function verTodos($categoria)
+    {
+        $produto = Produtos::where('estado',1)->where('categoria', $categoria)->get();
+        return view('/verTodos')->with(compact('produto'));
+    }
+
 
 
  

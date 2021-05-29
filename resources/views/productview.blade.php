@@ -255,14 +255,7 @@
             <!--TIPO DE PRODUTO E BOTÃO DE ADICIONAR AO CARRINHO-->
             <div class="row mt-3 mr-5">
                 <div class="col-md-6">
-                    <div class="dropdown mt-5">
-                        <button class="btn dropdown-toggle verMaisCateg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Detalhes</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Tipo 1</a>
-                            <a class="dropdown-item" href="#">Tipo 2</a>
-                            <a class="dropdown-item" href="#">Tipo 3</a>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <form action="{{ route('cart.store') }}" method="POST"> 

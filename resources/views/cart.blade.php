@@ -310,7 +310,7 @@
                         <div class="row mt-3">
                             <div class="col-md-12" style="text-transform: uppercase;"><p>{{$item->model->nome}}</p></div>
                             <div class="col-md-12"><p>{{$item->model->preco}} <span>€</span></p></div>
-                            <div class="col-md-12"><p>{{$item->quantity}} unidades></p></div>
+                            <div class="col-md-12"><p>{{$item->qty}} unidades</p></div>
 
                         </div>
                     </div>
@@ -337,6 +337,7 @@
                     <div class="col-md-6"><p>SUBTOTAL</p></div>
                     <div class="col-md-6"><p> {{Cart::subtotal()}} <span>€</span></p></div>
                 </div>
+
                 <div class="row mb-5">
                     <div class="col-md-6"><p>TAXA DE ENTREGA</p></div>
                     <div class="col-md-6"><p> {{Cart::tax ()}}  <span>€</span></p></div>
@@ -407,7 +408,7 @@
 
     @else
 
-        <h3>Não tem artigos no carrinho!</h3>
+        <h3 class="text-center mt-5" style="color:#AC3333;">Não tem artigos no carrinho <i class="fas fa-sad-tear"></i></h3>
 
     @endif
 

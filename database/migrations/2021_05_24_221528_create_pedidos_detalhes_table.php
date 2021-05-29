@@ -16,11 +16,11 @@ class CreatePedidosDetalhesTable extends Migration
         Schema::create('pedidos_detalhes', function (Blueprint $table) {
             $table->id();
             $table->integer('pedido_id');
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->integer('produto_id');
+            $table->foreign('produto_id')->references('id')->on('produto')->onDelete('cascade');
             $table->string('nome', 100);
-            $table->integer('preco')->default(0);
             $table->integer('quantidade')->default(0);
-            $table->integer('preco_total')->default(0);
             $table->timestamps();
         });
     }

@@ -112,7 +112,7 @@
 
                         <!-- Botão de Ver Todos-->
                         <div class="col-md-3 mb-3">
-                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                            <a href="{{ URL::to('/verTodos/Padaria') }}" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></a>
                         </div>
 
                     </div>
@@ -159,7 +159,7 @@
 
                         <!-- Botão de Ver Todos-->
                         <div class="col-md-3 mb-3">
-                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                            <a href="{{ URL::to('/verTodos/Doces') }}" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></a>
                         </div>
 
                     </div>
@@ -208,7 +208,7 @@
 
                         <!-- Botão de Ver Todos-->
                         <div class="col-md-3 mb-3">
-                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                            <a href="{{ URL::to('/verTodos/Salgados') }}" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></a>
                         </div>
 
                     </div>
@@ -257,7 +257,7 @@
 
                         <!-- Botão de Ver Todos-->
                         <div class="col-md-3 mb-3">
-                            <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                            <a href="{{ URL::to('/verTodos/Produtos%20ao%20Peso') }}" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></a>
                         </div>
 
                     </div>

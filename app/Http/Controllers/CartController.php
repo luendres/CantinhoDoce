@@ -37,7 +37,7 @@ class CartController extends Controller
     public function store(Request $request){
 
         
-        $produto = Produtos::findorFail($request->id); 
+        $produto = Produtos::findorFail($request->id);
         \Cart::add($produto->id, $produto->nome, 1, $produto->preco,0)  
         ->associate('App\Models\Produtos');
         return redirect()->route('cart.index')->with('success_message', 'O item foi adicionado ao Carrinho com sucesso');
@@ -75,7 +75,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return $request->all();
     }
 
     /**

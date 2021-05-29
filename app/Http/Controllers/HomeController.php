@@ -129,7 +129,7 @@ class HomeController extends Controller
         return view('cart'); 
     }
 
-    public function verTodos($ca)
+    public function verTodos()
     {
         return view('/verTodos');
     }
