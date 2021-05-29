@@ -265,9 +265,10 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ route('product.addToCart', ['id' => $produto->id]) }}" class="btn verMaisCateg mt-5 mb-3" role="button">Adicionar ao carrinho 
-                    <i class="fas fa-shopping-cart"></i>
-                    </a>
+                    <form action="{{ route('cart.store') }}" method="POST"> 
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn verMaisCateg mt-5 mb-3">Adicionar ao carrinho <i class="fas fa-shopping-cart"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -278,17 +278,19 @@
             <div class="col-md-7" >
                 <h5 class="p-3" style="color:black; border-bottom: 3px solid #E0E0E0; font-weight: bold;">Carrinho de Compras</h5>
 
+
                 <div class="row mt-5 p-3">
                     <div class="col-md-4">IMAGEM</div>
                     <div class="col-md-3">
                         <div class="row">
-                            <div class="col-md-12" style="text-transform: uppercase;"><p>Descricao</p></div>
+                            <div class="col-md-12" style="text-transform: uppercase;"><p></p></div>
                             <div class="col-md-12"><p>Tipo</p></div>
                             <div class="col-md-12"><p>Preço <span>€</span></p></div>
                         </div>
                     </div>
                     <div class="col-md-5"><input  type="number" min="0"> unidades</input></div>
                 </div>
+
 
                 
 
