@@ -82,18 +82,6 @@ Route::post('/productview/{id}', array('before' => 'csrf', function ($id) {
     $nova_avaliacao->storeReviewForProduct($id, $input['nome'], $input['avaliacao'], $input['nota']);
     return Redirect::to('productview/' . $id . '#reviews-anchor')->with('review_posted', true);
 }));
-
-
-
-Route::get('/add-to-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
-    'as' => 'product.addToCart'
-]);
-Route::get('/shopping-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
-    'as' => 'product.shoppingCart'
-]);
-
 /* Admin Routes */
 
 Auth::routes();
