@@ -211,6 +211,42 @@
         border-radius: 3px;
         cursor: pointer;
     }
+
+    .search-container {
+        margin: 0 auto;
+    }
+
+    .search-container input[type=text] {
+        padding: 7px;
+        margin-top: 8px;
+        font-size: 15px;
+        border: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        outline: none;
+        width: 200px;
+    }
+
+    .search-container button {
+        float: right;
+        padding: 11px 8px;
+        margin-top: 8px;
+        margin-right: 16px;
+        background-color: #AC3333;
+        color: white;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline: none;
+    }
+
+    .search-container button:hover {
+        background: white;
+        color: #AC3333;
+
+    }
 </style>
 
 @section('content')
@@ -252,8 +288,11 @@
                     </div>
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
-                            <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
+                            <div class="search-container">
+                                <form action=" {{ route('pesquisa-contacto') }}" method="get" class="search-form">
+                                    <input type="text" placeholder="Procure aqui..." name="query" id="query" value="{{ request()->input('query') }}">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
                             </div>
                         </div>
                         <div class="filter-right">

@@ -15,6 +15,11 @@ class CreateAvaliacoesTable extends Migration
     {
         Schema::create('avaliacoes', function (Blueprint $table) {
             $table->id();
+            $table->string('nome');
+            $table->integer('produto_id');
+            $table->integer('nota');
+            $table->text('avaliacao');
+            $table->integer('estado');
             $table->timestamps();
         });
     }

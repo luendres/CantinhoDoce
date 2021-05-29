@@ -254,30 +254,34 @@
 
 <div class="aside-nav">
     <ul>
-        <li class="active"><a href="/admin/utilizadores/">
+        <li><a href="/admin/utilizadores/">
                 Clientes
+            </a></li>
 
-                <i class="fas fa-chevron-right mt-1"></i></a></li>
-        <li><a href="/admin/avaliacoes">
+        <li class="active"><a href="/admin/avaliacoes">
                 Avaliações
-
+                <i class="fas fa-chevron-right mt-1"></i>
             </a></li>
-
         <li><a href="/admin/mensagens">
-                Mensagens de Contacto
-
+                Mensagens de Contato
             </a></li>
+
+
     </ul>
 </div>
 <div class="content-wrapper">
     <div class="content">
         <div class="page-header">
             <div class="row">
-                <div class="col-8 page-title">
-                    <h2>Clientes</h2>
+                <div class="col-7 page-title">
+                    <h2> Resultados da pesquisa </h2><br>
+                    <p> {{$avaliacoes->count()}} resultado(s) para '{{ request()->input('query') }}':</p>
                 </div>
-            </div>
+                <div class="col-2 ml-4">
+                    <a href="/admin/avaliacoes" class="btn btn-danger" style=" width: 100px; color: white;">Voltar</a>
+                </div>
 
+            </div>
         </div>
         <div class="page-content">
             <div class="filtered-tags"></div>
@@ -289,7 +293,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-container">
-                                <form action=" {{ route('pesquisa-user') }}" method="get" class="search-form">
+                                <form action=" {{ route('pesquisa-avaliacao') }}" method="get" class="search-form">
                                     <input type="text" placeholder="Procure aqui..." name="query" id="query" value="{{ request()->input('query') }}">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
@@ -313,40 +317,46 @@
 
                     <table class="table-categories">
                         <!---->
+
                         <th class="grid_head">
                             ID
                         </th>
                         <th class="grid_head">
-                            Nome
+                            Nome do Utilizador
                         </th>
                         <th class="grid_head">
-                            E-mail
+                            Avaliação
                         </th>
                         <th class="grid_head">
-                            Telemóvel
+                            ID Produto
                         </th>
                         <th class="grid_head">
-                            Morada
+                            Estado
                         </th>
                         <th class="grid_head">
-                            Código-Postal
+                            Data da Avaliação
                         </th>
-                        <th class="grid_head">
-                            Cidade
+                        <th>
+                            Ações
                         </th>
                         </tr>
                         </thead>
-                        <tbody>
-                            @foreach($utilizadores as $key => $data)
-                            <tr>
-                                <td data-value="ID">{{$data->id}}</td>
-                                <td data-value="Nome">{{$data->nome}}</td>
-                                <td data-value="E-mail">{{$data->email}}</td>
-                                <td data-value="Telemóvel">{{$data->telemovel}}</td>
-                                <td data-value="Morada">{{$data->morada}}</td>
-                                <td data-value="Código Postal">{{$data->postal}}</td>
-                                <td data-value="Cidade">{{$data->cidade}}</td>
 
+
+                        <tbody>
+                            @foreach($avaliacoes as $key => $avaliacao)
+                            <tr>
+                                <td data-value="ID">{{$avaliacao->id}}</td>
+                                <td data-value="Nome do Utilizador">{{$avaliacao->nome}}</td>
+                                <td data-value="Avaliação">{{$avaliacao->avaliacao}}</td>
+                                <td data-value="ID Produto">{{$avaliacao->produto_id}}</td>
+                                <td data-value="Estado"><span class="badge badge-md badge-dark">{{$avaliacao->estado ? 'Ativo' : 'Inativo'}}</span></td>
+                                <td data-value="Data avaliação">{{$avaliacao->created_at}}</td>
+                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
+                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/avaliacoes/' . $avaliacao->id . '/editar-avaliacao') }}"><i style="color:#999695" class="fas fa-pencil-alt"></i></a>
+                                        <a data-method="POST" href="{{ route('avaliacao.destroy', $avaliacao->id) }}" title="Delete"><i style="color:#999695" class="fas fa-trash-alt"></i></a>
+                                        @csrf
+                                </td>
                             </tr>
                             @endforeach
 

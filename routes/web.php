@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\AvaliacoesController;
+use App\Http\Controllers\PesquisasController;
 use App\Models\Avaliacao;
 use App\Models\Pedidos;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -25,6 +26,12 @@ Route::get('/', function () {
     return view('home', compact('produtos'));
 });
 
+Route::get('/search', 'App\Http\Controllers\PesquisasController@search')->name('search');
+Route::get('/pesquisa-produto', 'App\Http\Controllers\PesquisasController@pesquisa_produto')->name('pesquisa-produto');
+Route::get('/pesquisa-pedido', 'App\Http\Controllers\PesquisasController@pesquisa_pedido')->name('pesquisa-pedido');
+Route::get('/pesquisa-user', 'App\Http\Controllers\PesquisasController@pesquisa_user')->name('pesquisa-user');
+Route::get('/pesquisa-avaliacao', 'App\Http\Controllers\PesquisasController@pesquisa_avaliacao')->name('pesquisa-avaliacao');
+Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesquisa_contacto')->name('pesquisa-contacto');
 
 
 
@@ -35,7 +42,6 @@ Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('
 
 
 Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
-
 
 
 Route::get('/contactos', [ContactoController::class, 'createForm']);

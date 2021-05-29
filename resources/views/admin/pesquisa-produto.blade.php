@@ -255,10 +255,14 @@
 <div class="content full-page dashboard">
     <div class="page-header">
         <div class="row">
-            <div class="col-8 page-title">
-                <h2>Produtos</h2>
+            <div class="col-7 page-title">
+                <h2> Resultados da pesquisa </h2><br>
+                <p> {{$produtos->count()}} resultado(s) para '{{ request()->input('query') }}':</p>
             </div>
-
+            <div class="col-1 ml-4">
+                <a href="/admin/catalogo" class="btn btn-danger" style="
+    width: 200px; color: white;">Voltar</a>
+            </div>
             <div class="col page-action">
                 <a href="/admin/catalogo/adicionar-produto" class="btn btn-success">Adicionar novo produto</a>
             </div>
@@ -295,26 +299,14 @@
                         </div>
                     </div>
                 </div>
-
                 @if ($message = Session::get('success'))
                 <div class="alert alert-success">
                     <p>{{ $message }}</p>
                 </div>
                 @endif
 
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 <table class="table-categories">
                     <!---->
-
-
                     <th class="grid_head ">
                         ID
                     </th>

@@ -95,6 +95,12 @@
         color: #1e1e1e;
 
     }
+
+    .alert {
+        position: relative;
+        padding: .10rem .10rem;
+        border-radius: .25rem;
+    }
 </style>
 
 <body>
@@ -107,15 +113,28 @@
             <img src="/storage/images/logo.png" alt="logo" style="width: 50%;">
 
         </a>
+        @if (Session::has('errors'))
+        <div class="alert alert-danger alert-dismissible fade show mt-2" style="size:3px;" role="alert" id="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            </p>
 
+        </div>
+        @endif
         <!-- Caixa de pesquisa -->
 
         <div class="search-container">
-            <form action="#">
-                <input type="text" placeholder="O que procura?" name="search">
+            <form action=" {{ route('search') }}" method="get" class="search-form">
+                <input type="text" placeholder="O que procura?" name="query" id="query" value="{{ request()->input('query') }}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+
+
+
 
 
 
@@ -126,8 +145,8 @@
                 @auth
                 <a href="{{ url('/user') }}"><i class="far fa-user fa-2x mx-3" style="color: #AC3333;"></i></a>
                 <a href="{{ url('/cart') }}">
-                <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;"></i>
-                <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+                    <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;"></i>
+                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
                 </a>
                 <button class="btn btn-outline-light" style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();"> Logout</button>

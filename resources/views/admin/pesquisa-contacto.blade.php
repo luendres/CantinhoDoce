@@ -254,28 +254,33 @@
 
 <div class="aside-nav">
     <ul>
-        <li class="active"><a href="/admin/utilizadores/">
+        <li><a href="/admin/utilizadores/">
                 Clientes
+            </a></li>
 
-                <i class="fas fa-chevron-right mt-1"></i></a></li>
         <li><a href="/admin/avaliacoes">
                 Avaliações
 
             </a></li>
+        <li class="active"><a href="/admin/mensagens">
+                Mensagens de Contato
+                <i class="fas fa-chevron-right mt-1"></i></a></li>
 
-        <li><a href="/admin/mensagens">
-                Mensagens de Contacto
 
-            </a></li>
     </ul>
 </div>
 <div class="content-wrapper">
     <div class="content">
         <div class="page-header">
             <div class="row">
-                <div class="col-8 page-title">
-                    <h2>Clientes</h2>
+                <div class="col-7 page-title">
+                    <h2> Resultados da pesquisa </h2><br>
+                    <p> {{$contactos->count()}} resultado(s) para '{{ request()->input('query') }}':</p>
                 </div>
+                <div class="col-2 ml-4">
+                    <a href="/admin/mensagens" class="btn btn-danger" style=" width: 100px; color: white;">Voltar</a>
+                </div>
+
             </div>
 
         </div>
@@ -289,7 +294,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-container">
-                                <form action=" {{ route('pesquisa-user') }}" method="get" class="search-form">
+                                <form action=" {{ route('pesquisa-contacto') }}" method="get" class="search-form">
                                     <input type="text" placeholder="Procure aqui..." name="query" id="query" value="{{ request()->input('query') }}">
                                     <button type="submit"><i class="fa fa-search"></i></button>
                                 </form>
@@ -323,29 +328,19 @@
                             E-mail
                         </th>
                         <th class="grid_head">
-                            Telemóvel
+                            Mensagem
                         </th>
-                        <th class="grid_head">
-                            Morada
-                        </th>
-                        <th class="grid_head">
-                            Código-Postal
-                        </th>
-                        <th class="grid_head">
-                            Cidade
-                        </th>
+
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($utilizadores as $key => $data)
+                            @foreach($contactos as $key => $mensagem)
                             <tr>
-                                <td data-value="ID">{{$data->id}}</td>
-                                <td data-value="Nome">{{$data->nome}}</td>
-                                <td data-value="E-mail">{{$data->email}}</td>
-                                <td data-value="Telemóvel">{{$data->telemovel}}</td>
-                                <td data-value="Morada">{{$data->morada}}</td>
-                                <td data-value="Código Postal">{{$data->postal}}</td>
-                                <td data-value="Cidade">{{$data->cidade}}</td>
+                                <td data-value="ID">{{$mensagem->id}}</td>
+                                <td data-value="Nome">{{$mensagem->nome}}</td>
+                                <td data-value="E-mail">{{$mensagem->email}}</td>
+                                <td data-value="Mensagem">{{$mensagem->mensagem}}</td>
+
 
                             </tr>
                             @endforeach
