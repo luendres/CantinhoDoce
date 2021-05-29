@@ -8,7 +8,8 @@ use App\Http\Controllers\PesquisasController;
 use App\Models\Avaliacao;
 use App\Models\Pedidos;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
-
+use App\Http\Controllers\CartController;
+use App\Models\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +38,9 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
-
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
-
-
-Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
+ 
+Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 
 
 Route::get('/contactos', [ContactoController::class, 'createForm']);
@@ -74,14 +73,11 @@ Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@product
 
 Route::resource('avaliacao', 'App\Http\Controllers\AvaliacoesController')->only(['store']);
 
-Route::get('/add-to-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
-    'as' => 'product.addToCart'
-]);
-Route::get('/shopping-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
-    'as' => 'product.shoppingCart'
-]);
+
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+
 
 /* Admin Routes */
 

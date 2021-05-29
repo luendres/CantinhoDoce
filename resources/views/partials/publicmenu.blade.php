@@ -63,6 +63,11 @@
         border-color: white !important;
     }
 
+    #carrinhoIcon:hover {
+        text-decoration: none !important;
+
+    }
+
     .center {
         position: absolute;
         top: 50%;
@@ -144,9 +149,13 @@
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                 @auth
                 <a href="{{ url('/user') }}"><i class="far fa-user fa-2x mx-3" style="color: #AC3333;"></i></a>
-                <a href="{{ url('/cart') }}">
-                    <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;"></i>
-                    <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span>
+                <a href="{{ url('/cart') }}" id="carrinhoIcon">
+                    <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;">
+                        @if(Cart::instance('default')->count() > 0)
+                        <span class="text-center" style="font-size:20px;">{{Cart::instance('default')->count() }}</span>
+                        @endif
+                    </i>
+
                 </a>
                 <button class="btn btn-outline-light" style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();"> Logout</button>

@@ -208,6 +208,29 @@
 <body>
 
     @include('partials.publicmenu')
+    <div>
+        <div> 
+            @if (session()->has('success_message'))
+                <div class="alert alert-success">
+                    {{session()->get('success_message') }}
+                </div>
+            @endif
+            @if (count($errors)>0)
+                <div class="alert alert-danger">
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </ul>
+                </div>
+            @endif
+
+
+        </div>
+    </div>
+
+    @if (Cart::count()>0)
+
     <div class="container-fluid">
         <div class="row m-5 p-5 " style="background-color:#E0E0E0 ">
             <div class="col-md-4 mb-3 opcoes OpcoesActive" id="opcao1" >
@@ -278,17 +301,30 @@
             <div class="col-md-7" >
                 <h5 class="p-3" style="color:black; border-bottom: 3px solid #E0E0E0; font-weight: bold;">Carrinho de Compras</h5>
 
+                @foreach(Cart::content() as $item)
                 <div class="row mt-5 p-3">
-                    <div class="col-md-4">IMAGEM</div>
-                    <div class="col-md-3">
-                        <div class="row">
-                            <div class="col-md-12" style="text-transform: uppercase;"><p>Descricao</p></div>
-                            <div class="col-md-12"><p>Tipo</p></div>
-                            <div class="col-md-12"><p>Preço <span>€</span></p></div>
+                    <div class="col-md-4 card" style="border:none;">
+                        <img src="{{ Storage::url($item->model->imagem) }}" alt="produto">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-12" style="text-transform: uppercase;"><p>{{$item->model->nome}}</p></div>
+                            <div class="col-md-12"><p>{{$item->model->preco}} <span>€</span></p></div>
+                            <div class="col-md-12"><p>{{$item->quantity}} unidades></p></div>
+
                         </div>
                     </div>
-                    <div class="col-md-5"><input  type="number" min="0"> unidades</input></div>
+                    <div class="col-md-2 text-center">
+                        <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+
+                            <button type=submit class="btn"><i class="fas fa-trash-alt" style="color:#AC3333;"></i></button>
+                        </form>
+                    </div>
                 </div>
+                @endforeach
+
 
                 
 
@@ -299,16 +335,16 @@
 
                 <div class="row mt-5">
                     <div class="col-md-6"><p>SUBTOTAL</p></div>
-                    <div class="col-md-6"><p>PREÇO <span>€</span></p></div>
+                    <div class="col-md-6"><p> {{Cart::subtotal()}} <span>€</span></p></div>
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-6"><p>TAXA DE ENTREGA</p></div>
-                    <div class="col-md-6"><p>PREÇO <span>€</span></p></div>
+                    <div class="col-md-6"><p> {{Cart::tax ()}}  <span>€</span></p></div>
                 </div>
 
                 <div class="row mt-5" style="border-top: 3px solid #E0E0E0;">
                     <div class="col-md-6 mt-4"><p><b>TOTAL</b></p></div>
-                    <div class="col-md-6 mt-4"><p><b>PREÇO</b> <span>€</span></p></div>
+                    <div class="col-md-6 mt-4"><p><b> {{Cart::total()}} </b> <span>€</span></p></div>
                 </div>
 
                 <div class="row mt-2">
@@ -368,6 +404,13 @@
             </div>
         </div>
     </div>
+
+    @else
+
+        <h3>Não tem artigos no carrinho!</h3>
+
+    @endif
+
 
 
 </body>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produtos;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
@@ -13,7 +15,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return view('/cart');
     }
 
     /**
@@ -32,9 +34,14 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+
+        
+        $produto = Produtos::findorFail($request->id); 
+        \Cart::add($produto->id, $produto->nome, 1, $produto->preco,0)  
+        ->associate('App\Models\Produtos');
+        return redirect()->route('cart.index')->with('success_message', 'O item foi adicionado ao Carrinho com sucesso');
+       
     }
 
     /**
@@ -79,6 +86,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back()->with('success_message', 'Artigo removido com sucesso!');
     }
 }
