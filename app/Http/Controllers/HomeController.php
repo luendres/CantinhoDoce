@@ -124,6 +124,10 @@ class HomeController extends Controller
         return view('/encomendasUser');
     }
 
+    public function carrinho()
+    {
+        return view('cart'); 
+    }
 
     
 }
