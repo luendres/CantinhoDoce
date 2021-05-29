@@ -39,7 +39,7 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
- 
+
 Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 
 

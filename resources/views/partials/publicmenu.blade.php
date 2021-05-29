@@ -1,6 +1,7 @@
 <style>
     .search-container {
         margin: 0 auto;
+        justify-content: center;
     }
 
     .search-container input[type=text] {
@@ -11,7 +12,8 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         outline: none;
-        width: 400px;
+        width: 350px;
+        justify-content: center;
     }
 
     .search-container button {

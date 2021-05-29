@@ -191,17 +191,6 @@
 
 
 
-    .pagination {
-        margin-top: 30px
-    }
-
-
-
-    .pagination .page-item.active {
-        background: #AC3333;
-        color: #fff;
-        border-color: #AC3333;
-    }
 
     .btn-success {
         float: right;
@@ -247,6 +236,49 @@
         color: #AC3333;
 
     }
+
+    .pagination {
+        margin-top: 30px
+    }
+
+    .page-link {
+        position: relative;
+        display: block;
+        padding: .5rem .75rem;
+        margin-left: -1px;
+        line-height: 1.25;
+        color: #AC3333 !important;
+        background-color: #fff !important;
+        border: 0px solid white !important;
+    }
+
+
+    .pagination .page-item.hover {
+        background: #AC3333;
+        color: white !important;
+        border-color: #AC3333;
+
+    }
+
+    .pagination .page-item {
+        background: white;
+        border: 2px solid #c7c7c7;
+        border-radius: 3px;
+        padding: 1px 3px !important;
+        margin-right: 5px;
+        font-size: 16px;
+        display: inline-block;
+        color: white !important;
+        vertical-align: middle;
+        text-decoration: none;
+    }
+
+    .page-item.active .page-link {
+        z-index: 3;
+        color: white !important;
+        background-color: #ac3333 !important;
+        border-color: #ac3333 !important;
+    }
 </style>
 
 @section('content')
@@ -280,18 +312,20 @@
                             </form>
                         </div>
                     </div>
+
+
                     <div class="filter-right">
                         <div class="dropdown-filters per-page">
-                            <div class="control-group"><label for="perPage" class="per-page-label">
+                            <div class="control-group"><label for="per_page" class="per-page-label">
                                     Itens por página
-                                </label> <select id="perPage" name="perPage" class="control">
+                                </label> <select id="per_page" name="per_page" class="control">
                                     <option value="10"> 10 </option>
                                     <option value="20"> 20 </option>
                                     <option value="30"> 30 </option>
                                     <option value="40"> 40 </option>
                                     <option value="50"> 50 </option>
-                                </select></div>
-
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -365,19 +399,16 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagination">
-                <div class="pagination shop mt-50"><a class="page-item previous"><i class="fas fa-chevron-left mt-1 ml-1 mr-1"></i></a> <a class="page-item active">
-                        1
-                    </a> <a href="/admin/sales/orders?page=2" class="page-item as">
-                        2
-                    </a> <a href="/admin/sales/orders?page=3" class="page-item as">
-                        3
-                    </a> <a href="/admin/sales/orders?page=4" class="page-item as">
-                        4
-                    </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="fas fa-chevron-right mt-1 ml-1 mr-1"></i></a></div>
+            <div class="container">
+                <div class="row">
+
+                    {{$produtos->links("pagination::bootstrap-4")}}
+
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-@endsection
+    </div>
+
+
+    @endsection
