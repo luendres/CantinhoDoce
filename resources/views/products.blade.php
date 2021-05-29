@@ -102,7 +102,7 @@
                                 <div class="card h-100">
                                     <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_padaria->imagem) }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{$produto_padaria->nome}}</h4>
+                                        <h4 class="card-title" style="text-transform: uppercase !important;">{{$produto_padaria->nome}}</h4>
                                         <p class="card-text">{{$produto_padaria->categoria}}, {{$produto_padaria->sub_categoria}} </p>
                                     </div>
                                 </div>
@@ -149,7 +149,7 @@
                                 <div class="card h-100">
                                     <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_doces->imagem) }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{$produto_doces->nome}}</h4>
+                                        <h4 class="card-title"  style="text-transform: uppercase !important;">{{$produto_doces->nome}}</h4>
                                         <p class="card-text">{{$produto_doces->categoria}}, {{$produto_doces->sub_categoria}} </p>
                                     </div>
                                 </div>
@@ -197,7 +197,7 @@
                                 <div class="card h-100">
                                     <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_salgados->imagem) }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{$produto_salgados->nome}}</h4>
+                                        <h4 class="card-title"  style="text-transform: uppercase !important;">{{$produto_salgados->nome}}</h4>
                                         <p class="card-text">{{$produto_salgados->categoria}}, {{$produto_salgados->sub_categoria}} </p>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
                                 <div class="card h-100">
                                     <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produto_peso->imagem) }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{$produto_peso->nome}}</h4>
+                                        <h4 class="card-title" style="text-transform: uppercase !important;">{{$produto_peso->nome}}</h4>
                                         <p class="card-text">{{$produto_peso->categoria}}, {{$produto_peso->sub_categoria}} </p>
                                     </div>
                                 </div>
