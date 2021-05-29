@@ -28,7 +28,7 @@ CREATE TABLE `avaliacoes` (
   `produto_id` int NOT NULL,
   `nota` int NOT NULL,
   `avaliacao` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estado` int NOT NULL,
+  `estado` int NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -289,4 +289,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-28 20:30:38
+-- Dump completed on 2021-05-29  2:11:11

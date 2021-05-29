@@ -57,31 +57,26 @@ Route::get('/products', function () {
     // $produtos_salgados = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'salgados')->get();
     $produtos_salgados = DB::table('produtos')->where('estado', 1)->where('categoria', 'Salgados')->get();
 
-
     //$produtos_peso = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'produtos ao peso')->get();
     $produtos_peso = DB::table('produtos')->where('estado', 1)->where('categoria', 'Produtos ao Peso')->get();
-
 
     return view('products')->with(compact('produtos_padaria', 'produtos_doces', 'produtos_salgados', 'produtos_peso'));
 });
 
 
 Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@productview')->name('productview');
-Route::post('/productview/{id}', 'App\Http\Controllers\AvaliacoesController@store');
 
-Route::post('/productview/{id}', array('before' => 'csrf', function ($id) {
-    $input = array(
-        'nome' => Input::get('nome'),
-        'avaliacao' => Input::get('avaliacao'),
-        'nota'  => Input::get('nota')
-    );
-    // instantiate Rating model
-    $nova_avaliacao = new Avaliacao;
+Route::resource('avaliacao', 'App\Http\Controllers\AvaliacoesController')->only(['store']);
 
+Route::get('/add-to-cart/{id}', [
+    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
+    'as' => 'product.addToCart'
+]);
+Route::get('/shopping-cart/{id}', [
+    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
+    'as' => 'product.shoppingCart'
+]);
 
-    $nova_avaliacao->storeReviewForProduct($id, $input['nome'], $input['avaliacao'], $input['nota']);
-    return Redirect::to('productview/' . $id . '#reviews-anchor')->with('review_posted', true);
-}));
 /* Admin Routes */
 
 Auth::routes();
@@ -125,6 +120,11 @@ Route::get('admin/mensagens', function () {
 
 
 Route::get('admin/avaliacoes', [HomeController::class, 'avaliacoes'])->name('avaliacoes')->middleware('is_admin');
+Route::get('/admin/avaliacoes/{id}', 'App\Http\Controllers\AvaliacoesController@destroy')->name('avaliacao.destroy');
+Route::get('/admin/avaliacoes/{id}/editar-avaliacao', 'App\Http\Controllers\AvaliacoesController@edit')->name('admin.editar-avaliacao');
+Route::patch('/admin/avaliacoes/{id}', 'App\Http\Controllers\AvaliacoesController@update')->name('avaliacao.update');
+
+
 Route::get('admin/avaliacoes', function () {
     $avaliacoes = App\Models\Avaliacao::all();
     return view('admin.avaliacoes', ['avaliacoes' => $avaliacoes]);

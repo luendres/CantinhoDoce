@@ -240,7 +240,7 @@
                     <div id="datagrid-filters" class="datagrid-filters">
                         <div class="filter-left">
                             <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><i style="color:#999695"class="fas fa-search mt-1 ml-1"></i></div>
+                                <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
                             </div>
                         </div>
                         <div class="filter-right">
@@ -302,7 +302,7 @@
                                 <td data-value="Taxa de Entrega">{{$pedido->taxa_entrega}}</td>
                                 <td data-value="Total Final">{{$pedido->total}}</td>
                                 <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
+                                <td data-value="Estado"><span class="badge badge-md badge-dark">{{$pedido->estado}}</span></td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
                                 </td>
