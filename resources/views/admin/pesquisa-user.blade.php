@@ -273,11 +273,15 @@
     <div class="content">
         <div class="page-header">
             <div class="row">
-                <div class="col-8 page-title">
-                    <h2>Clientes</h2>
+                <div class="col-7 page-title">
+                    <h2> Resultados da pesquisa </h2><br>
+                    <p> {{$users->count()}} resultado(s) para '{{ request()->input('query') }}':</p>
                 </div>
-            </div>
+                <div class="col-2 ml-4">
+                    <a href="/admin/utilizadores" class="btn btn-danger" style=" width: 100px; color: white;">Voltar</a>
+                </div>
 
+            </div>
         </div>
         <div class="page-content">
             <div class="filtered-tags"></div>
@@ -337,7 +341,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($utilizadores as $key => $data)
+                            @foreach($users as $key => $data)
                             <tr>
                                 <td data-value="ID">{{$data->id}}</td>
                                 <td data-value="Nome">{{$data->nome}}</td>

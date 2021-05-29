@@ -27,6 +27,10 @@ class ProdutosController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
+    public function get_produtos(Request $request)
+    {
+        return view('admin.catalogo', Produtos::paginate($request->get('per_page', 25)));
+    }
 
 
 

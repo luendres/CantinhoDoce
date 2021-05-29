@@ -1,6 +1,7 @@
 <style>
     .search-container {
         margin: 0 auto;
+        justify-content: center;
     }
 
     .search-container input[type=text] {
@@ -11,7 +12,8 @@
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
         outline: none;
-        width: 400px;
+        width: 350px;
+        justify-content: center;
     }
 
     .search-container button {
@@ -63,8 +65,8 @@
         border-color: white !important;
     }
 
-    #carrinhoIcon:hover{
-        text-decoration:none !important;
+    #carrinhoIcon:hover {
+        text-decoration: none !important;
 
     }
 
@@ -100,6 +102,12 @@
         color: #1e1e1e;
 
     }
+
+    .alert {
+        position: relative;
+        padding: .10rem .10rem;
+        border-radius: .25rem;
+    }
 </style>
 
 <body>
@@ -112,15 +120,28 @@
             <img src="/storage/images/logo.png" alt="logo" style="width: 50%;">
 
         </a>
+        @if (Session::has('errors'))
+        <div class="alert alert-danger alert-dismissible fade show mt-2" style="size:3px;" role="alert" id="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            </p>
 
+        </div>
+        @endif
         <!-- Caixa de pesquisa -->
 
         <div class="search-container">
-            <form action="#">
-                <input type="text" placeholder="O que procura?" name="search">
+            <form action=" {{ route('search') }}" method="get" class="search-form">
+                <input type="text" placeholder="O que procura?" name="query" id="query" value="{{ request()->input('query') }}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+
+
+
 
 
 
@@ -131,12 +152,12 @@
                 @auth
                 <a href="{{ url('/user') }}"><i class="far fa-user fa-2x mx-3" style="color: #AC3333;"></i></a>
                 <a href="{{ url('/cart') }}" id="carrinhoIcon">
-                <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;">
-                @if(Cart::instance('default')->count() > 0)
-                    <span class="text-center" style="font-size:20px;">{{Cart::instance('default')->count() }}</span>
-                @endif
-                </i>
-                
+                    <i class="fas fa-shopping-cart fa-2x mx-3" style="color: #AC3333;">
+                        @if(Cart::instance('default')->count() > 0)
+                        <span class="text-center" style="font-size:20px;">{{Cart::instance('default')->count() }}</span>
+                        @endif
+                    </i>
+
                 </a>
                 <button class="btn btn-outline-light" style="color: black;" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();"> Logout</button>

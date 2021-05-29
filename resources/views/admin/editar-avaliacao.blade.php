@@ -22,7 +22,7 @@
                 <label for="description">Estado: <br>
                     Defina <b>1</b> para estar <b>visível</b> no site <br>
                     Defina <b>0</b> para <b>não mostrar</b> no site</label><br />
-                <input type="number" min="0" max="1" name="estado" class="form-control" value="{{ $avaliacao->estado }}">
+                <input type="number" min="0" max="1" name="estado" id="estado" class="form-control" value="{{ $avaliacao->estado }}">
             </div>
 
 

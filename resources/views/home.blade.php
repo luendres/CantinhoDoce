@@ -88,7 +88,10 @@
 </style>
 
 <body>
+
     @include('partials.publicmenu')
+
+
 
     <!-- CORPO -->
 
@@ -117,7 +120,7 @@
                             <div class="row">
 
                                 <!--Carousel-->
-                                 <div class="col-12">
+                                <div class="col-12">
                                     <div id="carouselIndicator" class="carousel slide" data-ride="carousel">
 
                                         <!--Primeiro slide-->
@@ -146,7 +149,7 @@
                                         </div>
 
                                     </div>
-                                </div> 
+                                </div>
                                 <!--Botões left right-->
                                 <div class="col-7 text-right">
                                     <a class="btn btn-light mb-3 mr-1" data-bs-target="#carouselIndicator" href="#carouselIndicator" role="button" data-slide-to="prev">
@@ -242,12 +245,14 @@
 
 
     <script>
-        const searchBtn = document.querySelector(".search-icon");
+        setTimeout(function() {
 
-        searchBtn.onclick = () => {
-            form.classList.add("active");
-            searchBtn.classList.add("hide");
-        }
+            // Do something after 3 seconds
+            // This can be direct code, or call to some other function
+
+            $('#alert').hide();
+
+        }, 3000);
     </script>
 
 
