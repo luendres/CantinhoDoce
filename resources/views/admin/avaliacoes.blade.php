@@ -310,7 +310,9 @@
                                 <td data-value="Estado"><span class="badge badge-md badge-dark">{{$avaliacao->estado ? 'Ativo' : 'Inativo'}}</span></td>
                                 <td data-value="Data avaliação">{{$avaliacao->created_at}}</td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action">Mudar estado
+                                    <div class=""><a form action="" method="post" href="{{ URL::to('/admin/avaliacoes/' . $avaliacao->id . '/editar-avaliacao') }}"><i style="color:#999695" class="fas fa-pencil-alt"></i></a>
+                                        <a data-method="POST" href="{{ route('avaliacao.destroy', $avaliacao->id) }}" title="Delete"><i style="color:#999695" class="fas fa-trash-alt"></i></a>
+                                        @csrf
                                 </td>
                             </tr>
                             @endforeach

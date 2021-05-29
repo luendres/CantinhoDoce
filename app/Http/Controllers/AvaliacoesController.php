@@ -24,7 +24,6 @@ class AvaliacoesController extends Controller
      */
     public function create()
     {
-        return view('/productview');
     }
 
     /**
@@ -33,18 +32,7 @@ class AvaliacoesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
 
-        $nova_avaliacao = new Avaliacao;
-        $nova_avaliacao->nome = $request->nome;
-        $nova_avaliacao->produto_id = Produto::produto()->id;
-        $nova_avaliacao->avaliacao = $request->avaliacao;
-        $nova_avaliacao->save();
-
-
-        return back()->with('success', 'avaliacao criado com sucesso!');
-    }
 
 
     /**
@@ -64,9 +52,11 @@ class AvaliacoesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($avaliacao)
     {
-        //
+
+        $avaliacao = Avaliacao::find($avaliacao);
+        return view('admin.editar-avaliacao', compact('avaliacao'));
     }
 
     /**
@@ -78,7 +68,26 @@ class AvaliacoesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //Validate
+        $validatedData = $request->validate([
+            'nome',
+            'produto_id',
+            'avaliacao',
+            'nota',
+            'estado'
+        ]);
+        $avaliacao = Avaliacao::find($id);
+        $avaliacao->update($validatedData);
+
+        return redirect('/admin/avaliacoes/')
+            ->with('success', 'Avaliação atualizada com sucesso');
+    }
+
+
+    public function store(Request $request)
+    {
+        Avaliacao::create($request->all());
+        return redirect()->route('productview', $request->produto_id);
     }
 
     /**
@@ -89,6 +98,9 @@ class AvaliacoesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $avaliacao = Avaliacao::find($id);
+        $avaliacao->delete();
+        return redirect('/admin/avaliacoes/')
+            ->with('success', 'Avaliação deletada com sucesso');
     }
 }

@@ -225,7 +225,7 @@
                 <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                 <div class="card-body">
                     <h4 class="card-title">{{$produto->nome}}</h4>
-                    <p class="card-text" style="text-align: justify;">bla bla bla <br> bla bla bla<br> bla bla bla <br> bla bla bla <br> bla bla bla</p>
+                    <p class="card-text" style="text-align: justify;">{{$produto->categoria}}, {{$produto->sub_categoria}}</p>
                 </div>
             </div>
 
@@ -238,7 +238,7 @@
             <!--NOME DO PRODUTO-->
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mb-5" style="color:#4f4e4d;">{{$produto->nome}}</h2>
+                    <h2 class="mb-3 mt-5" style="color:#4f4e4d;">{{$produto->nome}}</h2>
                 </div>
             </div>
 
@@ -265,8 +265,8 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ route('product.addToCart', ['id' => $produto->id]) }}" class="btn verMaisCateg mt-5 mb-3" role="button">Adicionar ao carrinho 
-                    <i class="fas fa-shopping-cart"></i>
+                    <a href="{{ route('product.addToCart', ['id' => $produto->id]) }}" class="btn verMaisCateg mt-5 mb-3" role="button">Adicionar ao carrinho
+                        <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>
             </div>
@@ -291,6 +291,9 @@
                     <div class="card-body">
                         <h4 class="card-title">{{$similar->nome}}</h4>
                         <p class="card-text">{{$similar->categoria}}</p>
+                        <div class="row" style="justify-content: space-around;">
+                            <a href="{{ URL::to('/productview/' . $similar->id) }}" style="background-color: indianred;color: white;border: 5px solid;border-radius: 6px;border-color: indianred;">Ver Produto</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -313,7 +316,7 @@
                 <div class="col-md-4 p-3">
                     <p style="font-size:20px;"><span><i class="fas fa-user"></i></span> {{$avaliacao->nome}}</p>
                     <p style="font-size:20px;"><span><i class="far fa-calendar-alt"></i></span> {{$avaliacao->created_at}}</p>
-                    <p style="font-size:20px;"><b>Avaliação:</p></b>
+                    <p style="font-size:20px;"><b>Nota: {{$avaliacao->nota}} <i class="fas fa-star"></i></p></b>
                 </div>
                 <div class="col-md-8 p-2" style="border:2px solid #ededed;">
                     <p>{{$avaliacao->avaliacao}}</p>
@@ -322,9 +325,8 @@
             @endforeach
 
             <div>
-                <button type="button" style="font-size: 20px;" class="btn mx-auto d-block queroComent mt-5 mb-3" data-toggle="modal" data-target="#modalComentario">Quero avaliar <i class="fas fa-comments"></i></button>
+                <button type="button" method="post" style="font-size: 20px;" class="btn mx-auto d-block queroComent mt-5 mb-3" data-toggle="modal" data-target="#modalComentario">Quero avaliar <i class="fas fa-comments"></i></button>
             </div>
-
 
         </div>
     </div>
@@ -342,27 +344,43 @@
 
                 <div class="modal-body">
                     <p class="ml-3 mb-3" style="font-size:15px;">
-                    <form action="/productview/{id}" method="post">
+
+                    <form action="{{ route('avaliacao.store')}}" method="POST">
                         @csrf
-                        <input type="text" name="nome" class="form-control shadow-none px-3" id="nome" required="required" placeholder="Nome">
-                        </p>
+                        <input type="hidden" name="produto_id" value="{{ $produto->id }}" />
+                        <div class="mb-3 mt-4 ml-3 mr-3" style="font-size:20px;">
+                            <input type="text" name="nome" class="form-control shadow-none px-3" id="nome" required="required" placeholder="Nome">
+                        </div>
+
                         <div class="mb-3 mt-4 ml-3 mr-3" style="font-size:20px;">
                             <textarea class="form-control shadow-none px-3" name="avaliacao" id="avaliacao" rows="7" required style="resize:none; width: 100%;" placeholder="Introduza a sua mensagem!"></textarea>
                         </div>
+                        <div class="text-center">
+                            <b>Sua nota: </b>
+                            <select name="nota">
+                                <option> 1</option>
+                                <option> 2</option>
+                                <option> 3</option>
+                                <option> 4</option>
+                                <option> 5</option>
+                            </select>
+                        </div>
+                        <br>
                         <div class="form-check ml-3 " style="font-size:15px; color: black;">
                             <input class="form-check-input shadow-none" type="checkbox" name="chkRgpd" id="chk-rgbd" required>
                             <label class="form-check-label" for="chk-rgbd">Aceito fornecer os meus dados.</label>
+                        </div>
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn fecharModal" data-dismiss="modal">Fechar</button>
+                            <input type="submit" name="Enviar" value="Enviar" class="btn queroComent"></button>
+
+
                         </div>
                     </form>
 
                 </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn fecharModal" data-dismiss="modal">Fechar</button>
-                    <button type="button" name="Enviar" value="Enviar" class="btn queroComent">Submeter avaliação</button>
 
-
-                </div>
             </div>
         </div>
 

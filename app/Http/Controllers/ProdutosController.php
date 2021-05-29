@@ -142,7 +142,7 @@ class ProdutosController extends Controller
 
     public function productview($id)
     {
-        $produto = Produtos::where('id', $id)->where('estado',1)->first();
+        $produto = Produtos::where('id', $id)->where('estado', 1)->first();
 
         $similares = Produtos::where('sub_categoria', $produto->sub_categoria)->where('id', '!=', $id)->get();
 
@@ -151,14 +151,16 @@ class ProdutosController extends Controller
         return view('/productview')->with(compact('produto', 'similares', 'avaliacoes'));
     }
 
-    public function getAddToCart(Request $request, $id){
+
+
+    public function getAddToCart(Request $request, $id)
+    {
         $product = Produtos::find($id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
 
-        $request->session()->put('cart',$cart);
+        $request->session()->put('cart', $cart);
         return redirect()->route('product.index');
     }
-    
 }
