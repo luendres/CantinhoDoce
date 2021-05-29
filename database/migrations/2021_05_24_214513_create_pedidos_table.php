@@ -16,12 +16,17 @@ class CreatePedidosTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('nome_cliente', 100);
             $table->integer('subtotal')->nullable()->default(0);
             $table->integer('taxa_entrega')->nullable()->default(0);
             $table->string('estado')->nullable();
             $table->integer('total')->nullable()->default(0);
-
+            $table->string('localEntrega');
+            $table->string('dataEntrega');
+            $table->string('horaEntrega');
+            $table->string('moradaEntrega');
+            $table->string('metodoPagamento');
             $table->timestamps();
         });
     }
