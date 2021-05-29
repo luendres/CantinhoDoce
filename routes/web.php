@@ -7,7 +7,8 @@ use App\Http\Controllers\AvaliacoesController;
 use App\Models\Avaliacao;
 use App\Models\Pedidos;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
-
+use App\Http\Controllers\CartController;
+use App\Models\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,6 @@ Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
 
-Route::get('/cart', [HomeController::class, 'userCart'])->name('/cart');
 
 
 
@@ -76,6 +76,10 @@ Route::get('/shopping-cart/{id}', [
     'uses' => 'App\Http\Controllers\ProdutosController@getCart',
     'as' => 'product.shoppingCart'
 ]);
+
+
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
+Route::post('/cart', 'App\Http\Controllers\CartController@store')->name('cart.store');
 
 /* Admin Routes */
 
