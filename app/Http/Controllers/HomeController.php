@@ -62,7 +62,6 @@ class HomeController extends Controller
     }
 
 
-
     public function vendas()
     {
         return view('admin.vendas');
