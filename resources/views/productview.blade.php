@@ -245,7 +245,7 @@
             <!--PREÇO E NÚMERO DE UNIDADES-->
             <div class="row mr-5 mt-5" style="border-top: 2px solid #ededed; border-bottom: 2px solid #ededed ">
                 <div class="col-md-6">
-                    <p class="mt-5 mb-5" style="font-size:20px;">Preço: {{$produto->preco}}</p>
+                    <p class="mt-5 mb-5" style="font-size:20px;">Preço: {{$produto->preco}} €</p>
                 </div>
                 <div class="col-md-5">
                     <input class="mt-5 mb-5" type="number"> unidades</input>
@@ -267,6 +267,9 @@
                 <div class="col-md-6">
                     <form action="{{ route('cart.store') }}" method="POST"> 
                         {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $produto->id}}">
+                        <input type="hidden" name="nome" value="{{ $produto->nome}}">
+                        <input type="hidden" name="preco" value="{{ $produto->preco}}">
                         <button type="submit" class="btn verMaisCateg mt-5 mb-3">Adicionar ao carrinho <i class="fas fa-shopping-cart"></i></button>
                     </form>
                 </div>

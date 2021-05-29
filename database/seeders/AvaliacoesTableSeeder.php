@@ -16,7 +16,7 @@ class AvaliacoesTableSeeder extends Seeder
     {
         
 
-        \DB::table('avaliacoes')->delete();
+        //\DB::table('avaliacoes')->delete();
         
         \DB::table('avaliacoes')->insert(array (
             0 => 

@@ -31,10 +31,9 @@ Route::get('/', function () {
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
-
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
-
-
+ 
+Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 
 
 
@@ -68,18 +67,11 @@ Route::get('/productview/{id}', 'App\Http\Controllers\ProdutosController@product
 
 Route::resource('avaliacao', 'App\Http\Controllers\AvaliacoesController')->only(['store']);
 
-Route::get('/add-to-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getAddToCart',
-    'as' => 'product.addToCart'
-]);
-Route::get('/shopping-cart/{id}', [
-    'uses' => 'App\Http\Controllers\ProdutosController@getCart',
-    'as' => 'product.shoppingCart'
-]);
 
+Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cart.index');
-Route::post('/cart', 'App\Http\Controllers\CartController@store')->name('cart.store');
 
 /* Admin Routes */
 
