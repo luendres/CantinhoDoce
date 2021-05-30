@@ -37,6 +37,7 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
+Route::put('/user', [HomeController::class, 'userUpdate'])->name('user.update');
 
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
@@ -110,7 +111,7 @@ Route::get('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@dest
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
 Route::get('admin/utilizadores', function () {
     //$utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
-    $utilizadores = App\Models\User::where('is_admin', null)->orWhere('is_admin', 0)->paginate(5);
+    $utilizadores = App\Models\User::where('is_admin', null)->orWhere('is_admin', 0)->get();
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
 

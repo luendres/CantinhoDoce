@@ -139,4 +139,21 @@ class HomeController extends Controller
     {
         return view('/verTodos');
     }
+
+    public function userUpdate(Request $request){
+        
+        $user = auth()->user();
+        
+        $user->update([
+            'nome' -> $request->nome
+        ]);
+        
+        session()->flash('success', 'Utilizador atualizado com sucesso');
+
+        return redirect()->back();
+
+    }
+
+
+    
 }
