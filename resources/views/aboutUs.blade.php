@@ -109,15 +109,8 @@
                     </div>
                 </div>
             </div>
-<div class="container-text" >
-    <div class="row">
-        <div class= "col-lg-50 col-md-100 col-sm-50 container-item down-content bg-black p-300 mx-300">  
-                    <h3 style="font-size:25px;"> A pastelaria <b>Cantinho Doce</b> foi aberta ao público pela primeira vez em 2001 e encontra-se situada na Freguesia de Ega, no concelho de Condeixa-a-Nova.<br>
-                A pastelaria foca-se no fabrico de produtos de pastelaria e padaria, dividindo-se entre a pastelaria artesanal e a pastelaria industrial. <br>Não se esqueça de provar as nossas <b>Escarpeadas!
-        </h3>
-    </div>
         </div>
-</div>
+
 
             <br>
             <br>
