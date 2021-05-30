@@ -176,9 +176,9 @@
             <ul class="nav flex-column">
                 <li class="nav-item ">
                     <a class="nav-link categ" aria-current="page" href="{{ URL::to('/verTodos/Salgados') }}">Salgados</a>
-                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Rissois') }}">Rissóis</a></li>
+
                 <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pasteis%20Diversos') }}">Pasteis Diversos</a></li>
-                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pasteis%20Salgados%20Miniatura%20Diversos') }}">Pastéis Salgados Miniatura Diversos</a></li>
+                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Salgados%20Miniatura%20Diversos') }}">Pastéis Salgados Miniatura Diversos</a></li>
                 <li><a class="dropdown-item mb-3" href="{{ URL::to('/verTodosSubcategoria/Pizzas,%20Bolas%20e%20Quiches') }}">Pizzas/Bolas/Quiches</a></li>
                 </li>
             </ul>

@@ -76,9 +76,9 @@
             "Pastéis Miniatura Diversos": []
         },
         "Salgados": {
-            "Rissóis": [],
+
             "Pastéis Diversos": [],
-            "Pastéis Salgados Miniatura Diversos": [],
+            "Salgados Miniatura Diversos": [],
             "Pizzas, Bolas e Quiches": []
         },
         "Produtos ao Peso": {

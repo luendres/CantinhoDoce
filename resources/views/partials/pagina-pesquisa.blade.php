@@ -22,9 +22,9 @@
             <ul class="nav flex-column">
                 <li class="nav-item ">
                     <a class="nav-link categ" aria-current="page" href="{{ URL::to('/verTodos/Salgados') }}">Salgados</a>
-                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Rissois') }}">Rissóis</a></li>
+
                 <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pasteis%20Diversos') }}">Pasteis Diversos</a></li>
-                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pasteis%20Salgados%20Miniatura%20Diversos') }}">Pastéis Salgados Miniatura Diversos</a></li>
+                <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Salgados%20Miniatura%20Diversos') }}">Pastéis Salgados Miniatura Diversos</a></li>
                 <li><a class="dropdown-item mb-3" href="{{ URL::to('/verTodosSubcategoria/Pizzas,%20Bolas%20e%20Quiches') }}">Pizzas/Bolas/Quiches</a></li>
                 </li>
             </ul>
@@ -45,30 +45,29 @@
                 <p> {{$produtos->count()}} resultado(s) para '{{ request()->input('query') }}':</p>
 
 
+                <div class="container">
 
-                <div class="col col-md-9 mt-4">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row mb-4">
-                                @foreach ($produtos as $produto)
-                                <div class="col-md-5">
-
-                                    <div class="card h-20">
-                                        <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
-                                        <div class="card-body">
-                                            <h4 class="card-title"><a href="{{ URL::to('/productview/' . $produto->id) }}"> {{$produto->nome }}
-                                                </a></h4>
-                                            <p class="card-text">{{ $produto->categoria }}, {{ $produto->sub_categoria }}</p>
-                                        </div>
+                    <div class="col-12">
+                        <div class="row mb-4">
+                            @foreach ($produtos as $produto)
+                            <div class="col-md-4 mt-3">
+                                <div class="card h-20">
+                                    <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="text-transform: uppercase !important;"><a href="{{ URL::to('/productview/' . $produto->id) }}"> {{$produto->nome }}
+                                            </a></h4>
+                                        <p class="card-text">{{ $produto->categoria }}, {{ $produto->sub_categoria }}</p>
                                     </div>
-
                                 </div>
-                                @endforeach
-                            </div>
 
+                            </div>
+                            @endforeach
                         </div>
 
                     </div>
+
+
+
                 </div>
 
             </div>

@@ -255,10 +255,10 @@
             <!--TIPO DE PRODUTO E BOTÃO DE ADICIONAR AO CARRINHO-->
             <div class="row mt-3 mr-5">
                 <div class="col-md-6">
-                    
+
                 </div>
                 <div class="col-md-6">
-                    <form action="{{ route('cart.store') }}" method="POST"> 
+                    <form action="{{ route('cart.store') }}" method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $produto->id}}">
                         <input type="hidden" name="nome" value="{{ $produto->nome}}">
@@ -282,8 +282,8 @@
         <div class="row mb-4 mt-4 ml-5 mr-5">
             @foreach($similares as $similar)
             <!--Primeiro cartão-->
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-3">
+                <div class="card h-100">
                     <img class="img-fluid" src="{{ Storage::url($similar->imagem) }}">
                     <div class="card-body">
                         <h4 class="card-title" style="text-transform: uppercase !important;">{{$similar->nome}}</h4>
