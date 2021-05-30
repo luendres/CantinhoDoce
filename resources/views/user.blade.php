@@ -273,12 +273,6 @@
                     <h5 class="mt-2" style="font-size:20px; color: black;">Encomendas</h5></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12 mt-5 opcoesUser text-center">
-                    <a href="/"><i class="fas fa-sign-out-alt" style="font-size:40px;"></i>
-                    <h5 class="mt-2" style="font-size:20px; ">Sair</h5></a>
-                </div>
-            </div>
         </div>
 
         <div class="col col-md-1"></div>
