@@ -32,7 +32,7 @@ CREATE TABLE `avaliacoes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `avaliacoes` (
 
 LOCK TABLES `avaliacoes` WRITE;
 /*!40000 ALTER TABLE `avaliacoes` DISABLE KEYS */;
-INSERT INTO `avaliacoes` VALUES (1,'Luisa',12,5,'Este bolo de chocolate é vida',1,'2021-05-29 23:14:27','2021-05-29 23:14:27'),(2,'Ana',26,5,'O melhor doce que já comi',1,'2021-05-29 23:14:56','2021-05-29 23:14:56'),(3,'Sr Misterio',25,4,'Eu amo estes rissóis, pena que engorda',1,'2021-05-29 23:15:43','2021-05-29 23:15:43');
+INSERT INTO `avaliacoes` VALUES (1,'Luisa',12,5,'Este bolo de chocolate é vida',1,'2021-05-29 23:14:27','2021-05-29 23:14:27'),(2,'Ana',26,5,'O melhor doce que já comi',1,'2021-05-29 23:14:56','2021-05-29 23:14:56'),(3,'Sr Misterio',25,4,'Eu amo estes rissóis, pena que engorda',1,'2021-05-29 23:15:43','2021-05-29 23:15:43'),(4,'João',60,5,'Melhor croquete que já provei em Condeixa',1,'2021-05-30 21:32:50','2021-05-30 21:32:50');
 /*!40000 ALTER TABLE `avaliacoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +171,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,8 +180,76 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_05_13_170733_create_produtos_table',1),(5,'2021_05_19_161104_add_imagem_column_to_produtos_table',1),(6,'2021_05_24_214513_create_pedidos_table',1),(7,'2021_05_24_221528_create_pedidos_detalhes_table',1),(8,'2021_05_26_230216_create_contactos_table',1),(9,'2021_05_27_181317_create_carrinhos_table',1),(10,'2021_05_27_182216_create_carrinho_detalhes_table',1),(11,'2021_05_28_222441_create_avaliacoes_table',1),(12,'2021_05_29_235859_drop_avaliacoes_table',2),(13,'2021_05_30_001210_create_avaliacoes_table',3);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_05_13_170733_create_produtos_table',1),(5,'2021_05_19_161104_add_imagem_column_to_produtos_table',1),(6,'2021_05_24_214513_create_pedidos_table',1),(7,'2021_05_24_221528_create_pedidos_detalhes_table',1),(8,'2021_05_26_230216_create_contactos_table',1),(9,'2021_05_27_181317_create_carrinhos_table',1),(10,'2021_05_27_182216_create_carrinho_detalhes_table',1),(11,'2021_05_28_222441_create_avaliacoes_table',1),(12,'2021_05_29_235859_drop_avaliacoes_table',2),(13,'2021_05_30_001210_create_avaliacoes_table',3),(14,'2021_05_30_165650_add_nif_column_to_users',4),(15,'2021_05_30_153929_create_orders_table',5),(16,'2021_05_30_154922_create_order_product_table',5);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_product`
+--
+
+DROP TABLE IF EXISTS `order_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order_product` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` bigint unsigned DEFAULT NULL,
+  `product_id` bigint unsigned DEFAULT NULL,
+  `quantity` int unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order_product_order_id_foreign` (`order_id`),
+  KEY `order_product_product_id_foreign` (`product_id`),
+  CONSTRAINT `order_product_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `order_product_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `produtos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_product`
+--
+
+LOCK TABLES `order_product` WRITE;
+/*!40000 ALTER TABLE `order_product` DISABLE KEYS */;
+INSERT INTO `order_product` VALUES (1,1,23,1,'2021-05-30 20:03:32','2021-05-30 20:03:32'),(2,2,31,1,'2021-05-30 20:33:01','2021-05-30 20:33:01'),(3,2,4,1,'2021-05-30 20:33:01','2021-05-30 20:33:01'),(4,3,25,1,'2021-05-30 20:39:46','2021-05-30 20:39:46'),(5,3,56,1,'2021-05-30 20:39:46','2021-05-30 20:39:46'),(6,3,53,1,'2021-05-30 20:39:46','2021-05-30 20:39:46'),(7,4,45,1,'2021-05-30 21:07:59','2021-05-30 21:07:59'),(8,4,57,1,'2021-05-30 21:07:59','2021-05-30 21:07:59');
+/*!40000 ALTER TABLE `order_product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orders`
+--
+
+DROP TABLE IF EXISTS `orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orders` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `metodo_entrega` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dia_entrega` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `hora_entrega` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `morada_entrega` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total` decimal(8,2) NOT NULL,
+  `taxa_entrega` decimal(8,2) NOT NULL,
+  `subtotal` decimal(8,2) NOT NULL,
+  `metodo_pagamento` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `orders_user_id_foreign` (`user_id`),
+  CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,3,'Pastelaria Cantinho Doce','21/02/2021','10:30','Pastelaria Cantinho Doce',0.15,0.01,0.14,'Pagamento ao Balcão','2021-05-30 20:03:32','2021-05-30 20:03:32'),(2,1,'Casa','31/05/2021','14:00','Rua sésamo 4',1.65,0.15,1.50,'MB Way','2021-05-30 20:33:01','2021-05-30 20:33:01'),(3,11,'Pastelaria Sisi','03/06/2021','18:20','Pastelaria Sisi',17.00,1.55,15.45,'Cartão de Crédito','2021-05-30 20:39:46','2021-05-30 20:39:46'),(4,12,'Casa','01/06/2021','18:00','Rua informática, 27',11.66,1.06,10.60,'MB Way','2021-05-30 21:07:59','2021-05-30 21:07:59');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -205,6 +273,7 @@ CREATE TABLE `password_resets` (
 
 LOCK TABLES `password_resets` WRITE;
 /*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+INSERT INTO `password_resets` VALUES ('luendres@gmail.com','$2y$10$EO05Vs2Llwzu5ij514iq7O1H/S1dhmFvk/BHR5.lVov9YB9nD8eDm','2021-05-30 21:04:58');
 /*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,9 +391,10 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `nif` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -333,7 +403,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin@cantinhodoce.com',NULL,NULL,NULL,NULL,1,NULL,'$2y$10$F3XdH1umaJm3K3q2DXTeweP5i8LdhTJ4UMG3t4qepjNwVkNQoMp2i',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(2,'User','normal@cantinhodoce.com',NULL,NULL,NULL,NULL,0,NULL,'$2y$10$Ehf4p3h98jh.iIoTNNnrmuu3Ntm8DKZ618xht.AHHyFLuJ8BsoSi.',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(3,'Luísa','luendres@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$pgafH.G7/bXDlBh27dJ5R.94uRaS4SPR1hgb44nYzWXMfpsjNUZge',NULL,'2021-05-13 14:54:30','2021-05-13 14:54:30'),(4,'Teste','teste@ad.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$KexqyrkqcQ8x/fCmhZn3NetokvFfA4NYDyYx6Mr9CkpZDdMZz67HO',NULL,'2021-05-22 17:12:12','2021-05-22 17:12:12'),(5,'teste','teste@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$7p18nCId/aCcx9aVXZ9y4eN5dY9709OtWNnHdTe4glwrH9DG1J5dG',NULL,'2021-05-22 17:25:47','2021-05-22 17:25:47'),(6,'ultimo','ultimo@ultimo.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$zkOStZDmuio8hyBvOP3/6uncEv6abRiWgir/.HtWPfUUsPzBx00cu',NULL,'2021-05-22 17:42:52','2021-05-22 17:42:52'),(7,'Maria','mariiajmsantoos@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$5naNoDrguWKygrr9gaNwgeMoY7x0TdDeW5N0tyS/dgN5R9U/kJjhK',NULL,'2021-05-28 08:52:57','2021-05-28 08:52:57'),(9,'Nome do admin','admin2@cantinhodoce.com',NULL,NULL,NULL,NULL,1,'2021-05-27 23:00:00','$2y$10$YpTrd0kbrZIM5tqYvs2vkuJ3C8YG/WsuF20Ndr3rez5ipk5xMcoCW',NULL,'2021-05-28 15:27:30','2021-05-28 15:27:30'),(10,'Sofia','sofia@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$O5EMoH08zkDbui3KBiT2ZOMFfaYiBZHWOylTfzMWCtGYSnBhJtSOK',NULL,'2021-05-30 11:29:44','2021-05-30 11:29:44');
+INSERT INTO `users` VALUES (1,'Admin','admin@cantinhodoce.com',NULL,NULL,NULL,NULL,1,NULL,'$2y$10$F3XdH1umaJm3K3q2DXTeweP5i8LdhTJ4UMG3t4qepjNwVkNQoMp2i',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42',0),(2,'User','normal@cantinhodoce.com',NULL,NULL,NULL,NULL,0,NULL,'$2y$10$Ehf4p3h98jh.iIoTNNnrmuu3Ntm8DKZ618xht.AHHyFLuJ8BsoSi.',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42',0),(3,'Luísa Olá','luendres@gmail.com','934283746','Por ai','3030303','Coimbra',NULL,NULL,'$2y$10$SObg7qnJn9nUoUUjLXjJDOE/bEoWSO6R8mz8ZB2jT1RUlm3t3G4O2',NULL,'2021-05-13 14:54:30','2021-05-30 20:05:23',5),(4,'Teste','teste@ad.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$KexqyrkqcQ8x/fCmhZn3NetokvFfA4NYDyYx6Mr9CkpZDdMZz67HO',NULL,'2021-05-22 17:12:12','2021-05-22 17:12:12',0),(5,'teste','teste@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$7p18nCId/aCcx9aVXZ9y4eN5dY9709OtWNnHdTe4glwrH9DG1J5dG',NULL,'2021-05-22 17:25:47','2021-05-22 17:25:47',0),(6,'ultimo','ultimo@ultimo.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$zkOStZDmuio8hyBvOP3/6uncEv6abRiWgir/.HtWPfUUsPzBx00cu',NULL,'2021-05-22 17:42:52','2021-05-22 17:42:52',0),(7,'Maria','mariiajmsantoos@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$5naNoDrguWKygrr9gaNwgeMoY7x0TdDeW5N0tyS/dgN5R9U/kJjhK',NULL,'2021-05-28 08:52:57','2021-05-28 08:52:57',0),(9,'Nome do admin','admin2@cantinhodoce.com',NULL,NULL,NULL,NULL,1,'2021-05-27 23:00:00','$2y$10$YpTrd0kbrZIM5tqYvs2vkuJ3C8YG/WsuF20Ndr3rez5ipk5xMcoCW',NULL,'2021-05-28 15:27:30','2021-05-28 15:27:30',0),(10,'Sofia','sofia@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$O5EMoH08zkDbui3KBiT2ZOMFfaYiBZHWOylTfzMWCtGYSnBhJtSOK',NULL,'2021-05-30 11:29:44','2021-05-30 11:29:44',0),(11,'Ana','ana@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$EstpiGbSpyGVqHfFF.BzwOG4qPAnpFv/kesR.oE5ccixezrbL.yWG',NULL,'2021-05-30 20:37:05','2021-05-30 20:37:05',0),(12,'Pedro','pedro@teste.com','932544872','Rua Informática, 27','3030210','Ega',NULL,NULL,'$2y$10$t1NT4opDweCQFCxowysL..3w.fec3VmrICBF43yoV3wLHQ6aMtHNu',NULL,'2021-05-30 21:06:30','2021-05-30 21:08:44',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -346,4 +416,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-30 15:32:42
+-- Dump completed on 2021-05-30 23:52:19
