@@ -279,7 +279,7 @@
             </div>
         </div>
 
-        <div class="col col-md-10" style="border-right: 3px dotted;">
+        <div class="col col-md-10">
             <div class="content-wrapper">
             <div class="content">
         <div class="page-header">
