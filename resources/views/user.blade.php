@@ -258,6 +258,7 @@
 
     @include('partials.publicmenu')
 
+
     <div class="row my-5">
         <div class="col col-md-2" style="border-right: 3px dotted;">
             <div class="row">
@@ -282,12 +283,18 @@
 
         <div class="col col-md-1"></div>
 
+        
+        
         <div class="col col-md-8">
+            <form action="{{ route('user.update') }}" method="PUT">
+
+            {{ csrf_field() }}
+            
 
             <div class="row text-center mt-5 mr-5">
                 <div class="col-md-6">
                     <p>Nome *</p>
-                    <input type="text" class="userInput" readonly="true" id="primeiroNome" value="{{ $user->nome }}">
+                    <input type="text" name="nome" class="userInput" readonly="true" id="primeiroNome" value="{{ $user->nome }}">
                 </div>
                 <div class="col-md-6">
                     <p>Endereço de Email *</p>
@@ -307,14 +314,14 @@
                 </div>
                 <div class="col-md-3 mt-5">
                     <p>Cidade </p>
-                    <input type="text" class="userInput" readonly="true" id="cidade" value="{{ $user->morada }}">
+                    <input type="text" class="userInput" readonly="true" id="cidade" value="{{ $user->cidade }}">
                 </div>
                 <div class="col-md-3 mt-5">
                     <p>Código Postal </p>
-                    <input type="text" class="userInput" readonly="true" id="codigoPostal" value="{{ $user->morada }}">
+                    <input type="text" class="userInput" readonly="true" id="codigoPostal" value="{{ $user->postal }}">
                 </div>
                 <div id="editarD" class="col-md-12 mt-4">
-                    <button id="editar" type="button" class="btn verMaisCateg mt-5 mb-3 float-right mr-5">Alterar informações <i class="fas fa-user-edit"></i></button>
+                    <a id="editar" class="btn verMaisCateg mt-5 mb-3 float-right mr-5">Alterar informações <i class="fas fa-user-edit"></i></a>
                 </div>
             </div>
             <div class="row m-5 p-4">
@@ -337,15 +344,18 @@
                     </div>
                 </div>
                 <div class="col-md-2"></div>
+
                 <div id="confirmarBotoes" class="col-md-12">
-                    <button id="guardar" type="button" class="btn proximo mt-5 mb-3 float-right mr-5" style="display:none;">Guardar <i class="fas fa-check"></i> </button>
+                    <button id="guardar" type="submit" class="btn proximo mt-5 mb-3 float-right mr-5" style="display:none;">Guardar <i class="fas fa-check"></i> </button>
                     <button id="cancelar" data-toggle="modal" data-target="#CancelarModal" type="button" class="btn verMaisCateg mt-5 mb-3 float-right mr-5" style="display:none;">Cancelar <i class="fas fa-times"></i></button>
 
                 </div>
 
 
             </div>
+            </form>
         </div>
+        
 
         <div class="col-md-2">
             <div class="row">
@@ -377,7 +387,7 @@
         </div>
     </div>
 
-    <!-- Modal Guardar -->
+    <!-- Modal Guardar 
     <div class="modal fade" id="GuardarModal" tabindex="-1" role="dialog" aria-labelledby="GuardarModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -396,7 +406,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
 
     <script>
@@ -437,12 +447,11 @@
             telemovel.removeAttribute("readOnly");
             
         })
-        confirmarGuardar.addEventListener("click", function() {
-            window.location.reload(true);
-        })
+
         confirmarCancelar.addEventListener("click", function() {
             window.location.reload(true);
         })
+
         guardar.addEventListener("click", function() {
             validacoes();
         })
