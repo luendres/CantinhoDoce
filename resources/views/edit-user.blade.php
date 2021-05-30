@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6 mt-5">
                 <p>NIF </p>
-                <input type="number" class="userInput" readonly="true" id="nif">
+                <input type="number" name="nif" class="userInput" readonly="true" id="nif" value="{{ $user->nif }}">
             </div>
             <div class="col-md-6 mt-5">
                 <p>Número de telemóvel</p>

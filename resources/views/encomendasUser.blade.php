@@ -282,8 +282,8 @@
             <div class="content-wrapper">
                 <div class="content">
                     <div class="page-header">
-                        <div class="page-title">
-                            <h2>Pedidos</h2>
+                        <div class="page-title mt-5">
+                            <h2>Meus Pedidos</h2>
                         </div>
 
                     </div>
@@ -293,16 +293,7 @@
                                 <div class="datagrid-filters">
                                     <div class="filter-left"></div>
                                 </div>
-                                <div id="datagrid-filters" class="datagrid-filters">
-                                    <div class="filter-left">
-                                        <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                            <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <table class="table-categories">
+                                <table class="table-categories" style="border: 2px solid white !important;">
                                     <!---->
                                     <thead>
                                         <tr style="height: 65px;">
@@ -326,16 +317,16 @@
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="border border-light" style="background-color:white">
                                         @foreach($pedidos as $key => $pedido)
                                         <tr>
                                             <td data-value="ID">{{$pedido->id}}</td>
-                                            <td data-value="Sub Total">{{$pedido->subtotal}}</td>
-                                            <td data-value="Total Final">{{$pedido->total}}</td>
+                                            <td data-value="Sub Total">{{$pedido->subtotal}} €</td>
+                                            <td data-value="Total Final">{{$pedido->total}} €</td>
                                             <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
                                             <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
                                             <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                                <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
+                                                <div class="action"><i class="fas fa-eye ml-3"></i></div>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -34,6 +34,7 @@ class UserController extends Controller
             'email',
             'telemovel',
             'morada',
+            'nif',
             'postal',
             'cidade',
             'password'
@@ -43,6 +44,7 @@ class UserController extends Controller
         $user->email = request('email');
         $user->telemovel = request('telemovel');
         $user->morada = request('morada');
+        $user->nif = request('nif');
         $user->postal = request('postal');
         $user->cidade = request('cidade');
         $user->password = bcrypt(request('password'));
