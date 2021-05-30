@@ -41,10 +41,14 @@
         font-weight: bold;
     }
 
-    a{text-decoration:none !important;
-    color:black;}
+    a {
+        text-decoration: none !important;
+        color: black;
+    }
 
-    a:hover{color:black;}
+    a:hover {
+        color: black;
+    }
 
     .userInput {
         width: 100%;
@@ -256,13 +260,14 @@
 <body>
 
     @include('partials.publicmenu')
-    
+
     <div class="row my-5">
         <div class="col col-md-2" style="border-right: 3px dotted;">
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center">
                     <a href="/user"><i class="far fa-user" style="font-size:40px;color:black;"></i>
-                    <h5 class="mt-2" style="font-size:20px;;">Perfil</h5></a>
+                        <h5 class="mt-2" style="font-size:20px;;">Perfil</h5>
+                    </a>
                 </div>
             </div>
             <div class="row">
@@ -274,106 +279,84 @@
             <div class="row">
                 <div class="col-md-12 mt-5 opcoesUser text-center">
                     <a href="/"><i class="fas fa-sign-out-alt" style="font-size:40px; color:black;"></i>
-                    <h5 class="mt-2" style="font-size:20px; ">Sair</h5></a>
+                        <h5 class="mt-2" style="font-size:20px; ">Sair</h5>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div class="col col-md-10">
             <div class="content-wrapper">
-            <div class="content">
-        <div class="page-header">
-            <div class="page-title">
-                <h2>Pedidos</h2>
-            </div>
-
-        </div>
-        <div class="page-content">
-            <div class="table">
-                <div class="grid-container">
-                    <div class="datagrid-filters">
-                        <div class="filter-left"></div>
-                    </div>
-                    <div id="datagrid-filters" class="datagrid-filters">
-                        <div class="filter-left">
-                            <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
-                                <div class="icon-wrapper"><i style="color:#999695"class="fas fa-search mt-1 ml-1"></i></div>
-                            </div>
+                <div class="content">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h2>Pedidos</h2>
                         </div>
-                        <div class="filter-right">
-                            <div class="dropdown-filters per-page">
-                                <div class="control-group"><label for="perPage" class="per-page-label">
-                                        Itens por página
-                                    </label> <select id="perPage" name="perPage" class="control">
-                                        <option value="10"> 10 </option>
-                                        <option value="20"> 20 </option>
-                                        <option value="30"> 30 </option>
-                                        <option value="40"> 40 </option>
-                                        <option value="50"> 50 </option>
-                                    </select></div>
 
-                            </div>
-                        </div>
                     </div>
+                    <div class="page-content">
+                        <div class="table">
+                            <div class="grid-container">
+                                <div class="datagrid-filters">
+                                    <div class="filter-left"></div>
+                                </div>
+                                <div id="datagrid-filters" class="datagrid-filters">
+                                    <div class="filter-left">
+                                        <div class="search-filter"><input type="search" id="search-field" placeholder="Procure aqui..." class="control">
+                                            <div class="icon-wrapper"><i style="color:#999695" class="fas fa-search mt-1 ml-1"></i></div>
+                                        </div>
+                                    </div>
 
-                    <table class="table-categories">
-                        <!---->
-                        <thead>
-                            <tr style="height: 65px;">
-                                <th class="grid_head">
-                                    ID
-                                </th>
-                                <th class="grid_head">
-                                    Subtotal
-                                </th>
-                                <th class="grid_head">
-                                    Total Final
-                                </th>
-                                <th class="grid_head">
-                                    Data do Pedido
-                                </th>
-                                <th class="grid_head">
-                                    Estado
-                                </th>
-                                <th>
-                                    Mais informações
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($pedidos as $key => $pedido)
-                            <tr>
-                                <td data-value="ID">{{$pedido->id}}</td>
-                                <td data-value="Sub Total">{{$pedido->subtotal}}</td>
-                                <td data-value="Total Final">{{$pedido->total}}</td>
-                                <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
-                                <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
-                                </td>
-                            </tr>
-                            @endforeach
-                            </tbody>
-                    </table>
-                 </div>
-                 <div class="pagination">
-                <div class="pagination shop mt-50"><a class="page-item previous"><i class="fas fa-chevron-left mt-1 ml-1 mr-1"></i></a> <a class="page-item active">
-                        1
-                    </a> <a href="/admin/sales/orders?page=2" class="page-item as">
-                        2
-                    </a> <a href="/admin/sales/orders?page=3" class="page-item as">
-                        3
-                    </a> <a href="/admin/sales/orders?page=4" class="page-item as">
-                        4
-                    </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="fas fa-chevron-right mt-1 ml-1 mr-1"></i></a></div>
-            </div>
-    </div>
+                                </div>
+
+                                <table class="table-categories">
+                                    <!---->
+                                    <thead>
+                                        <tr style="height: 65px;">
+                                            <th class="grid_head">
+                                                ID
+                                            </th>
+                                            <th class="grid_head">
+                                                Subtotal
+                                            </th>
+                                            <th class="grid_head">
+                                                Total Final
+                                            </th>
+                                            <th class="grid_head">
+                                                Data do Pedido
+                                            </th>
+                                            <th class="grid_head">
+                                                Estado
+                                            </th>
+                                            <th>
+                                                Mais informações
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($pedidos as $key => $pedido)
+                                        <tr>
+                                            <td data-value="ID">{{$pedido->id}}</td>
+                                            <td data-value="Sub Total">{{$pedido->subtotal}}</td>
+                                            <td data-value="Total Final">{{$pedido->total}}</td>
+                                            <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
+                                            <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
+                                            <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
+                                                <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
 
 
 
 
 
-    
+
 
 </body>
 

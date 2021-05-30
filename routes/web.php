@@ -39,6 +39,7 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 Route::put('/user', [HomeController::class, 'userUpdate'])->name('user.update');
 
+Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
 Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 
@@ -48,8 +49,6 @@ Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contac
 
 
 Route::get('/verTodos/{categoria}', 'App\Http\Controllers\ProdutosController@verTodos')->name('verTodos');
-
-Route::get('/encomendasUser','App\Http\Controllers\HomeController@encomendasUser')->name('encomendasUser');
 
 Route::get('/products', function () {
     // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
@@ -91,10 +90,9 @@ Route::get('admin/paineldecontrolo', [HomeController::class, 'painelControlo'])-
 
 Route::get('admin/vendas', [HomeController::class, 'vendas'])->name('vendas')->middleware('is_admin');
 Route::get('admin/vendas', function () {
-    $pedidos = DB::select('select * from pedidos');
+    $pedidos = App\Models\Pedidos::paginate(5);
     return view('admin.vendas', ['pedidos' => $pedidos]);
 });
-
 Route::get('admin/vendas/remessas', [HomeController::class, 'remessas'])->name('remessas')->middleware('is_admin');
 Route::get('admin/vendas/faturas', [HomeController::class, 'faturas'])->name('faturas')->middleware('is_admin');
 
@@ -118,7 +116,7 @@ Route::get('admin/utilizadores', function () {
 
 Route::get('admin/mensagens', [HomeController::class, 'mensagens'])->name('mensagens')->middleware('is_admin');
 Route::get('admin/mensagens', function () {
-    $mensagens = App\Models\Contacto::all();
+    $mensagens = App\Models\Contacto::paginate(5);
     return view('admin.mensagens', ['mensagens' => $mensagens]);
 });
 
@@ -130,7 +128,7 @@ Route::patch('/admin/avaliacoes/{id}', 'App\Http\Controllers\AvaliacoesControlle
 
 
 Route::get('admin/avaliacoes', function () {
-    $avaliacoes = App\Models\Avaliacao::all();
+    $avaliacoes = App\Models\Avaliacao::paginate(5);
     return view('admin.avaliacoes', ['avaliacoes' => $avaliacoes]);
 });
 

@@ -346,7 +346,13 @@
 
             </div>
         </div>
+        <div class="container">
+            <div class="row">
 
+                {{$mensagens->links("pagination::bootstrap-4")}}
+
+            </div>
+        </div>
     </div>
 
 </div>
