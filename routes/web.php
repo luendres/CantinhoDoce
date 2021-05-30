@@ -101,8 +101,9 @@ Route::get('admin/paineldecontrolo', [HomeController::class, 'painelControlo'])-
 
 Route::get('admin/vendas', [HomeController::class, 'vendas'])->name('vendas')->middleware('is_admin');
 Route::get('admin/vendas', function () {
-    $pedidos = App\Models\Pedidos::paginate(5);
-    return view('admin.vendas', ['pedidos' => $pedidos]);
+    $pedidos = App\Models\Order::paginate(5);
+    $clientes = App\Models\Order::with('user')->get();
+    return view('admin.vendas', ['pedidos' => $pedidos], ['clientes' => $clientes]);
 });
 Route::get('admin/vendas/remessas', [HomeController::class, 'remessas'])->name('remessas')->middleware('is_admin');
 Route::get('admin/vendas/faturas', [HomeController::class, 'faturas'])->name('faturas')->middleware('is_admin');

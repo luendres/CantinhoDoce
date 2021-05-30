@@ -14,7 +14,7 @@ class AddNifColumnToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('nif');
+            $table->integer('nif')->default(0);
         });
     }
 

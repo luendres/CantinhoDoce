@@ -364,7 +364,10 @@
                                     Data do Pedido
                                 </th>
                                 <th class="grid_head">
-                                    Estado
+                                    Data da Entrega
+                                </th>
+                                <th class="grid_head">
+                                    Hora da Entrega
                                 </th>
                                 <th>
                                     Mais informações
@@ -376,14 +379,16 @@
                             <tr>
                                 <td data-value="ID">{{$pedido->id}}</td>
                                 <td data-value="ID Cliente">{{$pedido->user_id}}</td>
-                                <td data-value="Nome Cliente">{{$pedido->nome_cliente}}</td>
+                                <td data-value="Nome Cliente">{{$pedido->user->nome}}</td>
                                 <td data-value="Sub Total">{{$pedido->subtotal}}</td>
                                 <td data-value="Taxa de Entrega">{{$pedido->taxa_entrega}}</td>
                                 <td data-value="Total Final">{{$pedido->total}}</td>
                                 <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
-                                <td data-value="Estado"><span class="badge badge-md badge-dark">{{$pedido->estado}}</span></td>
+                                <td data-value="Data da Entrega">{{$pedido->dia_entrega}}</td>
+                                <td data-value="Hora da Entrega">{{$pedido->hora_entrega}}</td>
+
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
-                                    <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
+                                    <i class="fas fa-eye ml-3"></i>
                                 </td>
                             </tr>
                             @endforeach

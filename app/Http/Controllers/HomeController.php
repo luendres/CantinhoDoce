@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Produtos;
 use App\Models\User;
-use App\Models\Pedidos;
 use App\Models\Order;
+
 use App\Models\OrderProduct;
 use Carbon\Carbon;
 use App\Http\Controllers\Auth;
@@ -47,21 +47,23 @@ class HomeController extends Controller
     public function painelControlo()
     {
 
+
         $userCount = User::where('is_admin', '=', null)->count();
-        $pedidosCount = Pedidos::count();
-        $pedidosSum = Pedidos::sum('subtotal');
-        $mediaVendas = Pedidos::avg('subtotal');
+        $pedidosCount = Order::count();
+        $pedidosSum = Order::sum('subtotal');
+        $mediaVendas = Order::avg('subtotal');
         $media = round($mediaVendas, 2);
         $chart = (new LarapexChart)->areaChart()
             ->setTitle('Vendas')
             ->setSubtitle('Período Total')
-            ->addArea('Vendas em Euros', \App\Models\Pedidos::query()->pluck('subtotal')->toArray())
+            ->addArea('Vendas em Euros', \App\Models\Order::query()->pluck('subtotal')->toArray())
             ->setColors(['#ff6384'])
-            ->setXAxis(\App\Models\Pedidos::query()->pluck('created_at')->toArray())
+            ->setXAxis(\App\Models\Order::query()->pluck('created_at')->toArray())
             ->setGrid();
 
         $date = Carbon::today()->toDateString();
-        $pedido_date = \App\Models\Pedidos::first();
+        $pedido_date = \App\Models\Order::first();
+
 
 
         return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media', 'chart', 'date', 'pedido_date'));
@@ -124,11 +126,11 @@ class HomeController extends Controller
     public function encomendasUser()
     {
         $id = \Auth::user()->id;
-        $pedidos = Order::where('user_id', $id)->get();
-        return view('/encomendasUser', compact('pedidos'));
+        $Order = Order::where('user_id', $id)->get();
+        return view('/encomendasUser', compact('Order'));
     }
- 
-    public function carrinho() 
+
+    public function carrinho()
     {
         return view('cart');
     }
@@ -138,23 +140,9 @@ class HomeController extends Controller
         return view('/verTodos');
     }
 
-    public function userUpdate(Request $request){
-        
-        $user = auth()->user();
-        
-        $user->update([
-            'nome' -> $request->nome
-        ]);
-        
-        session()->flash('success', 'Utilizador atualizado com sucesso');
 
-        return redirect()->back();
-
-    }
     public function aboutUs()
     {
         return view('/aboutUs');
     }
-
-    
 }
