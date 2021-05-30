@@ -17,6 +17,8 @@
     <script src="https://kit.fontawesome.com/c1a2cc467f.js" crossorigin="anonymous"></script>
     <!-- Charting library -->
     <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <script src="jquery.js"></script>
+    <script src="jquery.chained.js"></script>
 
 
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">

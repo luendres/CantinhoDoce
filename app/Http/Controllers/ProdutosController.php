@@ -157,11 +157,13 @@ class ProdutosController extends Controller
 
     public function verTodos($categoria)
     {
-        $produto = Produtos::where('estado',1)->where('categoria', $categoria)->get();
+        $produto = Produtos::where('estado', 1)->where('categoria', $categoria)->get();
         return view('/verTodos')->with(compact('produto'));
     }
 
-
-
- 
+    public function verTodosSubcategoria($sub_categoria)
+    {
+        $produto = Produtos::where('estado', 1)->where('sub_categoria', $sub_categoria)->get();
+        return view('/verTodosSubcategoria')->with(compact('produto'));
+    }
 }

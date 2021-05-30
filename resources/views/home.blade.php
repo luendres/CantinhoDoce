@@ -135,7 +135,9 @@
                                                         <div class="card h-100">
                                                             <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                                                             <div class="card-body">
-                                                                <h4 class="card-title">{{$produto->nome}}</h4>
+                                                                <a href="{{ URL::to('/productview/' . $produto->id) }}" style="color: black;">
+                                                                    <h4 class="card-title" style="text-transform: uppercase !important;">{{$produto->nome}}</h4>
+                                                                </a>
                                                                 <p class="card-text">{{$produto->categoria}}</p>
                                                             </div>
                                                         </div>

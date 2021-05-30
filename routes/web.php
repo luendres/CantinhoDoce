@@ -48,6 +48,7 @@ Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contac
 
 
 Route::get('/verTodos/{categoria}', 'App\Http\Controllers\ProdutosController@verTodos')->name('verTodos');
+Route::get('/verTodosSubcategoria/{sub_categoria}', 'App\Http\Controllers\ProdutosController@verTodosSubcategoria')->name('verTodosSubcategoria');
 
 Route::get('/products', function () {
     // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();

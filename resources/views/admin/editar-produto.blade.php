@@ -65,9 +65,10 @@
 <script>
     var subjectObject = {
         "Padaria": {
+            "Pão": [],
             "Pão 0,5": [],
-            "Broa Grande": [],
-            "Broa Pequena": []
+            "Broa": []
+
         },
         "Doces": {
             "Sobremesas": [],
@@ -77,12 +78,12 @@
         "Salgados": {
             "Rissóis": [],
             "Pastéis Diversos": [],
-            "Pastéis Miniatura Diversos": [],
+            "Pastéis Salgados Miniatura Diversos": [],
             "Pizzas, Bolas e Quiches": []
         },
         "Produtos ao Peso": {
             "Bolos de Aniversário": [],
-            "Sobremesas": [],
+            "Sobremesas ao Peso": [],
             "Sortidos": []
 
         }
