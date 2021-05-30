@@ -279,7 +279,7 @@
             </div>
         </div>
 
-        <div class="col col-md-10" style="border-right: 3px dotted;">
+        <div class="col col-md-10">
             <div class="content-wrapper">
             <div class="content">
         <div class="page-header">
@@ -320,10 +320,11 @@
                         <!---->
                         <thead>
                             <tr style="height: 65px;">
-                             
-                            
                                 <th class="grid_head">
-                                    Taxa de Entrega
+                                    ID
+                                </th>
+                                <th class="grid_head">
+                                    Subtotal
                                 </th>
                                 <th class="grid_head">
                                     Total Final
@@ -340,17 +341,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            @foreach($pedidos as $key => $pedido)
                             <tr>
-                                <td data-value="ID"></td>
-                                <td data-value="Sub Total"></td>
-                                <td data-value="Total Final"></td>
-                                <td data-value="Data do Pedido"></td>
-                                <td data-value="Estado"><span class="badge badge-md badge-warning"></span></td>
+                                <td data-value="ID">{{$pedido->id}}</td>
+                                <td data-value="Sub Total">{{$pedido->subtotal}}</td>
+                                <td data-value="Total Final">{{$pedido->total}}</td>
+                                <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
+                                <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
                                 <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
                                     <div class="action"><a id="38" href="/admin/vendas/pedidos/visualizar/38" data-method="GET" data-action="/admin/vendas/pedidos/visualizar/38" data-token="gUTS2U4jWn7t8Lij76zJSyNATcMEfSVAON2gG8Xf" title="View"><span class="icon eye-icon"></span></a></div>
                                 </td>
                             </tr>
+                            @endforeach
                             </tbody>
                     </table>
                  </div>

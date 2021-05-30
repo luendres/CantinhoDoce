@@ -38,7 +38,6 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 
 Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
 
-Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
 Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 
@@ -48,6 +47,8 @@ Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contac
 
 
 Route::get('/verTodos/{categoria}', 'App\Http\Controllers\ProdutosController@verTodos')->name('verTodos');
+
+Route::get('/encomendasUser','App\Http\Controllers\HomeController@encomendasUser')->name('encomendasUser');
 
 Route::get('/products', function () {
     // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
@@ -92,6 +93,7 @@ Route::get('admin/vendas', function () {
     $pedidos = DB::select('select * from pedidos');
     return view('admin.vendas', ['pedidos' => $pedidos]);
 });
+
 Route::get('admin/vendas/remessas', [HomeController::class, 'remessas'])->name('remessas')->middleware('is_admin');
 Route::get('admin/vendas/faturas', [HomeController::class, 'faturas'])->name('faturas')->middleware('is_admin');
 
