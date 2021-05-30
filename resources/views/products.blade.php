@@ -82,8 +82,7 @@
                     <a class="nav-link categ" aria-current="page" href="#">Padaria</a>
                 <li><a class="dropdown-item" href="#">Pão</a></li>
                 <li><a class="dropdown-item" href="#">Pão de 0,5 kg</a></li>
-                <li><a class="dropdown-item" href="#">Broa grande</a></li>
-                <li><a class="dropdown-item mb-3" href="#">Broa pequena</a></li>
+                <li><a class="dropdown-item mb-3" href="#">Broa</a></li>
                 </li>
             </ul>
         </div>

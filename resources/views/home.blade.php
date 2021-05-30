@@ -97,7 +97,7 @@
 
     <!-- Imagem bem-vindo -->
     <div class="container-fluid" style="padding-left: 0; padding-right: 0; ">
-        <img src="storage/images/pastelaria.jpg" alt="pastelaria" style="float:center;min-width:100%;height:auto;object-fit:cover;">
+        <img src="storage/images/pastelaria.jpg" alt="pastelaria" style="float:center;max-width:100%;height:auto;object-fit:cover;">
         <div class="center">Bem-vindo!</div>
         <div class="center-down">Faça já sua compra online!</div>
 
