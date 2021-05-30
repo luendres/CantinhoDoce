@@ -52,7 +52,7 @@ Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 Route::get('/contactos', [ContactoController::class, 'createForm']);
 Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');
 
-Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('/aboutUs');
+Route::get('/aboutUs', [ContactoController::class, 'aboutUs'])->name('/aboutUs');
 
 
 

@@ -290,10 +290,10 @@
                 <div class="col-md-2 col-sm-2 col-xs-2">
                     <h5 class="heading">MENU PRINCIPAL</h5>
                     <ul>
-                        <li>Início</li>
-                        <li>Produtos</li>
-                        <li>Sobre Nós</li>
-                        <li>Contactos</li>
+                        <a href="/" style="color:black;"><li>Início</li></a>
+                        <a href="/products" style="color:black;"><li>Produtos</li></a>
+                        <a href="/aboutUs" style="color:black;"><li>Sobre Nós</li></a>
+                        <a href="/contactos" style="color:black;"><li>Contactos</li></a>
                     </ul>
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-2">

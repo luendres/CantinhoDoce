@@ -12,6 +12,11 @@ class ContactoController extends Controller
         return view('contactos');
     }
 
+    public function aboutUs()
+    {
+        return view('/aboutUs');
+    }
+
     public function Contacto(Request $request)
     {
 

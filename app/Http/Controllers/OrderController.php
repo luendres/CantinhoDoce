@@ -46,7 +46,7 @@ class OrderController extends Controller
             'user_id' => auth()->user() ? auth()->user()->id : null,
             'hora_entrega' => $request->hora_entrega,
             'metodo_entrega' => $request->metodo_entrega,
-            'data_entrega' => $request->data_entrega,
+            'dia_entrega' => $request->data_entrega,
             'morada_entrega' => $request->morada_entrega,
             'total' => $request->total,
             'subtotal' => $request->subtotal,
