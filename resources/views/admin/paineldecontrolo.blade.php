@@ -185,8 +185,8 @@
 
             <div class="col" style="text-align: -webkit-right;">
                 <i class="far fa-calendar-alt fa-lg mr-3"></i>
-                <input type="text" id="start_date" value="2021-04-12" placeholder="From">
-                <input type="text" id="end_date" value="2021-05-12" placeholder="To">
+                <input type="text" id="start_date" value="{{ \Carbon\Carbon::parse( $pedido_date->created_at )->toDateString() }}" placeholder="From">
+                <input type="text" id="end_date" value="{{ $date }}" placeholder="To">
             </div>
         </div>
     </div>

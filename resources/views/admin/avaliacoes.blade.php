@@ -300,11 +300,11 @@
                                 <div class="control-group"><label for="perPage" class="per-page-label">
                                         Itens por página
                                     </label> <select id="perPage" name="perPage" class="control">
+                                        <option value="05"> 05 </option>
                                         <option value="10"> 10 </option>
+                                        <option value="15"> 15 </option>
                                         <option value="20"> 20 </option>
-                                        <option value="30"> 30 </option>
-                                        <option value="40"> 40 </option>
-                                        <option value="50"> 50 </option>
+                                        <option value="25"> 25 </option>
                                     </select></div>
 
                             </div>
@@ -359,17 +359,14 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="pagination">
-                    <div class="pagination shop mt-50"><a class="page-item previous"><i class="fas fa-chevron-left mt-1 ml-1 mr-1"></i></a> <a class="page-item active">
-                            1
-                        </a> <a href="/admin/sales/orders?page=2" class="page-item as">
-                            2
-                        </a> <a href="/admin/sales/orders?page=3" class="page-item as">
-                            3
-                        </a> <a href="/admin/sales/orders?page=4" class="page-item as">
-                            4
-                        </a> <a href="/admin/sales/orders?page=2" data-page="/admin/sales/orders?page=2" id="next" class="page-item next"><i class="fas fa-chevron-right mt-1 ml-1 mr-1"></i></a></div>
-                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                {{$avaliacoes->links("pagination::bootstrap-4")}}
+
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Produtos;
 use App\Models\User;
 use App\Models\Pedidos;
+use Carbon\Carbon;
 use App\Http\Controllers\Auth;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 
@@ -57,8 +58,11 @@ class HomeController extends Controller
             ->setXAxis(\App\Models\Pedidos::query()->pluck('created_at')->toArray())
             ->setGrid();
 
+        $date = Carbon::today()->toDateString();
+        $pedido_date = \App\Models\Pedidos::first();
 
-        return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media', 'chart'));
+
+        return view('admin.paineldecontrolo')->with(compact('userCount', 'pedidosCount', 'pedidosSum', 'media', 'chart', 'date', 'pedido_date'));
     }
 
 
@@ -128,13 +132,11 @@ class HomeController extends Controller
 
     public function carrinho()
     {
-        return view('cart'); 
+        return view('cart');
     }
 
     public function verTodos()
     {
         return view('/verTodos');
     }
-
-    
 }
