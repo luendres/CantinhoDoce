@@ -28,14 +28,15 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        
-    
-    } 
+
+
+    }
+
     body {
         overflow-x: hidden;
     }
-    .about-us
-    {
+
+    .about-us {
         position: relative;
         min-height: 90vh;
         display: flex;
@@ -44,62 +45,69 @@
         flex-direction: column;
         background-size: cover;
     }
-    .about-us .content 
-    {
+
+    .about-us .content {
         max-width: 1000px;
         text-align: justify;
 
     }
-    .about-us .content h2 
-    {
+
+    .about-us .content h2 {
         font-size: 36px;
         font-weight: 700;
         color: black;
     }
 
-   .icon 
-   {
-       color: #AC3333;
+    .icon {
+        color: #AC3333;
         font-size: 50px;
-   }
-  
-    .container 
-    {
-    margin: 50px;
-    width: 50%;
-    margin-left: -150px;
-
-    }
-    .container-text
-    {
-    margin: 50px;
-    width: 50%;
-    margin-left: 600px;
-    margin-top: -480px;
- 
     }
 
+    .container {
+        margin: 50px;
+        width: 50%;
+        margin-left: -150px;
+
+    }
+
+    .container-text {
+        margin: 50px;
+        width: 50%;
+        margin-left: 600px;
+        margin-top: -480px;
+
+    }
 </style>
 
 <body>
-@include('partials.publicmenu')
+    @include('partials.publicmenu')
 
-<!-- CORPO -->
+    <!-- CORPO -->
 
 
-<section class="about-us">
-        <div class="content">
+    <section class="about-us">
+        <div class="content mt-5">
             <h2 class="" style="text-align:center"> Sobre Nós</h2>
-       
-<div class= "container" >
-    <div class="row">
-        <div class= "col-lg-60 col-md-60 col-sm-50 text-center container-item down-content bg-black p-50">
 
-            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-            <h3>  Encontre-nos no GoogleMaps</h3>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5437.994278900516!2d-8.55150912207063!3d40.098364811767034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7196856ff15f77f9!2sCantinho%20Doce!5e0!3m2!1spt-PT!2spt!4v1622249323620!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-60 col-md-60 col-sm-50 text-center container-item down-content bg-black p-50">
+
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3> Encontre-nos no GoogleMaps</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5437.994278900516!2d-8.55150912207063!3d40.098364811767034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7196856ff15f77f9!2sCantinho%20Doce!5e0!3m2!1spt-PT!2spt!4v1622249323620!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
             </div>
+            <div class="container-text">
+                <div class="row">
+                    <div class="col-lg-50 col-md-100 col-sm-50 container-item down-content bg-black p-300 mx-300">
+                        <h4> A pastelaria <b>Cantinho Doce</b> foi aberta ao público pela primeira vez em 2001 e encontra-se situada na Freguesia de Ega, no concelho de Condeixa-a-Nova.<br>
+                            <br>A pastelaria foca-se no fabrico de produtos de pastelaria e padaria, dividindo-se entre a pastelaria artesanal e a pastelaria industrial.<br>
+                            <br>Não se esqueça de provar as nossas <b>Escarpeadas!
+                        </h4>
+                    </div>
+                </div>
             </div>
 <div class="container-text" >
     <div class="row">
@@ -111,16 +119,16 @@
         </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
-</section>
+    </section>
 
-<!--Footer-->
-<div class="container-fluid mt-5" style="padding-left: 0; padding-right: 0;">
+    <!--Footer-->
+    <div class="container-fluid mt-5" style="padding-left: 0; padding-right: 0;">
         <div class="card bg-white">
             <div class="row mb-4 mt-4">
                 <div class="col-md-4 col-sm-4 col-xs-4">
@@ -169,4 +177,5 @@
         </div>
     </div>
 </body>
+
 </html>

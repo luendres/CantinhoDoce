@@ -309,9 +309,7 @@
                                             <th class="grid_head">
                                                 Data do Pedido
                                             </th>
-                                            <th class="grid_head">
-                                                Estado
-                                            </th>
+
                                             <th>
                                                 Mais informações
                                             </th>
@@ -324,7 +322,7 @@
                                             <td data-value="Sub Total">{{$pedido->subtotal}} €</td>
                                             <td data-value="Total Final">{{$pedido->total}} €</td>
                                             <td data-value="Data do Pedido">{{$pedido->created_at}}</td>
-                                            <td data-value="Estado"><span class="badge badge-md badge-warning">{{$pedido->estado}}</span></td>
+
                                             <td data-value="Actions" class="actions" style="white-space: nowrap; width: 100px;">
                                                 <div class="action"><i class="fas fa-eye ml-3"></i></div>
                                             </td>

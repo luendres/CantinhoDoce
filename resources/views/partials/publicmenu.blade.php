@@ -187,7 +187,7 @@
                 <a href="/products">Produtos</a>
             </div>
             <div class="col border border-3 py-2">
-                <a href="/about">Sobre Nós</a>
+                <a href="/aboutUs">Sobre Nós</a>
             </div>
             <div class="col border border-3 py-2">
                 <a href="/contactos">Contacto</a>

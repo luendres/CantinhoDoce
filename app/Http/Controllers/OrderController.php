@@ -54,19 +54,17 @@ class OrderController extends Controller
             'metodo_pagamento' => $request->metodo_pagamento,
         ]);
 
-        foreach(Cart::content() as $item){
+        foreach (Cart::content() as $item) {
             OrderProduct::create([
                 'order_id' => $order->id,
                 'product_id' => $item->model->id,
-                'quantity' => $item -> qty,
+                'quantity' => $item->qty,
             ]);
         }
 
         Cart::instance('default')->destroy();
 
-        return redirect('/')->with('success_message', 'Pedido inserido com sucesso!');
-
-
+        return redirect('/')->with('success_message', 'Pedido concluído com sucesso!');
     }
 
     /**
