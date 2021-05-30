@@ -79,19 +79,12 @@
         <div class="col col-md-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
-<<<<<<< HEAD
                     <a class="nav-link categ" aria-current="page" href="{{ URL::to('/verTodos/Padaria') }}">Padaria</a>
 
                 <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pão') }}">Pão</a></li>
                 <li><a class="dropdown-item" href="{{ URL::to('/verTodosSubcategoria/Pão%200,5') }}">Pão de 0,5 kg</a></li>
                 <li><a class="dropdown-item mb-3" href="{{ URL::to('/verTodosSubcategoria/Broa') }}">Broa</a></li>
 
-=======
-                    <a class="nav-link categ" aria-current="page" href="#">Padaria</a>
-                <li><a class="dropdown-item" href="#">Pão</a></li>
-                <li><a class="dropdown-item" href="#">Pão de 0,5 kg</a></li>
-                <li><a class="dropdown-item mb-3" href="#">Broa</a></li>
->>>>>>> 718a3fa44b1b4ba7c8473cba659c78d73e5a0bca
                 </li>
             </ul>
         </div>
