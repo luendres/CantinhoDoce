@@ -117,11 +117,7 @@ class HomeController extends Controller
         return view('admin.definicoes');
     }
 
-    public function userHome()
-    {
-        $user = \Auth::user();
-        return view('/user', compact('user'));
-    }
+
 
     public function encomendasUser()
     {
@@ -139,21 +135,4 @@ class HomeController extends Controller
     {
         return view('/verTodos');
     }
-
-    public function userUpdate(Request $request){
-        
-        $user = auth()->user();
-        
-        $user->update([
-            'nome' -> $request->nome
-        ]);
-        
-        session()->flash('success', 'Utilizador atualizado com sucesso');
-
-        return redirect()->back();
-
-    }
-
-
-    
 }
