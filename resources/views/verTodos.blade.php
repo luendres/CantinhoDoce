@@ -83,7 +83,7 @@
                 <div class="col-12 p-5 mx-2">
                     <div class="row mb-4">
 
-                        @foreach($produto->slice(0, 4) as $produtos)
+                        @foreach($produto as $produtos)
                         <div class="col-md-3">
                             <a href="{{ URL::to('/productview/' . $produtos->id) }}">
                                 <div class="card h-100">
