@@ -271,10 +271,10 @@
                 <h5 class="p-3" style="color:black; border-bottom: 3px solid #E0E0E0; font-weight: bold;">Quando entregaremos o seu pedido?</h5>
                 <div class="row">
                     <div class="col-md-6"><p class="mt-3">Insira o dia:</p></div>
-                    <div class="col-md-6"><input type="date" style="min-width: 100%;" class="mt-3" name="diaEntrega"></div>
+                    <div class="col-md-6"><input type="text" style="min-width: 100%;" class="mt-3" id="dataEntrega" placeholder="dd/mm/aaaa"></div>
                     
                     <div class="col-md-6"><p class="mt-3">Insira a hora:</p></div>
-                    <div class="col-md-6"><input type="time" style="min-width: 100%; margin-right: 50px;"  class="mt-3" name="horaEntrega"></div> 
+                    <div class="col-md-6"><input type="time" style="min-width: 100%; margin-right: 50px;"  class="mt-3" id="horaEntrega"></div> 
                 </div>
 
                 <div id="Endereco" style="display:none;">
@@ -282,7 +282,7 @@
 
                     <div class="row">
                         <div class="col-md-4"><p class="mt-3">Endereço:</p></div>
-                        <div class="col-md-8"><input class="mt-3" type="text" style="min-width: 100%;" name="Endereco"></div>
+                        <div class="col-md-8"><input class="mt-3" type="text" style="min-width: 100%;" id="morada"></div>
                     </div>
                 </div>
 
@@ -390,7 +390,7 @@
                             <label class="form-check-label" for="cartaoCred">Cartão de Crédito</label>
                         </div>
                         <div class="col-md-3" id="pagBalcao">
-                            <input class="form-check-input" type="radio" name="metodo" />
+                            <input class="form-check-input" type="radio" name="metodo" id="pagBalcaoRadio" />
                             <label class="form-check-label" for="pagBalcao">Pagamento ao balcão </label>
                         </div>
                     </div>
@@ -398,10 +398,23 @@
         </div>
 
         <div class="row m-5 p-3">
+
             <div class="col-md-12" style="border-top: 3px solid #E0E0E0;">
-                <button type="button" id="anteriorOP" class="btn verMaisCateg mt-3">Anterior</button>
-                <button type="button" id="proximoCar" class="btn proximo float-right mt-3 ml-3">Confirmar Encomenda</button>
-                <a href="/"><button type="button" class="btn verMaisCateg float-right mt-3 ml-3">Cancelar</button></a>
+                <form action="{{ route('order.store') }}" method="POST">
+                @csrf
+                <input type="hidden" id="hora_entrega" name="hora_entrega" value="">
+                <input type="hidden" id="data_entrega" name="data_entrega" value="">
+                <input type="hidden" id="morada_entrega" name="morada_entrega" value="">
+
+                <input type="hidden" name="subtotal" value="{{Cart::subtotal()}}">
+                <input type="hidden" name="taxa_entrega" value="{{Cart::tax()}}">
+                <input type="hidden" name="total" value="{{Cart::total()}}">
+                <input type="hidden" name="metodo_entrega" id="metodo_entrega" value="">
+                <input type="hidden" name="metodo_pagamento" id="metodo_pagamento" value="">
+                
+                <a id="anteriorOP" class="btn verMaisCateg mt-3">Anterior</a>
+                <button type="Submit" id="proximoCar" class="btn proximo float-right mt-3 ml-3">Confirmar Encomenda</button>
+                <a href="/" class="btn verMaisCateg float-right mt-3 ml-3">Cancelar</a>
             </div>
         </div>
     </div>
@@ -424,6 +437,12 @@
     var opcao1=document.getElementById("opcao1");
     var opcao2=document.getElementById("opcao2");
     var opcao3=document.getElementById("opcao3");
+
+ 
+
+
+
+    
     document.getElementById('opcao1').addEventListener("click",function(){
         if (detEntrega.style.display == "none"){
             detEntrega.style.display='block';
@@ -452,6 +471,10 @@
             opcao3.classList.add('OpcoesActive');
             opcao2.classList.remove('OpcoesActive');
             opcao1.classList.remove('OpcoesActive');
+            document.getElementById('hora_entrega').value=document.getElementById('horaEntrega').value;
+            document.getElementById('morada_entrega').value=document.getElementById('morada').value;
+            document.getElementById('data_entrega').value=document.getElementById('dataEntrega').value;
+
         }
     })
     document.getElementById('proximoCar').addEventListener("click",function(){
@@ -461,6 +484,12 @@
         opcao3.classList.add('OpcoesActive');
         opcao2.classList.remove('OpcoesActive');
         opcao1.classList.remove('OpcoesActive');
+        document.getElementById('hora_entrega').value=document.getElementById('horaEntrega').value;
+        document.getElementById('morada_entrega').value=document.getElementById('morada').value;
+        document.getElementById('data_entrega').value=document.getElementById('dataEntrega').value;
+        
+
+
     })   
     document.getElementById('proximoDet').addEventListener("click",function(){
         detEntrega.style.display='none';
@@ -490,17 +519,38 @@
         Endereco.style.display='block';
         document.getElementById('pagBalcao').style.display='none';
         document.getElementById('pagBalcaoImagem').style.display='none';
+        document.getElementById('metodo_entrega').value='Casa';
+        
     }) 
     document.getElementById('ega').addEventListener("click",function(){
         Endereco.style.display='none';
         document.getElementById('pagBalcao').style.display='block';
         document.getElementById('pagBalcaoImagem').style.display='block';
+        document.getElementById('metodo_entrega').value='Pastelaria Cantinho Doce';
+        document.getElementById('morada').value='Pastelaria Cantinho Doce';
     })   
     document.getElementById('condeixa').addEventListener("click",function(){
         Endereco.style.display='none';
         document.getElementById('pagBalcao').style.display='block';
         document.getElementById('pagBalcaoImagem').style.display='block';
-    })     
+        document.getElementById('metodo_entrega').value='Pastelaria Sisi';
+        document.getElementById('morada').value='Pastelaria Sisi';
+    }) 
+    document.getElementById('multibanco').addEventListener("click",function(){
+        document.getElementById('metodo_pagamento').value='Multibanco';
+    })   
+    document.getElementById('mbway').addEventListener("click",function(){
+        document.getElementById('metodo_pagamento').value='MB Way';
+    })   
+    document.getElementById('cartaoCred').addEventListener("click",function(){
+        document.getElementById('metodo_pagamento').value='Cartão de Crédito';
+    })   
+    document.getElementById('pagBalcaoRadio').addEventListener("click",function(){
+        document.getElementById('metodo_pagamento').value='Pagamento ao Balcão';
+    })   
+
+
+
 </script>
 
 </html>

@@ -10,15 +10,13 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'localEntrega', 'dataEntrega', 'horaEntrega', 'moradaEntrega', 'metodoPagamento', 'subtotal', 'taxaEntrega', 'total'];
+        'user_id', 'morada_entrega', 'dia_entrega', 'hora_entrega', 'metodo_entrega', 'metodo_pagamento', 'subtotal', 'taxa_entrega', 'total'];
 
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
 
-    public function Products(){
+    public function products(){
         return $this->belongsToMany('App\Models\Produtos')->withPivot('quantity');
     }
 }
-
-

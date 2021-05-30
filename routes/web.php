@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\AvaliacoesController;
 use App\Http\Controllers\PesquisasController;
+use App\Http\Controllers\OrderController;
 use App\Models\Avaliacao;
 use App\Models\Pedidos;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -47,6 +48,10 @@ Route::get('/carrinho', [HomeController::class, 'carrinho'])->name('/carrinho');
 Route::get('/contactos', [ContactoController::class, 'createForm']);
 Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');
 
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('/aboutUs');
+
+
+
 
 Route::get('/verTodos/{categoria}', 'App\Http\Controllers\ProdutosController@verTodos')->name('verTodos');
 Route::get('/verTodosSubcategoria/{sub_categoria}', 'App\Http\Controllers\ProdutosController@verTodosSubcategoria')->name('verTodosSubcategoria');
@@ -79,6 +84,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
 
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
 /* Admin Routes */
 

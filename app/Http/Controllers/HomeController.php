@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Produtos;
 use App\Models\User;
 use App\Models\Pedidos;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use Carbon\Carbon;
 use App\Http\Controllers\Auth;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
@@ -126,11 +128,11 @@ class HomeController extends Controller
     public function encomendasUser()
     {
         $id = \Auth::user()->id;
-        $pedidos = Pedidos::where('user_id', $id)->get();
+        $pedidos = Order::where('user_id', $id)->get();
         return view('/encomendasUser', compact('pedidos'));
     }
-
-    public function carrinho()
+ 
+    public function carrinho() 
     {
         return view('cart');
     }
@@ -153,7 +155,10 @@ class HomeController extends Controller
         return redirect()->back();
 
     }
-
+    public function aboutUs()
+    {
+        return view('/aboutUs');
+    }
 
     
 }
