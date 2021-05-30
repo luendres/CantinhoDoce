@@ -19,7 +19,7 @@ class CreateAvaliacoesTable extends Migration
             $table->integer('produto_id');
             $table->integer('nota');
             $table->text('avaliacao');
-            $table->integer('estado');
+            $table->integer('estado')->default(1);
             $table->timestamps();
         });
     }
