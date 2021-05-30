@@ -111,7 +111,7 @@ Route::get('/admin/catalogo/{id}', 'App\Http\Controllers\ProdutosController@dest
 Route::get('admin/utilizadores', [HomeController::class, 'utilizadores'])->name('utilizadores')->middleware('is_admin');
 Route::get('admin/utilizadores', function () {
     //$utilizadores = DB::select('select * from users where is_admin is null or is_admin < 1');
-    $utilizadores = App\Models\User::where('is_admin', null)->orWhere('is_admin', 0)->get();
+    $utilizadores = App\Models\User::where('is_admin', null)->orWhere('is_admin', 0)->paginate(5);
     return view('admin.utilizadores', ['utilizadores' => $utilizadores]);
 });
 
