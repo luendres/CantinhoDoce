@@ -6,8 +6,10 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\AvaliacoesController;
 use App\Http\Controllers\PesquisasController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\UserController;
 use App\Models\Avaliacao;
 use App\Models\Pedidos;
+use App\Models\User;
 use ArielMejiaDev\LarapexCharts\LarapexChart;
 use App\Http\Controllers\CartController;
 use App\Models\Cart;
@@ -37,8 +39,10 @@ Route::get('/pesquisa-contacto', 'App\Http\Controllers\PesquisasController@pesqu
 
 
 
-Route::get('/user', [HomeController::class, 'userHome'])->name('/user');
-Route::put('/user', [HomeController::class, 'userUpdate'])->name('user.update');
+Route::get('/user', 'App\Http\Controllers\UserController@userHome')->name('/user');
+Route::get('/user/{user}/edit-user', 'App\Http\Controllers\UserController@edit')->name('edit-user');
+Route::patch('/user/{user}/update', 'App\Http\Controllers\UserController@update')->name('user.update');
+
 
 Route::get('/encomendasUser', [HomeController::class, 'encomendasUser'])->name('/');
 
