@@ -28,11 +28,11 @@ CREATE TABLE `avaliacoes` (
   `produto_id` int NOT NULL,
   `nota` int NOT NULL,
   `avaliacao` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `estado` int NOT NULL,
+  `estado` int NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `avaliacoes` (
 
 LOCK TABLES `avaliacoes` WRITE;
 /*!40000 ALTER TABLE `avaliacoes` DISABLE KEYS */;
-INSERT INTO `avaliacoes` VALUES (1,'Luisa',21,5,'ótimo produto',1,NULL,NULL);
+INSERT INTO `avaliacoes` VALUES (1,'Luisa',12,5,'Este bolo de chocolate é vida',1,'2021-05-29 23:14:27','2021-05-29 23:14:27'),(2,'Ana',26,5,'O melhor doce que já comi',1,'2021-05-29 23:14:56','2021-05-29 23:14:56'),(3,'Sr Misterio',25,4,'Eu amo estes rissóis, pena que engorda',1,'2021-05-29 23:15:43','2021-05-29 23:15:43');
 /*!40000 ALTER TABLE `avaliacoes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `contactos` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,6 +126,7 @@ CREATE TABLE `contactos` (
 
 LOCK TABLES `contactos` WRITE;
 /*!40000 ALTER TABLE `contactos` DISABLE KEYS */;
+INSERT INTO `contactos` VALUES (1,'Luisa','luendres@gmail.com','Olá, este é mais um teste.','2021-05-29 23:57:56','2021-05-29 23:57:56');
 /*!40000 ALTER TABLE `contactos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +171,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +180,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_05_13_170733_create_produtos_table',1),(5,'2021_05_19_161104_add_imagem_column_to_produtos_table',1),(6,'2021_05_24_214513_create_pedidos_table',1),(7,'2021_05_24_221528_create_pedidos_detalhes_table',1),(8,'2021_05_26_230216_create_contactos_table',1),(9,'2021_05_27_181317_create_carrinhos_table',1),(10,'2021_05_27_182216_create_carrinho_detalhes_table',1),(11,'2021_05_28_222441_create_avaliacoes_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2019_08_19_000000_create_failed_jobs_table',1),(4,'2021_05_13_170733_create_produtos_table',1),(5,'2021_05_19_161104_add_imagem_column_to_produtos_table',1),(6,'2021_05_24_214513_create_pedidos_table',1),(7,'2021_05_24_221528_create_pedidos_detalhes_table',1),(8,'2021_05_26_230216_create_contactos_table',1),(9,'2021_05_27_181317_create_carrinhos_table',1),(10,'2021_05_27_182216_create_carrinho_detalhes_table',1),(11,'2021_05_28_222441_create_avaliacoes_table',1),(12,'2021_05_29_235859_drop_avaliacoes_table',2),(13,'2021_05_30_001210_create_avaliacoes_table',3);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +288,7 @@ CREATE TABLE `produtos` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `imagem` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +297,7 @@ CREATE TABLE `produtos` (
 
 LOCK TABLES `produtos` WRITE;
 /*!40000 ALTER TABLE `produtos` DISABLE KEYS */;
-INSERT INTO `produtos` VALUES (3,'pastel de nata','Doces','Pastéis Miniatura Diversos',0.80,1,'2021-05-14 18:20:52','2021-05-20 14:27:54','public/images/RpU9VghraEjNJGZonTvgygVVHU5hPBr7aretDazI.jpg'),(4,'empada','Salgados','Pizzas, Bolas e Quiches',0.80,1,'2021-05-16 14:57:04','2021-05-22 14:03:30','public/images/t2xVChNoOo1Zm3lU81NQexDqcS6dtGy5c2tKvJtq.jpg'),(8,'croissant Misto','Salgados','Pastéis Diversos',1.20,1,'2021-05-19 15:31:04','2021-05-20 12:38:44','public/images/AgjYaX5AiyvpLbGF6hbf95Bg4Z1nStkTpkhKLmCu.jpg'),(10,'pudim','Doces','Sobremesas',2.50,1,'2021-05-19 15:51:24','2021-05-22 14:01:08','public/images/CjTFiVOggsRSyGufGxuQ3wsThuTpMHl1mRCDXjcw.jpg'),(12,'bolo de Chocolate','Doces','Sobremesas',1.90,1,'2021-05-20 13:24:08','2021-05-20 13:28:07','public/images/jY5edPqWcrzFVZE6yVuq6Ncvxl0GIUTbfgVsCcik.jpg'),(21,'broa de Milho','Padaria','Broa Pequena',1.50,1,'2021-05-22 13:39:32','2021-05-22 13:39:32','public/images/0h0l2gb2OkuT6VM9pAb52ZtfikRcXxTVutpXYwFC.jpg'),(22,'bolo Mil Folhas','Produtos ao Peso','Bolos de Aniversário',9.00,1,'2021-05-22 13:45:24','2021-05-22 13:45:24','public/images/if3P9SDNo2L2ieEP6k9nKpe1lejp0u4w39ts3DPs.jpg'),(23,'pão de Trigo','Padaria','Pão 0,5',0.30,1,'2021-05-22 14:05:11','2021-05-22 14:05:11','public/images/1DEEypNhjymPyMBEJ5a9i5ozbiZZWK096ZahOeDV.jpg'),(24,'broa','Padaria','Broa Grande',1.90,1,'2021-05-22 14:07:52','2021-05-22 14:07:52','public/images/fSraieLC5pdyJ8ef4uidiVrzltl4QPz3bOiDGrYt.jpg'),(25,'rissóis de Carne','Salgados','Rissóis',1.00,1,'2021-05-22 14:09:06','2021-05-22 14:09:06','public/images/HVFlZeIZQFi5bucBACuW9DLuYg0PGOpzgnRAmrws.jpg'),(26,'tarte Gelada','Produtos ao Peso','Sobremesas',5.60,1,'2021-05-22 14:13:49','2021-05-22 14:13:49','public/images/iFnMgiQM8JcVsukONRizJ8wt8se6tJdt3C8eG7Ge.jpg'),(27,'miniaturas Doces','Produtos ao Peso','Sortidos',4.50,1,'2021-05-22 14:15:46','2021-05-22 14:15:46','public/images/oKTSA4eNTuw4U3g28c9lvvy0PPkmZAXSlfH026jI.jpg');
+INSERT INTO `produtos` VALUES (3,'pastel de nata','Doces','Pastéis Miniatura Diversos',0.90,1,'2021-05-14 18:20:52','2021-05-30 11:39:39','public/images/rpF5w14cs3SkXgEiIO1TF8bNiK8YMXQpObD8Gqxr.jpg'),(4,'empada de frango','Salgados','Pastéis Diversos',0.90,1,'2021-05-16 14:57:04','2021-05-30 12:36:14','public/images/WzErlWz7pxVi6j7vQyvqynk2gJMsoqXFC30R5kyy.jpg'),(21,'broa de milho','Padaria','Broa',0.80,1,'2021-05-22 13:39:32','2021-05-30 11:58:29','public/images/Cn636WE3oK7F4iBrjNnqzHWQKdEa1kk6mSEQkD2a.jpg'),(22,'bolo de aniversário doce de ovos','Produtos ao Peso','Bolos de Aniversário',10.00,1,'2021-05-22 13:45:24','2021-05-30 12:12:26','public/images/ko4rVnyRJYCTURO9v20CkgwKxLj9Fyi1abU95YaJ.jpg'),(23,'pão de água','Padaria','Pão',0.14,1,'2021-05-22 14:05:11','2021-05-30 12:00:28','public/images/Vt8brh2ISuEyiGhX2kutNjLI1jhYqAWHJGLKi1Sh.jpg'),(24,'broa','Padaria','Broa',0.80,1,'2021-05-22 14:07:52','2021-05-30 11:58:59','public/images/sgFg8DN3tDiqcHDZxwksMhrSQMXc23wmGbRx8E6m.jpg'),(25,'rissóis','Salgados','Salgados Miniatura Diversos',0.45,1,'2021-05-22 14:09:06','2021-05-30 12:42:21','public/images/QfAFluIrzstbYkSTIDol9dfzERVUrWZJmNoICvQE.jpg'),(27,'húngaro doce de morango','Produtos ao Peso','Sortidos',14.00,1,'2021-05-22 14:15:46','2021-05-30 12:32:21','public/images/qKNZg0CW9OH76cp22Yg4Iw1uyf5avOZuDr5zUchC.jpg'),(28,'croissant de chocolate','Doces','Pastéis Diversos',0.90,1,'2021-05-30 01:17:06','2021-05-30 11:43:01','public/images/HA3YBa8b8AH6BU8i7F6H10lGAoULZ2NPVh3hLp6s.jpg'),(29,'pão de centeio','Padaria','Pão',0.14,1,'2021-05-30 10:16:13','2021-05-30 12:00:55','public/images/qaIdB75E1WCwBpxb63PSm8wPXlh2YrYmUo6oJDa8.jpg'),(31,'bola de berlim pequena','Doces','Pastéis Miniatura Diversos',0.60,1,'2021-05-30 11:38:15','2021-05-30 11:45:53','public/images/DvNNJ3tlPGYG7jDvHCqndajUsaj6T3AF21xWBTVN.jpg'),(32,'éclair de chocolate pequeno','Doces','Pastéis Miniatura Diversos',0.60,1,'2021-05-30 11:38:45','2021-05-30 11:46:59','public/images/83CTmJej5JeNPH2an7h40OR8khr6eQwr4YscfouT.jpg'),(33,'mil folhas pequeno','Doces','Pastéis Miniatura Diversos',0.60,1,'2021-05-30 11:39:10','2021-05-30 11:47:43','public/images/ayJ1rZjTizNxhuzdKkntYu2UrKD8kUfPMutRw5IZ.jpg'),(34,'croissant de ovo','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:44:41','2021-05-30 11:44:41','public/images/PX4GllSKLNj4qXGj5mL8mGJohng7RSNDmdU1obmc.jpg'),(35,'croissant simples','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:45:11','2021-05-30 11:45:11','public/images/2jwMBPcCFwtVhN5oypHoY8OjFy28HwXtuBBoBT3l.jpg'),(36,'bola de berlim','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:46:30','2021-05-30 11:46:30','public/images/Q7tE9YVjQo4mSfdw3FZOEc92gbpC1sGZCgOWdLxL.jpg'),(37,'éclair de chocolate','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:47:20','2021-05-30 11:47:20','public/images/tWLlougm2qQogYamMxNQy8H2vKExGUWBRapsduSj.jpg'),(38,'mil folhas','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:48:03','2021-05-30 11:48:03','public/images/fKKd6oLLw3ozuwt4P9L7PqXz3ejO7V8D0VBg9wc9.jpg'),(39,'pastel de nata pequeno','Doces','Pastéis Miniatura Diversos',0.60,1,'2021-05-30 11:48:53','2021-05-30 11:48:53','public/images/Ik2o7dznvJT5ekPtWYiSw14e32Sz0XssagJPPBFX.jpg'),(40,'queijadas','Doces','Pastéis Diversos',0.90,1,'2021-05-30 11:49:15','2021-05-30 11:49:15','public/images/8NbvTf9KZA0U6siiE7ELPu0bL4qp7bQYsekqbkeR.jpg'),(41,'escarpiada','Doces','Sobremesas',6.00,1,'2021-05-30 11:53:12','2021-05-30 12:16:39','public/images/fwIJ0VU8VyCsm7HZVH9NonytA3eZ7XPSzTYDU6E4.jpg'),(42,'pão de deus','Doces','Sobremesas',6.00,1,'2021-05-30 11:53:54','2021-05-30 11:53:54','public/images/c8owoevTA3JESBVQ1UlVvPPbqP8Dvl8DAJZHpfxO.jpg'),(43,'pão de ló buraco','Doces','Sobremesas',6.00,1,'2021-05-30 11:54:35','2021-05-30 11:54:35','public/images/eP5GOX1yMcgHOZpsvWmPBSpFwy1mgWsL2BRa51AQ.jpg'),(44,'pudim de pão','Doces','Sobremesas',6.00,1,'2021-05-30 11:54:57','2021-05-30 11:54:57','public/images/AZFMROOxWEA0wqcm4MmvnDv8QRYTZw22pCegVgkf.jpg'),(45,'broa pequena','Padaria','Broa',0.60,1,'2021-05-30 11:59:25','2021-05-30 11:59:25','public/images/JH17hRMNfWdWy4A3vGnsXz33cbIIKic2baFSqtXn.jpg'),(46,'pão de bico','Padaria','Pão',0.14,1,'2021-05-30 12:01:28','2021-05-30 12:01:28','public/images/mXeLjjI3KYKVfYldT2yJPzdisyVH95fZqc9qDqkV.jpg'),(47,'pão de mistura','Padaria','Pão',0.14,1,'2021-05-30 12:01:49','2021-05-30 12:01:49','public/images/HI392eZR3f6L8Ih7IneX6bJb4G6ZwDYfgmwUo3gb.jpg'),(48,'pão de 0.5kg branco','Padaria','Pão 0,5',0.50,1,'2021-05-30 12:04:05','2021-05-30 12:04:53','public/images/59wJtR5jgKPvlZdcWQm2vczSLXzZNzODPD9fdEr6.jpg'),(49,'pão de 0.5kg de mistura','Padaria','Pão 0,5',0.50,1,'2021-05-30 12:04:36','2021-05-30 12:04:36','public/images/J1ST36x4weHp8h9Kj5Pgkg7nugdKMBc9fk4p3mPj.jpg'),(50,'pão de forma','Padaria','Pão 0,5',0.50,1,'2021-05-30 12:05:17','2021-05-30 12:05:17','public/images/lpfaFMiJsRtMh5gKKR856vzf7UBmrMekg3dQFVT5.jpg'),(51,'bolo de batizado','Produtos ao Peso','Bolos de Aniversário',10.00,1,'2021-05-30 12:13:06','2021-05-30 12:13:37','public/images/NAJJNlJNW7lM6BqfMdazdslvP69bi2DM6nzrDIxj.jpg'),(52,'bolo personalizado','Produtos ao Peso','Bolos de Aniversário',10.00,1,'2021-05-30 12:15:41','2021-05-30 12:15:41','public/images/jjavmtJ4qbu4QYWCYL1khRf5VqarnekkTVAoD9YS.jpg'),(53,'profiteroles','Produtos ao Peso','Sobremesas ao Peso',14.00,1,'2021-05-30 12:18:04','2021-05-30 12:18:04','public/images/Mn1FeoPL2TwevfdSYfYtC3G9dZA5G6ycLcs2lUIL.jpg'),(54,'parisbrest','Produtos ao Peso','Sobremesas ao Peso',14.00,1,'2021-05-30 12:18:32','2021-05-30 12:18:32','public/images/Jy4HMVGEYLHSrWnM1hqViu0TooZnnAaupv50a1ij.jpg'),(55,'torta de laranja','Produtos ao Peso','Sobremesas ao Peso',14.00,1,'2021-05-30 12:19:25','2021-05-30 12:19:25','public/images/UEzsuIbzcDyCvYJygOsnOjXHg7C4eXi0NoQbTxFb.jpg'),(56,'folhado misto','Salgados','Pastéis Diversos',1.00,1,'2021-05-30 12:35:48','2021-05-30 12:35:48','public/images/JeRgfvuNIhiwMmowxeTDs0msUkkOspdprW3NPi9x.jpg'),(57,'pizza de kebab','Salgados','Pizzas, Bolas e Quiches',10.00,1,'2021-05-30 12:37:13','2021-05-30 12:37:13','public/images/alf152l41VtVwlwa7ylmhBEGFDuxCJIvXQAjNnVh.jpg'),(58,'pizza mista','Salgados','Pizzas, Bolas e Quiches',10.00,1,'2021-05-30 12:37:41','2021-05-30 12:37:41','public/images/jMHhbN2Y80ZZJ4piQxmh0pwgtk88IEQadDXkwxHv.jpg'),(59,'bolos de bacalhau','Salgados','Salgados Miniatura Diversos',0.45,1,'2021-05-30 12:42:05','2021-05-30 12:42:05','public/images/K712TOT3ankn05CHgo9OQpG05eKnu02IirCZeLkt.jpg'),(60,'croquetes','Salgados','Salgados Miniatura Diversos',0.45,1,'2021-05-30 12:42:45','2021-05-30 12:42:45','public/images/Y0Pg5OLWgiW4BAz3HKLw76IeUUP13f5b4BPvuW62.jpg'),(61,'húngaro de chocolate','Produtos ao Peso','Sortidos',14.00,1,'2021-05-30 12:43:27','2021-05-30 12:43:27','public/images/71FCsH4npN6bEtemjY7YnXLzAA7ERdOKumYs3twK.jpg'),(62,'sortidos de doce de ovos','Produtos ao Peso','Sortidos',14.00,1,'2021-05-30 12:44:25','2021-05-30 12:44:25','public/images/LXRhzZjUBKvQmZJFyNJckm4y6dggEobuq2XzbHrG.jpg');
 /*!40000 ALTER TABLE `produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +324,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -332,7 +333,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin@cantinhodoce.com',NULL,NULL,NULL,NULL,1,NULL,'$2y$10$F3XdH1umaJm3K3q2DXTeweP5i8LdhTJ4UMG3t4qepjNwVkNQoMp2i',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(2,'User','normal@cantinhodoce.com',NULL,NULL,NULL,NULL,0,NULL,'$2y$10$Ehf4p3h98jh.iIoTNNnrmuu3Ntm8DKZ618xht.AHHyFLuJ8BsoSi.',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(3,'Luísa','luendres@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$pgafH.G7/bXDlBh27dJ5R.94uRaS4SPR1hgb44nYzWXMfpsjNUZge',NULL,'2021-05-13 14:54:30','2021-05-13 14:54:30'),(4,'Teste','teste@ad.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$KexqyrkqcQ8x/fCmhZn3NetokvFfA4NYDyYx6Mr9CkpZDdMZz67HO',NULL,'2021-05-22 17:12:12','2021-05-22 17:12:12'),(5,'teste','teste@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$7p18nCId/aCcx9aVXZ9y4eN5dY9709OtWNnHdTe4glwrH9DG1J5dG',NULL,'2021-05-22 17:25:47','2021-05-22 17:25:47'),(6,'ultimo','ultimo@ultimo.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$zkOStZDmuio8hyBvOP3/6uncEv6abRiWgir/.HtWPfUUsPzBx00cu',NULL,'2021-05-22 17:42:52','2021-05-22 17:42:52'),(7,'Maria','mariiajmsantoos@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$5naNoDrguWKygrr9gaNwgeMoY7x0TdDeW5N0tyS/dgN5R9U/kJjhK',NULL,'2021-05-28 08:52:57','2021-05-28 08:52:57'),(9,'Nome do admin','admin2@cantinhodoce.com',NULL,NULL,NULL,NULL,1,'2021-05-27 23:00:00','$2y$10$YpTrd0kbrZIM5tqYvs2vkuJ3C8YG/WsuF20Ndr3rez5ipk5xMcoCW',NULL,'2021-05-28 15:27:30','2021-05-28 15:27:30');
+INSERT INTO `users` VALUES (1,'Admin','admin@cantinhodoce.com',NULL,NULL,NULL,NULL,1,NULL,'$2y$10$F3XdH1umaJm3K3q2DXTeweP5i8LdhTJ4UMG3t4qepjNwVkNQoMp2i',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(2,'User','normal@cantinhodoce.com',NULL,NULL,NULL,NULL,0,NULL,'$2y$10$Ehf4p3h98jh.iIoTNNnrmuu3Ntm8DKZ618xht.AHHyFLuJ8BsoSi.',NULL,'2021-05-13 14:15:42','2021-05-13 14:15:42'),(3,'Luísa','luendres@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$pgafH.G7/bXDlBh27dJ5R.94uRaS4SPR1hgb44nYzWXMfpsjNUZge',NULL,'2021-05-13 14:54:30','2021-05-13 14:54:30'),(4,'Teste','teste@ad.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$KexqyrkqcQ8x/fCmhZn3NetokvFfA4NYDyYx6Mr9CkpZDdMZz67HO',NULL,'2021-05-22 17:12:12','2021-05-22 17:12:12'),(5,'teste','teste@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$7p18nCId/aCcx9aVXZ9y4eN5dY9709OtWNnHdTe4glwrH9DG1J5dG',NULL,'2021-05-22 17:25:47','2021-05-22 17:25:47'),(6,'ultimo','ultimo@ultimo.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$zkOStZDmuio8hyBvOP3/6uncEv6abRiWgir/.HtWPfUUsPzBx00cu',NULL,'2021-05-22 17:42:52','2021-05-22 17:42:52'),(7,'Maria','mariiajmsantoos@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$5naNoDrguWKygrr9gaNwgeMoY7x0TdDeW5N0tyS/dgN5R9U/kJjhK',NULL,'2021-05-28 08:52:57','2021-05-28 08:52:57'),(9,'Nome do admin','admin2@cantinhodoce.com',NULL,NULL,NULL,NULL,1,'2021-05-27 23:00:00','$2y$10$YpTrd0kbrZIM5tqYvs2vkuJ3C8YG/WsuF20Ndr3rez5ipk5xMcoCW',NULL,'2021-05-28 15:27:30','2021-05-28 15:27:30'),(10,'Sofia','sofia@teste.com',NULL,NULL,NULL,NULL,NULL,NULL,'$2y$10$O5EMoH08zkDbui3KBiT2ZOMFfaYiBZHWOylTfzMWCtGYSnBhJtSOK',NULL,'2021-05-30 11:29:44','2021-05-30 11:29:44');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -345,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-29 21:00:02
+-- Dump completed on 2021-05-30 15:32:42
