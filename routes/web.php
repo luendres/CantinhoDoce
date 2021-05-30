@@ -47,9 +47,7 @@ Route::get('/contactos', [ContactoController::class, 'createForm']);
 Route::post('/contactos', [ContactoController::class, 'Contacto'])->name('contacto.store');
 
 
-Route::get('/verTodos', function () {
-    return view('verTodos');
-});
+Route::get('/verTodos/{categoria}', 'App\Http\Controllers\ProdutosController@verTodos')->name('verTodos');
 
 Route::get('/products', function () {
     // $produtos_padaria = DB::table('produtos')->where('estado', '>', 0)->having('categoria', '=', 'padaria')->get();
@@ -77,6 +75,7 @@ Route::resource('avaliacao', 'App\Http\Controllers\AvaliacoesController')->only(
 Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::patch('/cart/{product}', [CartController::class, 'update'])->name('cart.update');
 
 
 /* Admin Routes */

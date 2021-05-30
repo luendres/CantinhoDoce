@@ -224,7 +224,7 @@
             <div class="card mr-2 mb-5">
                 <img class="img-fluid" src="{{ Storage::url($produto->imagem) }}">
                 <div class="card-body">
-                    <h4 class="card-title">{{$produto->nome}}</h4>
+                    <h4 class="card-title" style="text-transform: uppercase !important;">{{$produto->nome}}</h4>
                     <p class="card-text" style="text-align: justify;">{{$produto->categoria}}, {{$produto->sub_categoria}}</p>
                 </div>
             </div>
@@ -238,7 +238,7 @@
             <!--NOME DO PRODUTO-->
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mb-3 mt-5" style="color:#4f4e4d;">{{$produto->nome}}</h2>
+                    <h2 class="mb-3 mt-5" style="color:#4f4e4d;text-transform: uppercase;">{{$produto->nome}}</h2>
                 </div>
             </div>
 
@@ -255,14 +255,7 @@
             <!--TIPO DE PRODUTO E BOTÃO DE ADICIONAR AO CARRINHO-->
             <div class="row mt-3 mr-5">
                 <div class="col-md-6">
-                    <div class="dropdown mt-5">
-                        <button class="btn dropdown-toggle verMaisCateg" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Detalhes</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Tipo 1</a>
-                            <a class="dropdown-item" href="#">Tipo 2</a>
-                            <a class="dropdown-item" href="#">Tipo 3</a>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <form action="{{ route('cart.store') }}" method="POST"> 
@@ -293,7 +286,7 @@
                 <div class="card">
                     <img class="img-fluid" src="{{ Storage::url($similar->imagem) }}">
                     <div class="card-body">
-                        <h4 class="card-title">{{$similar->nome}}</h4>
+                        <h4 class="card-title" style="text-transform: uppercase !important;">{{$similar->nome}}</h4>
                         <p class="card-text">{{$similar->categoria}}</p>
                         <div class="row" style="justify-content: space-around;">
                             <a href="{{ URL::to('/productview/' . $similar->id) }}" style="background-color: indianred;color: white;border: 5px solid;border-radius: 6px;border-color: indianred;">Ver Produto</a>

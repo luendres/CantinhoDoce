@@ -48,6 +48,14 @@
         border-radius: 5%;
     }
 
+    .card{
+        color:black;
+    }
+    .card:hover{
+        color:black;
+        text-decoration:underline;
+    }
+
 
 
     .verMaisCateg:hover {
@@ -65,151 +73,31 @@
 
     <!-- CORPO -->
 
+    <!--Menu de Padaria-->
+    <div class="row mt-4">
         <!--Imagens da Padaria-->
-        <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
+        <div class="col col-md-12" style="border-left:solid 2px; border-color:#E0E0E0">
             <div class="row">
 
-                <!--Carousel-->
-                <div class="col-12">
-                        <!--Slide da Padaria-->
-                                <div class="row mb-4">
-                                 
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href="
-                                                                                 <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" >
-                                                <div class="card-body">
-                                                    <h4 class="card-title"></h4>
-                                                    <p class="card-text"> </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                
+                <!--Linha Produtos-->
+                <div class="col-12 p-5 mx-2">
+                    <div class="row mb-4">
 
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
+                        @foreach($produto->slice(0, 4) as $produtos)
+                        <div class="col-md-3">
+                            <a href="{{ URL::to('/productview/' . $produtos->id) }}">
+                                <div class="card h-100">
+                                    <img class="img-fluid" alt="100%x280" src="{{ Storage::url($produtos->imagem) }}">
+                                    <div class="card-body">
+                                        <h4 class="card-title" style="text-transform: uppercase !important;">{{$produtos->nome}}</h4>
+                                        <p class="card-text">{{$produtos->categoria}}, {{$produtos->sub_categoria}} </p>
                                     </div>
-
                                 </div>
-                            </div>
-            </div>
-        </div>
-    </div>
+                            </a>
+                        </div>
+                        @endforeach
 
-    
-        <!--Imagens dos Doces-->
-        <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
-            <div class="row">
-                <!--Carousel-->
-
-                <div class="col-12">
-                        <!--Slide dos Doces-->
-                                <div class="row mb-4">
-
-                                    
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href=>
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" src="">
-                                                <div class="card-body">
-                                                    <h4 class="card-title"></h4>
-                                                    <p class="card-text"> </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                 
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
-                                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
-
-        <!--Imagens dos Salgados-->
-        <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
-            <div class="row">
-
-                <!--Carousel-->
-                <div class="col-12">
-
-                        <!--Slide dos Salgados-->
-                                <div class="row mb-4">
-
-                                    
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href=>
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280" >
-                                                <div class="card-body">
-                                                    <h4 class="card-title"></h4>
-                                                    <p class="card-text"> </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                             
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
-                                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-   
-        <!--Imagens dos Produtos ao Peso-->
-        <div class="col col-md-9" style="border-left:solid 2px; border-color:#E0E0E0">
-            <div class="row">
-
-                <!--Carousel-->
-                <div class="col-12">
-
-                        <!--Slide da Padaria-->
-                                <div class="row mb-4">
-
-                                    
-                                    <!--Primeiro cartão-->
-                                    <div class="col-md-3">
-                                        <a href=>
-                                            <div class="card h-100">
-                                                <img class="img-fluid" alt="100%x280">
-                                                <div class="card-body">
-                                                    <h4 class="card-title"></h4>
-                                                    <p class="card-text"> </p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                             
-
-
-
-                                    <!-- Botão de Ver Todos-->
-                                    <div class="col-md-3 mb-3">
-                                        <button type="button" class="btn verMaisCateg mt-5 ml-5">Ver todos <i class="fas fa-angle-double-right"></i></button>
-                                    </div>
-
-                                </div>
+                    </div>
                 </div>
             </div>
         </div>
