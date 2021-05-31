@@ -126,8 +126,8 @@ class HomeController extends Controller
     public function encomendasUser()
     {
         $id = \Auth::user()->id;
-        $Order = Order::where('user_id', $id)->get();
-        return view('/encomendasUser', compact('Order'));
+        $pedidos = Order::where('user_id', $id)->get();
+        return view('/encomendasUser', compact('pedidos'));
     }
 
     public function carrinho()
